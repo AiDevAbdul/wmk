@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Admin user for authentication
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("admin") // admin, editor
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("admin_users")
+}
+
+// Service management
+model Service {
+  id          String   @id @default(cuid())
+  nameEn      String
+  nameAr      String
+  slug        String   @unique
+  description String
+  descriptionAr String
+  faq         String   @default("[]") // JSON string: Array of {question, answer}
+  brands      String   @default("[]") // JSON string: Array of brand slugs
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("services")
+}
+
+// Blog posts
+model BlogPost {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  content       String
+  excerpt       String
+  category      String   // ECM Tips, Hybrid Battery, Maintenance, News
+  featuredImage String?
+  author        String   @default("WMK Team")
+  published     Boolean  @default(false)
+  publishedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+// Contact form submissions
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  carBrand  String
+  service   String
+  message   String
+  status    String   @default("new") // new, read, replied, archived
+  createdAt DateTime @default(now())
+
+  @@map("contact_submissions")
+}
+
+// Analytics events
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  eventType String   // page_view, phone_click, whatsapp_click, form_submit
+  page      String
+  userId    String?
+  metadata  String?  // JSON string
+  timestamp DateTime @default(now())
+
+  @@map("analytics_events")
+}

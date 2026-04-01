@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "brands": "Brands",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "hero": {
+    "badge": "🏆 Dubai's Elite Auto Specialists",
+    "title": "Advanced Auto",
+    "titleHighlight": "Repair & Programming",
+    "subtitle": "Specialized Services:",
+    "services": "ECM Repair · Hybrid Battery Services · ABS & Airbag · Gear Programming · AC Repair · Online Programming",
+    "features": {
+      "brands": "16+ Brands",
+      "brandsDesc": "Tesla, BMW, Mercedes & more",
+      "tech": "Modern Tech",
+      "techDesc": "Latest Diagnostics",
+      "pricing": "Transparent Pricing",
+      "pricingDesc": "No Hidden Fees"
+    },
+    "callNow": "Call Now",
+    "whatsapp": "WhatsApp",
+    "location": "Ras Al Khor Industrial Area 2",
+    "address": "18 Street, Dubai, UAE",
+    "tagline": "Elite Auto Repair Specialists"
+  },
+  "stats": {
+    "brands": "Supported Brands",
+    "services": "Core Services",
+    "experience": "Years Expertise",
+    "accuracy": "Diagnostic Accuracy"
+  },
+  "services": {
+    "title": "What We Fix",
+    "subtitle": "Comprehensive automotive solutions for all your repair and programming needs",
+    "viewAll": "View All Services",
+    "ourExpertise": "Our Expertise"
+  },
+  "specialization": {
+    "badge": "Our Specialty",
+    "title": "Advanced ECM &",
+    "titleHighlight": "Programming Specialists",
+    "description": "Precision ECM repair and advanced programming for all major automotive brands. We combine cutting-edge diagnostics with expert technician knowledge.",
+    "features": {
+      "ecm": "Expert ECM Repair",
+      "ecmDesc": "Reprogramming for all major brands with precision diagnostics",
+      "diagnostics": "Advanced Diagnostics",
+      "diagnosticsDesc": "Latest equipment and software for accurate fault detection",
+      "online": "Online Programming",
+      "onlineDesc": "Remote ECM updates and programming capabilities"
+    },
+    "learnMore": "Learn More About ECM Repair",
+    "expertise": "ECM Expertise",
+    "expertiseDesc": "Precision Diagnostics & Programming"
+  },
+  "brands": {
+    "title": "Trusted With Every",
+    "titleHighlight": "Make & Model",
+    "subtitle": "We service 16+ premium automotive brands with expert diagnostics and programming capabilities.",
+    "trustedPartners": "Trusted Partners",
+    "viewAll": "View All Brands & Services"
+  },
+  "whyChoose": {
+    "title": "Why Choose",
+    "titleHighlight": "WMK",
+    "subtitle": "We're not just another repair shop. We're your trusted partner for elite automotive expertise.",
+    "whyDifferent": "✨ Why We're Different",
+    "features": {
+      "technicians": "Expert Technicians",
+      "techniciansDesc": "Certified professionals with 10+ years of experience in ECM repair, programming, and diagnostics",
+      "diagnostics": "Modern Diagnostics",
+      "diagnosticsDesc": "Latest equipment and software for accurate diagnosis and precision repairs",
+      "brands": "All Brands & EVs",
+      "brandsDesc": "We service 16+ brands including Tesla, BYD, BMW, Mercedes, and more",
+      "pricing": "Transparent Pricing",
+      "pricingDesc": "No hidden fees, free diagnostics, honest quotes, and guaranteed workmanship"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "phone": "+971 55 476 2284",
+    "email": "info@wmkauto.ae",
+    "address": "Ras Al Khor Industrial Area 2, Dubai, UAE",
+    "copyright": "© 2026 WMK Auto Repairing Garage LLC. All rights reserved.",
+    "language": "Language"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "contact": "Contact Us",
+    "getQuote": "Get Quote",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

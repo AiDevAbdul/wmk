@@ -1,0 +1,506 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "WMK WMK Auto" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: WMK
+        - generic [ref=e6]: WMK Auto
+      - generic [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "Brands" [ref=e10] [cursor=pointer]:
+          - /url: /brands
+        - link "About" [ref=e11] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+      - link "Call Now" [ref=e14] [cursor=pointer]:
+        - /url: tel:+971554762284
+        - img [ref=e15]
+        - text: Call Now
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - img [ref=e20]
+      - generic [ref=e25]:
+        - generic [ref=e27]:
+          - generic [ref=e29]: 🏆 Dubai's Elite Auto Specialists
+          - heading "Advanced Auto Repair & Programming" [level=1] [ref=e30]:
+            - generic [ref=e31]: Advanced Auto
+            - generic [ref=e32]: Repair & Programming
+          - paragraph [ref=e33]: "Specialized Services: ECM Repair · Hybrid Battery Services · ABS & Airbag · Gear Programming · AC Repair · Online Programming"
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]: ★
+              - generic [ref=e37]:
+                - paragraph [ref=e38]: 16+ Brands
+                - paragraph [ref=e39]: Tesla, BMW, Mercedes & more
+            - generic [ref=e41]:
+              - generic [ref=e42]: ✓
+              - generic [ref=e43]:
+                - paragraph [ref=e44]: Modern Tech
+                - paragraph [ref=e45]: Latest Diagnostics
+            - generic [ref=e47]:
+              - generic [ref=e48]: ✓
+              - generic [ref=e49]:
+                - paragraph [ref=e50]: Transparent Pricing
+                - paragraph [ref=e51]: No Hidden Fees
+          - generic [ref=e52]:
+            - link "Call Now" [ref=e53] [cursor=pointer]:
+              - /url: tel:+971554762284
+              - generic [ref=e56]:
+                - img [ref=e57]
+                - generic [ref=e59]: Call Now
+            - link "WhatsApp WhatsApp" [ref=e60] [cursor=pointer]:
+              - /url: https://wa.me/971554762284
+              - generic [ref=e62]:
+                - img "WhatsApp" [ref=e63]
+                - generic [ref=e64]: WhatsApp
+        - generic [ref=e71]:
+          - img [ref=e73]
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: 📍
+              - paragraph [ref=e79]: Ras Al Khor Industrial Area 2
+            - paragraph [ref=e80]: 18 Street, Dubai, UAE
+            - paragraph [ref=e81]: Elite Auto Repair Specialists
+          - generic [ref=e83]: →
+    - generic [ref=e86]:
+      - generic [ref=e88]:
+        - generic [ref=e89]: 16+
+        - paragraph [ref=e90]: Supported Brands
+      - generic [ref=e92]:
+        - generic [ref=e93]: "12"
+        - paragraph [ref=e94]: Core Services
+      - generic [ref=e96]:
+        - generic [ref=e97]: 10+
+        - paragraph [ref=e98]: Years Expertise
+      - generic [ref=e100]:
+        - generic [ref=e101]: 100%
+        - paragraph [ref=e102]: Diagnostic Accuracy
+    - generic [ref=e106]:
+      - generic [ref=e107]:
+        - generic [ref=e110]: Our Expertise
+        - heading "What We Fix" [level=2] [ref=e112]
+        - paragraph [ref=e113]: Comprehensive automotive solutions for all your repair and programming needs
+      - generic [ref=e114]:
+        - link "ECM / ECU Repair & Programming Expert engine control module repair and programming for all major brands Learn More" [ref=e116] [cursor=pointer]:
+          - /url: /services/ecm-repair
+          - generic [ref=e123]:
+            - img [ref=e127]
+            - heading "ECM / ECU Repair & Programming" [level=3] [ref=e130]
+            - paragraph [ref=e131]: Expert engine control module repair and programming for all major brands
+            - generic [ref=e132]:
+              - generic [ref=e133]: Learn More
+              - img [ref=e134]
+        - link "Hybrid Battery Repair & Replacement Professional hybrid battery diagnostics and replacement services Learn More" [ref=e137] [cursor=pointer]:
+          - /url: /services/hybrid-battery
+          - generic [ref=e144]:
+            - img [ref=e148]
+            - heading "Hybrid Battery Repair & Replacement" [level=3] [ref=e150]
+            - paragraph [ref=e151]: Professional hybrid battery diagnostics and replacement services
+            - generic [ref=e152]:
+              - generic [ref=e153]: Learn More
+              - img [ref=e154]
+        - link "Car Programming (Gear, Online, ABS) Advanced car programming including gear, online, and ABS systems Learn More" [ref=e157] [cursor=pointer]:
+          - /url: /services/car-programming
+          - generic [ref=e164]:
+            - img [ref=e168]
+            - heading "Car Programming (Gear, Online, ABS)" [level=3] [ref=e171]
+            - paragraph [ref=e172]: Advanced car programming including gear, online, and ABS systems
+            - generic [ref=e173]:
+              - generic [ref=e174]: Learn More
+              - img [ref=e175]
+        - link "Airbag & ABS Repair Safety system diagnostics and repair for airbag and ABS modules Learn More" [ref=e178] [cursor=pointer]:
+          - /url: /services/abs-airbag
+          - generic [ref=e185]:
+            - img [ref=e189]
+            - heading "Airbag & ABS Repair" [level=3] [ref=e191]
+            - paragraph [ref=e192]: Safety system diagnostics and repair for airbag and ABS modules
+            - generic [ref=e193]:
+              - generic [ref=e194]: Learn More
+              - img [ref=e195]
+        - link "Car AC Repair Complete air conditioning system repair and maintenance Learn More" [ref=e198] [cursor=pointer]:
+          - /url: /services/ac-repair
+          - generic [ref=e205]:
+            - img [ref=e209]
+            - heading "Car AC Repair" [level=3] [ref=e211]
+            - paragraph [ref=e212]: Complete air conditioning system repair and maintenance
+            - generic [ref=e213]:
+              - generic [ref=e214]: Learn More
+              - img [ref=e215]
+        - link "General Mechanical Repair Comprehensive mechanical repair services for all vehicle types Learn More" [ref=e218] [cursor=pointer]:
+          - /url: /services/general-repair
+          - generic [ref=e225]:
+            - img [ref=e229]
+            - heading "General Mechanical Repair" [level=3] [ref=e231]
+            - paragraph [ref=e232]: Comprehensive mechanical repair services for all vehicle types
+            - generic [ref=e233]:
+              - generic [ref=e234]: Learn More
+              - img [ref=e235]
+      - link "View All Services" [ref=e238] [cursor=pointer]:
+        - /url: /services
+        - generic [ref=e240]: View All Services
+        - img [ref=e241]
+    - generic [ref=e247]:
+      - generic [ref=e248]:
+        - generic [ref=e251]: Our Specialty
+        - heading "Advanced ECM & Programming Specialists" [level=2] [ref=e252]:
+          - generic [ref=e253]: Advanced ECM &
+          - generic [ref=e254]: Programming Specialists
+        - paragraph [ref=e255]: Precision ECM repair and advanced programming for all major automotive brands. We combine cutting-edge diagnostics with expert technician knowledge.
+        - list [ref=e256]:
+          - listitem [ref=e257]:
+            - generic [ref=e258]: ⚙️
+            - generic [ref=e259]:
+              - paragraph [ref=e260]: Expert ECM Repair
+              - paragraph [ref=e261]: Reprogramming for all major brands with precision diagnostics
+          - listitem [ref=e262]:
+            - generic [ref=e263]: 🔧
+            - generic [ref=e264]:
+              - paragraph [ref=e265]: Advanced Diagnostics
+              - paragraph [ref=e266]: Latest equipment and software for accurate fault detection
+          - listitem [ref=e267]:
+            - generic [ref=e268]: 🌐
+            - generic [ref=e269]:
+              - paragraph [ref=e270]: Online Programming
+              - paragraph [ref=e271]: Remote ECM updates and programming capabilities
+        - link "Learn More About ECM Repair" [ref=e273] [cursor=pointer]:
+          - /url: /services/ecm-repair
+          - generic [ref=e275]: Learn More About ECM Repair
+          - img [ref=e276]
+      - generic [ref=e280]:
+        - img [ref=e282]
+        - generic [ref=e295]:
+          - paragraph [ref=e296]: ECM Expertise
+          - paragraph [ref=e297]: Precision Diagnostics & Programming
+    - generic [ref=e299]:
+      - generic [ref=e300]:
+        - generic [ref=e301]: Trusted Partners
+        - heading "Trusted With Every Make & Model" [level=2] [ref=e302]:
+          - text: Trusted With Every
+          - text: Make & Model
+        - paragraph [ref=e303]: We service 16+ premium automotive brands with expert diagnostics and programming capabilities.
+      - generic [ref=e305]:
+        - generic [ref=e306] [cursor=pointer]:
+          - img "Tesla" [ref=e309]
+          - generic [ref=e310]: Tesla
+        - generic [ref=e311] [cursor=pointer]:
+          - img "BYD" [ref=e314]
+          - generic [ref=e315]: BYD
+        - generic [ref=e316] [cursor=pointer]:
+          - img "BMW" [ref=e319]
+          - generic [ref=e320]: BMW
+        - generic [ref=e321] [cursor=pointer]:
+          - img "Mercedes-Benz" [ref=e324]
+          - generic [ref=e325]: Mercedes-Benz
+        - generic [ref=e326] [cursor=pointer]:
+          - img "Audi" [ref=e329]
+          - generic [ref=e330]: Audi
+        - generic [ref=e331] [cursor=pointer]:
+          - img "Nissan" [ref=e334]
+          - generic [ref=e335]: Nissan
+        - generic [ref=e336] [cursor=pointer]:
+          - img "Toyota" [ref=e339]
+          - generic [ref=e340]: Toyota
+        - generic [ref=e341] [cursor=pointer]:
+          - img "Honda" [ref=e344]
+          - generic [ref=e345]: Honda
+        - generic [ref=e346] [cursor=pointer]:
+          - img "Hyundai" [ref=e349]
+          - generic [ref=e350]: Hyundai
+        - generic [ref=e351] [cursor=pointer]:
+          - img "Kia" [ref=e354]
+          - generic [ref=e355]: Kia
+        - generic [ref=e356] [cursor=pointer]:
+          - img "Ford" [ref=e359]
+          - generic [ref=e360]: Ford
+        - generic [ref=e361] [cursor=pointer]:
+          - img "Chevrolet" [ref=e364]
+          - generic [ref=e365]: Chevrolet
+        - generic [ref=e366] [cursor=pointer]:
+          - img "Volkswagen" [ref=e369]
+          - generic [ref=e370]: Volkswagen
+        - generic [ref=e371] [cursor=pointer]:
+          - img "Lexus" [ref=e374]
+          - generic [ref=e375]: Lexus
+        - generic [ref=e376] [cursor=pointer]:
+          - img "Mazda" [ref=e379]
+          - generic [ref=e380]: Mazda
+        - generic [ref=e381] [cursor=pointer]:
+          - img "Subaru" [ref=e384]
+          - generic [ref=e385]: Subaru
+        - generic [ref=e386] [cursor=pointer]:
+          - img "Tesla" [ref=e389]
+          - generic [ref=e390]: Tesla
+        - generic [ref=e391] [cursor=pointer]:
+          - img "BYD" [ref=e394]
+          - generic [ref=e395]: BYD
+        - generic [ref=e396] [cursor=pointer]:
+          - img "BMW" [ref=e399]
+          - generic [ref=e400]: BMW
+        - generic [ref=e401] [cursor=pointer]:
+          - img "Mercedes-Benz" [ref=e404]
+          - generic [ref=e405]: Mercedes-Benz
+        - generic [ref=e406] [cursor=pointer]:
+          - img "Audi" [ref=e409]
+          - generic [ref=e410]: Audi
+        - generic [ref=e411] [cursor=pointer]:
+          - img "Nissan" [ref=e414]
+          - generic [ref=e415]: Nissan
+        - generic [ref=e416] [cursor=pointer]:
+          - img "Toyota" [ref=e419]
+          - generic [ref=e420]: Toyota
+        - generic [ref=e421] [cursor=pointer]:
+          - img "Honda" [ref=e424]
+          - generic [ref=e425]: Honda
+        - generic [ref=e426] [cursor=pointer]:
+          - img "Hyundai" [ref=e429]
+          - generic [ref=e430]: Hyundai
+        - generic [ref=e431] [cursor=pointer]:
+          - img "Kia" [ref=e434]
+          - generic [ref=e435]: Kia
+        - generic [ref=e436] [cursor=pointer]:
+          - img "Ford" [ref=e439]
+          - generic [ref=e440]: Ford
+        - generic [ref=e441] [cursor=pointer]:
+          - img "Chevrolet" [ref=e444]
+          - generic [ref=e445]: Chevrolet
+        - generic [ref=e446] [cursor=pointer]:
+          - img "Volkswagen" [ref=e449]
+          - generic [ref=e450]: Volkswagen
+        - generic [ref=e451] [cursor=pointer]:
+          - img "Lexus" [ref=e454]
+          - generic [ref=e455]: Lexus
+        - generic [ref=e456] [cursor=pointer]:
+          - img "Mazda" [ref=e459]
+          - generic [ref=e460]: Mazda
+        - generic [ref=e461] [cursor=pointer]:
+          - img "Subaru" [ref=e464]
+          - generic [ref=e465]: Subaru
+      - generic [ref=e467]:
+        - generic [ref=e468] [cursor=pointer]:
+          - img "Tesla" [ref=e471]
+          - generic [ref=e472]: Tesla
+        - generic [ref=e473] [cursor=pointer]:
+          - img "BYD" [ref=e476]
+          - generic [ref=e477]: BYD
+        - generic [ref=e478] [cursor=pointer]:
+          - img "BMW" [ref=e481]
+          - generic [ref=e482]: BMW
+        - generic [ref=e483] [cursor=pointer]:
+          - img "Mercedes-Benz" [ref=e486]
+          - generic [ref=e487]: Mercedes-Benz
+        - generic [ref=e488] [cursor=pointer]:
+          - img "Audi" [ref=e491]
+          - generic [ref=e492]: Audi
+        - generic [ref=e493] [cursor=pointer]:
+          - img "Nissan" [ref=e496]
+          - generic [ref=e497]: Nissan
+        - generic [ref=e498] [cursor=pointer]:
+          - img "Toyota" [ref=e501]
+          - generic [ref=e502]: Toyota
+        - generic [ref=e503] [cursor=pointer]:
+          - img "Honda" [ref=e506]
+          - generic [ref=e507]: Honda
+        - generic [ref=e508] [cursor=pointer]:
+          - img "Hyundai" [ref=e511]
+          - generic [ref=e512]: Hyundai
+        - generic [ref=e513] [cursor=pointer]:
+          - img "Kia" [ref=e516]
+          - generic [ref=e517]: Kia
+        - generic [ref=e518] [cursor=pointer]:
+          - img "Ford" [ref=e521]
+          - generic [ref=e522]: Ford
+        - generic [ref=e523] [cursor=pointer]:
+          - img "Chevrolet" [ref=e526]
+          - generic [ref=e527]: Chevrolet
+        - generic [ref=e528] [cursor=pointer]:
+          - img "Volkswagen" [ref=e531]
+          - generic [ref=e532]: Volkswagen
+        - generic [ref=e533] [cursor=pointer]:
+          - img "Lexus" [ref=e536]
+          - generic [ref=e537]: Lexus
+        - generic [ref=e538] [cursor=pointer]:
+          - img "Mazda" [ref=e541]
+          - generic [ref=e542]: Mazda
+        - generic [ref=e543] [cursor=pointer]:
+          - img "Subaru" [ref=e546]
+          - generic [ref=e547]: Subaru
+        - generic [ref=e548] [cursor=pointer]:
+          - img "Tesla" [ref=e551]
+          - generic [ref=e552]: Tesla
+        - generic [ref=e553] [cursor=pointer]:
+          - img "BYD" [ref=e556]
+          - generic [ref=e557]: BYD
+        - generic [ref=e558] [cursor=pointer]:
+          - img "BMW" [ref=e561]
+          - generic [ref=e562]: BMW
+        - generic [ref=e563] [cursor=pointer]:
+          - img "Mercedes-Benz" [ref=e566]
+          - generic [ref=e567]: Mercedes-Benz
+        - generic [ref=e568] [cursor=pointer]:
+          - img "Audi" [ref=e571]
+          - generic [ref=e572]: Audi
+        - generic [ref=e573] [cursor=pointer]:
+          - img "Nissan" [ref=e576]
+          - generic [ref=e577]: Nissan
+        - generic [ref=e578] [cursor=pointer]:
+          - img "Toyota" [ref=e581]
+          - generic [ref=e582]: Toyota
+        - generic [ref=e583] [cursor=pointer]:
+          - img "Honda" [ref=e586]
+          - generic [ref=e587]: Honda
+        - generic [ref=e588] [cursor=pointer]:
+          - img "Hyundai" [ref=e591]
+          - generic [ref=e592]: Hyundai
+        - generic [ref=e593] [cursor=pointer]:
+          - img "Kia" [ref=e596]
+          - generic [ref=e597]: Kia
+        - generic [ref=e598] [cursor=pointer]:
+          - img "Ford" [ref=e601]
+          - generic [ref=e602]: Ford
+        - generic [ref=e603] [cursor=pointer]:
+          - img "Chevrolet" [ref=e606]
+          - generic [ref=e607]: Chevrolet
+        - generic [ref=e608] [cursor=pointer]:
+          - img "Volkswagen" [ref=e611]
+          - generic [ref=e612]: Volkswagen
+        - generic [ref=e613] [cursor=pointer]:
+          - img "Lexus" [ref=e616]
+          - generic [ref=e617]: Lexus
+        - generic [ref=e618] [cursor=pointer]:
+          - img "Mazda" [ref=e621]
+          - generic [ref=e622]: Mazda
+        - generic [ref=e623] [cursor=pointer]:
+          - img "Subaru" [ref=e626]
+          - generic [ref=e627]: Subaru
+      - link "View All Brands & Services" [ref=e629] [cursor=pointer]:
+        - /url: /brands
+    - generic [ref=e634]:
+      - generic [ref=e635]:
+        - generic [ref=e637]: ✨ Why We're Different
+        - heading "Why Choose WMK" [level=2] [ref=e638]
+        - paragraph [ref=e639]: We're not just another repair shop. We're your trusted partner for elite automotive expertise.
+      - generic [ref=e640]:
+        - generic [ref=e646]:
+          - img [ref=e649]
+          - heading "Expert Technicians" [level=3] [ref=e651]
+          - paragraph [ref=e652]: Certified professionals with 10+ years of experience in ECM repair, programming, and diagnostics
+        - generic [ref=e658]:
+          - img [ref=e661]
+          - heading "Modern Diagnostics" [level=3] [ref=e663]
+          - paragraph [ref=e664]: Latest equipment and software for accurate diagnosis and precision repairs
+        - generic [ref=e670]:
+          - img [ref=e673]
+          - heading "All Brands & EVs" [level=3] [ref=e676]
+          - paragraph [ref=e677]: We service 16+ brands including Tesla, BYD, BMW, Mercedes, and more
+        - generic [ref=e683]:
+          - img [ref=e686]
+          - heading "Transparent Pricing" [level=3] [ref=e688]
+          - paragraph [ref=e689]: No hidden fees, free diagnostics, honest quotes, and guaranteed workmanship
+    - generic [ref=e694]:
+      - generic [ref=e695]:
+        - generic [ref=e697]: ⭐ Customer Reviews
+        - heading "What Our Customers Say" [level=2] [ref=e698]
+        - paragraph [ref=e699]: Real feedback from satisfied clients who trust WMK for their automotive needs.
+      - generic [ref=e700]:
+        - generic [ref=e707]:
+          - generic [ref=e708]:
+            - img [ref=e709]
+            - img [ref=e711]
+            - img [ref=e713]
+            - img [ref=e715]
+            - img [ref=e717]
+          - paragraph [ref=e719]: "\"Excellent service! They fixed my Tesla's ECM issue quickly and professionally. Highly recommended for EV owners in Dubai.\""
+          - paragraph [ref=e721]: Ahmed Al Mansouri
+        - generic [ref=e728]:
+          - generic [ref=e729]:
+            - img [ref=e730]
+            - img [ref=e732]
+            - img [ref=e734]
+            - img [ref=e736]
+            - img [ref=e738]
+          - paragraph [ref=e740]: "\"Best auto repair shop in Ras Al Khor. Fair pricing, expert technicians, and they actually explain what's wrong with your car.\""
+          - paragraph [ref=e742]: Fatima Al Zahra
+        - generic [ref=e749]:
+          - generic [ref=e750]:
+            - img [ref=e751]
+            - img [ref=e753]
+            - img [ref=e755]
+            - img [ref=e757]
+            - img [ref=e759]
+          - paragraph [ref=e761]: "\"Trusted them with my BMW's programming. Fast turnaround, professional team, and the work is guaranteed. Will definitely return.\""
+          - paragraph [ref=e763]: Mohammed Al Maktoum
+    - generic [ref=e765]:
+      - heading "Ready to Book?" [level=2] [ref=e766]
+      - paragraph [ref=e767]: Call or WhatsApp us now for fast, reliable auto repair in Dubai
+      - generic [ref=e768]:
+        - 'link "Call Now: +971 55 476 2284" [ref=e769] [cursor=pointer]':
+          - /url: tel:+971554762284
+        - link "WhatsApp Us" [ref=e770] [cursor=pointer]:
+          - /url: https://wa.me/971554762284
+  - contentinfo [ref=e771]:
+    - generic [ref=e772]:
+      - generic [ref=e773]:
+        - generic [ref=e774]:
+          - heading "WMK Auto" [level=3] [ref=e775]
+          - paragraph [ref=e776]: Advanced auto repair & programming specialists in Ras Al Khor, Dubai. ECM repair, hybrid battery, and car programming for all major brands.
+        - generic [ref=e777]:
+          - heading "Services" [level=4] [ref=e778]
+          - list [ref=e779]:
+            - listitem [ref=e780]:
+              - link "ECM Repair" [ref=e781] [cursor=pointer]:
+                - /url: /services/ecm-repair
+            - listitem [ref=e782]:
+              - link "Hybrid Battery" [ref=e783] [cursor=pointer]:
+                - /url: /services/hybrid-battery
+            - listitem [ref=e784]:
+              - link "Car Programming" [ref=e785] [cursor=pointer]:
+                - /url: /services/car-programming
+            - listitem [ref=e786]:
+              - link "ABS & Airbag" [ref=e787] [cursor=pointer]:
+                - /url: /services/abs-airbag
+            - listitem [ref=e788]:
+              - link "View All" [ref=e789] [cursor=pointer]:
+                - /url: /services
+        - generic [ref=e790]:
+          - heading "Brands" [level=4] [ref=e791]
+          - list [ref=e792]:
+            - listitem [ref=e793]:
+              - link "Tesla" [ref=e794] [cursor=pointer]:
+                - /url: /brands/tesla
+            - listitem [ref=e795]:
+              - link "BMW" [ref=e796] [cursor=pointer]:
+                - /url: /brands/bmw
+            - listitem [ref=e797]:
+              - link "Mercedes" [ref=e798] [cursor=pointer]:
+                - /url: /brands/mercedes
+            - listitem [ref=e799]:
+              - link "Audi" [ref=e800] [cursor=pointer]:
+                - /url: /brands/audi
+            - listitem [ref=e801]:
+              - link "All Brands" [ref=e802] [cursor=pointer]:
+                - /url: /brands
+        - generic [ref=e803]:
+          - heading "Contact" [level=4] [ref=e804]
+          - generic [ref=e805]:
+            - generic [ref=e806]:
+              - img [ref=e807]
+              - link "+971 55 476 2284" [ref=e809] [cursor=pointer]:
+                - /url: tel:+971554762284
+            - generic [ref=e810]:
+              - img [ref=e811]
+              - generic [ref=e814]: 18 Street, Ras Al Khor Industrial Area 2, Dubai
+            - generic [ref=e815]:
+              - img [ref=e816]
+              - generic [ref=e819]: "Mon-Sun: 8:00 AM - 8:00 PM"
+      - generic [ref=e820]:
+        - paragraph [ref=e821]: © 2026 WMK Auto Repairing Garage LLC. All rights reserved.
+        - paragraph [ref=e822]: RTA Licensed — Dubai, UAE
+  - link "Chat on WhatsApp" [ref=e823] [cursor=pointer]:
+    - /url: https://wa.me/971554762284?text=Hello%2C%20I%20need%20a%20car%20repair%20quote
+    - img "WhatsApp" [ref=e824]
+  - button "Open Next.js Dev Tools" [ref=e830] [cursor=pointer]:
+    - img [ref=e831]

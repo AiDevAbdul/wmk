@@ -29,6 +29,9 @@ export default function Header() {
           <Link href="/brands" className="hover:text-primary transition-colors">
             Brands
           </Link>
+          <Link href="/blog" className="hover:text-primary transition-colors">
+            Blog
+          </Link>
           <Link href="/about" className="hover:text-primary transition-colors">
             About
           </Link>
@@ -70,6 +73,9 @@ export default function Header() {
             </Link>
             <Link href="/brands" onClick={() => setIsOpen(false)} className="hover:text-primary">
               Brands
+            </Link>
+            <Link href="/blog" onClick={() => setIsOpen(false)} className="hover:text-primary">
+              Blog
             </Link>
             <Link href="/about" onClick={() => setIsOpen(false)} className="hover:text-primary">
               About

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { services, serviceDetails } from '@/lib/services'
 import { ProcessStep, CTABanner } from '@/components/ui/Cards'
 
@@ -11,8 +11,7 @@ export default function ServiceDetailPage({
 }: {
   params: Promise<{ slug: string }>
 }) {
-  const resolvedParams = params as any
-  const slug = resolvedParams.slug
+  const { slug } = use(params)
   const service = services.find((s) => s.slug === slug)
   const details = serviceDetails[slug]
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0)

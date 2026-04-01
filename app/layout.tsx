@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
-import Header from '@/components/ui/Header'
-import Footer from '@/components/ui/Footer'
-import WhatsAppFloat from '@/components/ui/WhatsAppFloat'
 
 export const metadata: Metadata = {
   title: 'WMK Auto Repairing Garage | ECM Repair & Car Programming Dubai',
@@ -25,7 +22,7 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -79,10 +76,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-steel-dark text-white">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        {children}
       </body>
     </html>
   )

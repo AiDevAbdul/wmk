@@ -11,7 +11,9 @@
       "mcp__playwright__browser_evaluate",
       "mcp__playwright__browser_run_code",
       "Bash(npm create:*)",
-      "mcp__context7__query-docs"
+      "mcp__context7__query-docs",
+      "Bash(pkill:*)",
+      "Bash(bash:*)"
     ]
   }
 }
