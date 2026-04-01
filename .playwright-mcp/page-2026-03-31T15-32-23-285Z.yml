@@ -1,0 +1,296 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "WMK" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Services" [ref=e6] [cursor=pointer]:
+          - /url: /services
+        - link "Brands" [ref=e7] [cursor=pointer]:
+          - /url: /brands
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: /contact
+      - link "Call +971 55 476 2284" [ref=e11] [cursor=pointer]:
+        - /url: tel:+971554762284
+        - img [ref=e12]
+        - text: Call Now
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e21]:
+        - generic [ref=e24]: 🏆 RTA Licensed | 10+ Years Excellence
+        - heading "Advanced Auto Repair & Programming" [level=1] [ref=e25]:
+          - text: Advanced Auto Repair
+          - text: "& Programming"
+        - paragraph [ref=e26]: Dubai's trusted specialists for ECM repair, hybrid batteries, ABS systems, and advanced vehicle programming
+        - generic [ref=e27]:
+          - generic [ref=e28]: ECM Repair
+          - generic [ref=e29]: Hybrid Battery
+          - generic [ref=e30]: ABS Systems
+          - generic [ref=e31]: Gear Programming
+          - generic [ref=e32]: AC Service
+          - generic [ref=e33]: Tesla & BYD
+        - generic [ref=e34]:
+          - 'link "Call Now: +971 55 476 2284" [ref=e35] [cursor=pointer]':
+            - /url: tel:+971554762284
+            - generic [ref=e36]:
+              - img [ref=e37]
+              - text: "Call Now: +971 55 476 2284"
+          - link "WhatsApp Us" [ref=e39] [cursor=pointer]:
+            - /url: https://wa.me/971554762284
+            - generic [ref=e40]:
+              - img [ref=e41]
+              - text: WhatsApp Us
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: 16+
+            - paragraph [ref=e46]: Brands
+          - generic [ref=e47]:
+            - generic [ref=e48]: "12"
+            - paragraph [ref=e49]: Services
+          - generic [ref=e50]:
+            - generic [ref=e51]: 10+
+            - paragraph [ref=e52]: Years
+          - generic [ref=e53]:
+            - generic [ref=e54]: 100%
+            - paragraph [ref=e55]: Diagnostic
+          - generic [ref=e56]:
+            - generic [ref=e57]: 24/7
+            - paragraph [ref=e58]: Support
+          - generic [ref=e59]:
+            - generic [ref=e60]: ✓
+            - paragraph [ref=e61]: RTA Licensed
+      - img [ref=e63]
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]: 0+
+        - paragraph [ref=e70]: Supported Brands
+      - generic [ref=e71]:
+        - generic [ref=e72]: "0"
+        - paragraph [ref=e73]: Core Services
+      - generic [ref=e74]:
+        - generic [ref=e75]: 0+
+        - paragraph [ref=e76]: Years Expertise
+      - generic [ref=e77]:
+        - generic [ref=e78]: 0%
+        - paragraph [ref=e79]: Diagnostic Accuracy
+    - generic [ref=e81]:
+      - heading "What We Fix" [level=2] [ref=e82]
+      - generic [ref=e83]:
+        - link "ECM / ECU Repair & Programming Professional engine control module repair and programming for all vehicle makes. Learn More →" [ref=e84] [cursor=pointer]:
+          - /url: /services/ecm-repair
+          - generic [ref=e85]:
+            - img [ref=e86]
+            - heading "ECM / ECU Repair & Programming" [level=3] [ref=e89]
+            - paragraph [ref=e90]: Professional engine control module repair and programming for all vehicle makes.
+            - generic [ref=e91]: Learn More →
+        - link "Hybrid Battery Repair & Replacement Expert hybrid and electric battery repair, testing, and replacement services. Learn More →" [ref=e92] [cursor=pointer]:
+          - /url: /services/hybrid-battery
+          - generic [ref=e93]:
+            - img [ref=e94]
+            - heading "Hybrid Battery Repair & Replacement" [level=3] [ref=e96]
+            - paragraph [ref=e97]: Expert hybrid and electric battery repair, testing, and replacement services.
+            - generic [ref=e98]: Learn More →
+        - link "Car Programming (Gear, Online, ABS) Gear box, online, and ABS programming for modern vehicles. Learn More →" [ref=e99] [cursor=pointer]:
+          - /url: /services/car-programming
+          - generic [ref=e100]:
+            - img [ref=e101]
+            - heading "Car Programming (Gear, Online, ABS)" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Gear box, online, and ABS programming for modern vehicles.
+            - generic [ref=e106]: Learn More →
+        - link "Airbag & ABS Repair Comprehensive airbag and ABS system diagnostics and repair. Learn More →" [ref=e107] [cursor=pointer]:
+          - /url: /services/abs-airbag
+          - generic [ref=e108]:
+            - img [ref=e109]
+            - heading "Airbag & ABS Repair" [level=3] [ref=e111]
+            - paragraph [ref=e112]: Comprehensive airbag and ABS system diagnostics and repair.
+            - generic [ref=e113]: Learn More →
+        - link "Car AC Repair Air conditioning system repair, recharge, and maintenance. Learn More →" [ref=e114] [cursor=pointer]:
+          - /url: /services/ac-repair
+          - generic [ref=e115]:
+            - img [ref=e116]
+            - heading "Car AC Repair" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Air conditioning system repair, recharge, and maintenance.
+            - generic [ref=e122]: Learn More →
+        - link "General Mechanical Repair Full-service mechanical repairs for all vehicle types. Learn More →" [ref=e123] [cursor=pointer]:
+          - /url: /services/general-repair
+          - generic [ref=e124]:
+            - img [ref=e125]
+            - heading "General Mechanical Repair" [level=3] [ref=e127]
+            - paragraph [ref=e128]: Full-service mechanical repairs for all vehicle types.
+            - generic [ref=e129]: Learn More →
+      - link "View All Services" [ref=e131] [cursor=pointer]:
+        - /url: /services
+    - generic [ref=e133]:
+      - heading "Trusted With Every Make" [level=2] [ref=e134]
+      - generic [ref=e135]:
+        - link "Tesla" [ref=e136] [cursor=pointer]:
+          - /url: /brands/tesla
+          - img "Tesla" [ref=e138]
+        - link "BYD" [ref=e139] [cursor=pointer]:
+          - /url: /brands/byd
+          - img "BYD" [ref=e141]
+        - link "BMW" [ref=e142] [cursor=pointer]:
+          - /url: /brands/bmw
+          - img "BMW" [ref=e144]
+        - link "Bentley" [ref=e145] [cursor=pointer]:
+          - /url: /brands/bentley
+          - img "Bentley" [ref=e147]
+        - link "RAM" [ref=e148] [cursor=pointer]:
+          - /url: /brands/ram
+          - img "RAM" [ref=e150]
+        - link "Ford" [ref=e151] [cursor=pointer]:
+          - /url: /brands/ford
+          - img "Ford" [ref=e153]
+        - link "Jetour" [ref=e154] [cursor=pointer]:
+          - /url: /brands/jetour
+          - img "Jetour" [ref=e156]
+        - link "Nissan" [ref=e157] [cursor=pointer]:
+          - /url: /brands/nissan
+          - img "Nissan" [ref=e159]
+        - link "Toyota" [ref=e160] [cursor=pointer]:
+          - /url: /brands/toyota
+          - img "Toyota" [ref=e162]
+        - link "Honda" [ref=e163] [cursor=pointer]:
+          - /url: /brands/honda
+          - img "Honda" [ref=e165]
+        - link "Mazda" [ref=e166] [cursor=pointer]:
+          - /url: /brands/mazda
+          - img "Mazda" [ref=e168]
+        - link "Audi" [ref=e169] [cursor=pointer]:
+          - /url: /brands/audi
+          - img "Audi" [ref=e171]
+        - link "Infiniti" [ref=e172] [cursor=pointer]:
+          - /url: /brands/infiniti
+          - img "Infiniti" [ref=e174]
+        - link "Mitsubishi" [ref=e175] [cursor=pointer]:
+          - /url: /brands/mitsubishi
+          - img "Mitsubishi" [ref=e177]
+        - link "Kia" [ref=e178] [cursor=pointer]:
+          - /url: /brands/kia
+          - img "Kia" [ref=e180]
+        - link "Hyundai" [ref=e181] [cursor=pointer]:
+          - /url: /brands/hyundai
+          - img "Hyundai" [ref=e183]
+    - generic [ref=e185]:
+      - heading "Why Choose WMK" [level=2] [ref=e186]
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - img [ref=e189]
+          - heading "Expert Technicians" [level=3] [ref=e194]
+          - paragraph [ref=e195]: Certified professionals with 10+ years of automotive repair experience.
+        - generic [ref=e196]:
+          - img [ref=e197]
+          - heading "Modern Diagnostics" [level=3] [ref=e199]
+          - paragraph [ref=e200]: State-of-the-art diagnostic equipment for accurate problem identification.
+        - generic [ref=e201]:
+          - img [ref=e202]
+          - heading "All Brands & EVs" [level=3] [ref=e205]
+          - paragraph [ref=e206]: Service all major brands including Tesla, BYD, and hybrid vehicles.
+        - generic [ref=e207]:
+          - img [ref=e208]
+          - heading "Transparent Pricing" [level=3] [ref=e210]
+          - paragraph [ref=e211]: Fair, upfront pricing with no hidden charges or surprises.
+    - generic [ref=e213]:
+      - heading "What Our Customers Say" [level=2] [ref=e214]
+      - generic [ref=e215]:
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - img [ref=e218]
+            - img [ref=e220]
+            - img [ref=e222]
+            - img [ref=e224]
+            - img [ref=e226]
+          - paragraph [ref=e228]: "\"Excellent service! Fixed my Tesla battery issue quickly and professionally. Highly recommended.\""
+          - paragraph [ref=e229]: Ahmed Al Mansouri
+        - generic [ref=e230]:
+          - generic [ref=e231]:
+            - img [ref=e232]
+            - img [ref=e234]
+            - img [ref=e236]
+            - img [ref=e238]
+            - img [ref=e240]
+          - paragraph [ref=e242]: "\"Best auto repair shop in Ras Al Khor. Fair pricing and expert technicians. Will definitely return.\""
+          - paragraph [ref=e243]: Fatima Al Zahra
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - img [ref=e246]
+            - img [ref=e248]
+            - img [ref=e250]
+            - img [ref=e252]
+            - img [ref=e254]
+          - paragraph [ref=e256]: "\"Outstanding ECM repair service. They diagnosed and fixed my BMW's issue in one day. Very impressed.\""
+          - paragraph [ref=e257]: Mohammed Hassan
+    - generic [ref=e260]:
+      - heading "Ready to Book Your Service?" [level=2] [ref=e261]
+      - paragraph [ref=e262]: Call or WhatsApp us now for fast, reliable automotive repair
+      - generic [ref=e263]:
+        - link "Call +971 55 476 2284" [ref=e264] [cursor=pointer]:
+          - /url: tel:+971554762284
+          - img [ref=e265]
+          - text: Call Now
+        - link "WhatsApp Us" [ref=e267] [cursor=pointer]:
+          - /url: https://wa.me/971554762284
+      - paragraph [ref=e268]: 📍 18 Street, Ras Al Khor Industrial Area 2, Dubai
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - heading "WMK" [level=3] [ref=e273]
+          - paragraph [ref=e274]: Advanced automotive repair specialists in Ras Al Khor, Dubai. ECM repair, hybrid battery, and car programming experts.
+        - generic [ref=e275]:
+          - heading "Services" [level=4] [ref=e276]
+          - list [ref=e277]:
+            - listitem [ref=e278]:
+              - link "ECM Repair" [ref=e279] [cursor=pointer]:
+                - /url: /services/ecm-repair
+            - listitem [ref=e280]:
+              - link "Hybrid Battery" [ref=e281] [cursor=pointer]:
+                - /url: /services/hybrid-battery
+            - listitem [ref=e282]:
+              - link "Car Programming" [ref=e283] [cursor=pointer]:
+                - /url: /services/car-programming
+            - listitem [ref=e284]:
+              - link "ABS & Airbag" [ref=e285] [cursor=pointer]:
+                - /url: /services/abs-airbag
+        - generic [ref=e286]:
+          - heading "Brands" [level=4] [ref=e287]
+          - list [ref=e288]:
+            - listitem [ref=e289]:
+              - link "Tesla" [ref=e290] [cursor=pointer]:
+                - /url: /brands/tesla
+            - listitem [ref=e291]:
+              - link "BYD" [ref=e292] [cursor=pointer]:
+                - /url: /brands/byd
+            - listitem [ref=e293]:
+              - link "BMW" [ref=e294] [cursor=pointer]:
+                - /url: /brands/bmw
+            - listitem [ref=e295]:
+              - link "View All" [ref=e296] [cursor=pointer]:
+                - /url: /brands
+        - generic [ref=e297]:
+          - heading "Contact" [level=4] [ref=e298]
+          - generic [ref=e299]:
+            - paragraph [ref=e300]:
+              - link "+971 55 476 2284" [ref=e301] [cursor=pointer]:
+                - /url: tel:+971554762284
+            - paragraph [ref=e302]:
+              - link "WhatsApp" [ref=e303] [cursor=pointer]:
+                - /url: https://wa.me/971554762284
+            - paragraph [ref=e304]:
+              - text: 18 Street, Ras Al Khor Industrial Area 2
+              - text: Dubai, United Arab Emirates
+      - generic [ref=e306]:
+        - paragraph [ref=e307]: © 2026 WMK Auto Repairing Garage LLC. All rights reserved. RTA Licensed — Dubai UAE
+        - generic [ref=e308]:
+          - link "Privacy" [ref=e309] [cursor=pointer]:
+            - /url: /contact
+          - link "Terms" [ref=e310] [cursor=pointer]:
+            - /url: /contact
+  - link "Contact us on WhatsApp" [ref=e311] [cursor=pointer]:
+    - /url: https://wa.me/971554762284
+    - img [ref=e312]
+  - button "Open Next.js Dev Tools" [ref=e319] [cursor=pointer]:
+    - img [ref=e320]
+  - alert [ref=e323]

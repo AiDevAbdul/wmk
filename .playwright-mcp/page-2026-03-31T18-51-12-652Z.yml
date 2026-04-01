@@ -1,0 +1,492 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link [ref=e10] [cursor=pointer]:
+        - /url: https://automedicsgarage.com
+      - generic [ref=e12]:
+        - text: 
+        - navigation "Menu" [ref=e15]:
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Home" [ref=e18] [cursor=pointer]:
+                - /url: https://automedicsgarage.com/
+            - listitem [ref=e19]:
+              - link "Services" [ref=e20] [cursor=pointer]:
+                - /url: https://automedicsgarage.com/services/
+            - listitem [ref=e21]:
+              - link "Our Works" [ref=e22] [cursor=pointer]:
+                - /url: https://automedicsgarage.com/our-works/
+            - listitem [ref=e23]:
+              - link "About" [ref=e24] [cursor=pointer]:
+                - /url: https://automedicsgarage.com/about/
+            - listitem [ref=e25]:
+              - link "Contact" [ref=e26] [cursor=pointer]:
+                - /url: https://automedicsgarage.com/contact/
+      - link "+974 5204 6668" [ref=e32] [cursor=pointer]:
+        - /url: tel:+97452046668
+        - generic [ref=e33]: +974 5204 6668
+  - main [ref=e34]:
+    - generic [ref=e36]:
+      - generic [ref=e40]:
+        - heading "AUTOMEDICS" [level=1] [ref=e43]
+        - heading "A Multi-Brand Automotive Service Center" [level=1] [ref=e46]
+        - paragraph [ref=e49]: "AutoMedics Garage: Your complete car care solution – mechanical, electrical, detailing, body repair, wheel alignment and more. Trust our skilled technicians and advanced equipment for top-notch service."
+      - generic [ref=e61]:
+        - generic [ref=e63]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: "0"
+            - generic [ref=e70]: +
+          - paragraph [ref=e73]: Happy Clients
+        - generic [ref=e75]:
+          - generic [ref=e80]:
+            - generic [ref=e81]: "0"
+            - generic [ref=e82]: +
+          - paragraph [ref=e85]: Brand Serviced
+        - generic [ref=e87]:
+          - generic [ref=e92]:
+            - generic [ref=e93]: "0"
+            - generic [ref=e94]: +
+          - paragraph [ref=e97]: Parts Available
+        - generic [ref=e99]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: "0"
+            - generic [ref=e106]: "%"
+          - paragraph [ref=e109]: Satisfaction Rate
+      - generic [ref=e113]:
+        - heading "Best Multi Brand Car Repair Service" [level=2] [ref=e116]
+        - region "Image Carousel" [ref=e119]:
+          - generic [ref=e120]:
+            - group [ref=e121]:
+              - figure [ref=e122]:
+                - img [ref=e123]
+            - group [ref=e124]:
+              - figure [ref=e125]:
+                - img [ref=e126]
+            - group [ref=e127]:
+              - figure [ref=e128]:
+                - img [ref=e129]
+            - group [ref=e130]:
+              - figure [ref=e131]:
+                - img [ref=e132]
+            - group [ref=e133]:
+              - figure [ref=e134]:
+                - img [ref=e135]
+            - group "1 / 10" [ref=e136]:
+              - figure [ref=e137]:
+                - img "1-1.png" [ref=e138]
+            - group "2 / 10" [ref=e139]:
+              - figure [ref=e140]:
+                - img "2-1.png" [ref=e141]
+            - group "3 / 10" [ref=e142]:
+              - figure [ref=e143]:
+                - img "3-1.png" [ref=e144]
+            - group "4 / 10" [ref=e145]:
+              - figure [ref=e146]:
+                - img "4-1.png" [ref=e147]
+            - group "5 / 10" [ref=e148]:
+              - figure [ref=e149]:
+                - img "5-1.png" [ref=e150]
+            - group [ref=e151]:
+              - figure [ref=e152]:
+                - img [ref=e153]
+            - group [ref=e154]:
+              - figure [ref=e155]:
+                - img [ref=e156]
+            - group [ref=e157]:
+              - figure [ref=e158]:
+                - img [ref=e159]
+            - group [ref=e160]:
+              - figure [ref=e161]:
+                - img [ref=e162]
+            - group [ref=e163]:
+              - figure [ref=e164]:
+                - img [ref=e165]
+            - group [ref=e166]:
+              - figure [ref=e167]:
+                - img [ref=e168]
+            - group [ref=e169]:
+              - figure [ref=e170]:
+                - img [ref=e171]
+            - group [ref=e172]:
+              - figure [ref=e173]:
+                - img [ref=e174]
+            - group [ref=e175]:
+              - figure [ref=e176]:
+                - img [ref=e177]
+            - group [ref=e178]:
+              - figure [ref=e179]:
+                - img [ref=e180]
+      - heading "Our service" [level=2] [ref=e187]
+      - generic [ref=e195]:
+        - heading "MAINTENANCE & REPAIRS" [level=2] [ref=e198]
+        - paragraph [ref=e201]: Automedics Garage offers comprehensive automotive care, from routine maintenance to complex repairs.
+      - generic [ref=e205]:
+        - heading "MAINTENANCE & REPAIRS" [level=2] [ref=e208]
+        - paragraph [ref=e211]: Automedics Garage offers comprehensive automotive care, from routine maintenance to complex repairs.
+      - generic [ref=e215]:
+        - 'heading "Car Exterior Cleaning: Basic Detailing" [level=2] [ref=e218]'
+        - generic [ref=e220]:
+          - list [ref=e225]:
+            - listitem [ref=e226]:
+              - generic [ref=e228]: 
+              - generic [ref=e229]: Same Day Service
+            - listitem [ref=e230]:
+              - generic [ref=e232]: 
+              - generic [ref=e233]: Convenient Location
+          - list [ref=e238]:
+            - listitem [ref=e239]:
+              - generic [ref=e241]: 
+              - generic [ref=e242]: Online Appointment
+            - listitem [ref=e243]:
+              - generic [ref=e245]: 
+              - generic [ref=e246]: Complimentary Shuttle
+      - generic [ref=e250]:
+        - heading "Rubbing, Waxing, and Polishing" [level=2] [ref=e253]
+        - generic [ref=e255]:
+          - list [ref=e260]:
+            - listitem [ref=e261]:
+              - generic [ref=e263]: 
+              - generic [ref=e264]: Smoothens Surface
+            - listitem [ref=e265]:
+              - generic [ref=e267]: 
+              - generic [ref=e268]: Enhances Shine
+          - list [ref=e273]:
+            - listitem [ref=e274]:
+              - generic [ref=e276]: 
+              - generic [ref=e277]: Restores Gloss
+            - listitem [ref=e278]:
+              - generic [ref=e280]: 
+              - generic [ref=e281]: Prevents Damage
+      - heading "How to Service Your Car" [level=2] [ref=e288]
+      - generic [ref=e296]:
+        - heading "Recent Review & Rating" [level=2] [ref=e299]
+        - region "Slides" [ref=e303]:
+          - generic [ref=e304]:
+            - group "5 / 7" [ref=e305]:
+              - generic [ref=e306]:
+                - generic [ref=e307]:
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: Vinod Jacob
+                    - generic [ref=e310]:
+                      - generic [ref=e311]:  
+                      - generic [ref=e312]:  
+                      - generic [ref=e313]:  
+                      - generic [ref=e314]:  
+                      - generic [ref=e315]:  
+                  - generic "Read More" [ref=e316]:
+                    - generic [ref=e317]: 
+                - generic [ref=e319]:
+                  - text: Very good work and confident in their handling. They did absolutely change in my car and all the complaints that I told they corrected. I recommend for others
+                  - img "👌" [ref=e320]
+                  - text: …
+            - group "6 / 7" [ref=e321]:
+              - generic [ref=e322]:
+                - generic [ref=e323]:
+                  - generic [ref=e324]:
+                    - generic [ref=e325]: Micheal Angelo
+                    - generic [ref=e326]:
+                      - generic [ref=e327]:  
+                      - generic [ref=e328]:  
+                      - generic [ref=e329]:  
+                      - generic [ref=e330]:  
+                      - generic [ref=e331]:  
+                  - generic "Read More" [ref=e332]:
+                    - generic [ref=e333]: 
+                - generic [ref=e335]: I’ll be back the next time. They are very helpful and easy to talk with. They are very professional and knows what they are doing.
+            - group "7 / 7" [ref=e336]:
+              - generic [ref=e337]:
+                - generic [ref=e338]:
+                  - generic [ref=e339]:
+                    - generic [ref=e340]: Mohammed Haris
+                    - generic [ref=e341]:
+                      - generic [ref=e342]:  
+                      - generic [ref=e343]:  
+                      - generic [ref=e344]:  
+                      - generic [ref=e345]:  
+                      - generic [ref=e346]:  
+                  - generic "Read More" [ref=e347]:
+                    - generic [ref=e348]: 
+                - generic [ref=e350]: Friendly and professional staff, I changed out my tyres from here. I felt it was a bit slow, However, the trade off was a well done job.
+            - group "1 / 7" [ref=e351]:
+              - generic [ref=e352]:
+                - generic [ref=e353]:
+                  - generic [ref=e354]:
+                    - generic [ref=e355]: Ullas Raju
+                    - generic [ref=e356]:
+                      - generic [ref=e357]:  
+                      - generic [ref=e358]:  
+                      - generic [ref=e359]:  
+                      - generic [ref=e360]:  
+                      - generic [ref=e361]:  
+                  - generic "Read More" [ref=e362]:
+                    - generic [ref=e363]: 
+                - generic [ref=e365]: I had a great experience at AMG. The staff is incredibly friendly, and the service is excellent. Special thanks to Mr. Hashim for his valuable advice and exceptional treatment. Highly satisfied and will definitely return!
+            - group "2 / 7" [ref=e366]:
+              - generic [ref=e367]:
+                - generic [ref=e368]:
+                  - generic [ref=e369]:
+                    - generic [ref=e370]: Gilang Samad
+                    - generic [ref=e371]:
+                      - generic [ref=e372]:  
+                      - generic [ref=e373]:  
+                      - generic [ref=e374]:  
+                      - generic [ref=e375]:  
+                      - generic [ref=e376]:  
+                  - generic "Read More" [ref=e377]:
+                    - generic [ref=e378]: 
+                - generic [ref=e380]: Very nice service provided for me, very fast and welcoming, good staff and very helpful and kind. Will come back definitely for next visit for my car.
+            - group "3 / 7" [ref=e381]:
+              - generic [ref=e382]:
+                - generic [ref=e383]:
+                  - generic [ref=e384]:
+                    - generic [ref=e385]: Solomon Cruz
+                    - generic [ref=e386]:
+                      - generic [ref=e387]:  
+                      - generic [ref=e388]:  
+                      - generic [ref=e389]:  
+                      - generic [ref=e390]:  
+                      - generic [ref=e391]:  
+                  - generic "Read More" [ref=e392]:
+                    - generic [ref=e393]: 
+                - generic [ref=e395]: Good service with friendly staffs. They have done detailed inspection of my car, oil change and checking with report. Overall good experience. Please keep on improving to give the best services and affordable pricing. Will come back for sure.
+            - group "4 / 7" [ref=e396]:
+              - generic [ref=e397]:
+                - generic [ref=e398]:
+                  - generic [ref=e399]:
+                    - generic [ref=e400]: Mohammed Jassim
+                    - generic [ref=e401]:
+                      - generic [ref=e402]:  
+                      - generic [ref=e403]:  
+                      - generic [ref=e404]:  
+                      - generic [ref=e405]:  
+                      - generic [ref=e406]:  
+                  - generic "Read More" [ref=e407]:
+                    - generic [ref=e408]: 
+                - generic [ref=e410]: One of the best garages in qatar helped me fix my abs for Land Cruiser in minimal time thank you auto medics garage will be coming soon
+            - group "5 / 7" [ref=e411]:
+              - generic [ref=e412]:
+                - generic [ref=e413]:
+                  - generic [ref=e414]:
+                    - generic [ref=e415]: Vinod Jacob
+                    - generic [ref=e416]:
+                      - generic [ref=e417]:  
+                      - generic [ref=e418]:  
+                      - generic [ref=e419]:  
+                      - generic [ref=e420]:  
+                      - generic [ref=e421]:  
+                  - generic "Read More" [ref=e422]:
+                    - generic [ref=e423]: 
+                - generic [ref=e425]:
+                  - text: Very good work and confident in their handling. They did absolutely change in my car and all the complaints that I told they corrected. I recommend for others
+                  - img "👌" [ref=e426]
+                  - text: …
+            - group "6 / 7" [ref=e427]:
+              - generic [ref=e428]:
+                - generic [ref=e429]:
+                  - generic [ref=e430]:
+                    - generic [ref=e431]: Micheal Angelo
+                    - generic [ref=e432]:
+                      - generic [ref=e433]:  
+                      - generic [ref=e434]:  
+                      - generic [ref=e435]:  
+                      - generic [ref=e436]:  
+                      - generic [ref=e437]:  
+                  - generic "Read More" [ref=e438]:
+                    - generic [ref=e439]: 
+                - generic [ref=e441]: I’ll be back the next time. They are very helpful and easy to talk with. They are very professional and knows what they are doing.
+            - group "7 / 7" [ref=e442]:
+              - generic [ref=e443]:
+                - generic [ref=e444]:
+                  - generic [ref=e445]:
+                    - generic [ref=e446]: Mohammed Haris
+                    - generic [ref=e447]:
+                      - generic [ref=e448]:  
+                      - generic [ref=e449]:  
+                      - generic [ref=e450]:  
+                      - generic [ref=e451]:  
+                      - generic [ref=e452]:  
+                  - generic "Read More" [ref=e453]:
+                    - generic [ref=e454]: 
+                - generic [ref=e456]: Friendly and professional staff, I changed out my tyres from here. I felt it was a bit slow, However, the trade off was a well done job.
+            - group "1 / 7" [ref=e457]:
+              - generic [ref=e458]:
+                - generic [ref=e459]:
+                  - generic [ref=e460]:
+                    - generic [ref=e461]: Ullas Raju
+                    - generic [ref=e462]:
+                      - generic [ref=e463]:  
+                      - generic [ref=e464]:  
+                      - generic [ref=e465]:  
+                      - generic [ref=e466]:  
+                      - generic [ref=e467]:  
+                  - generic "Read More" [ref=e468]:
+                    - generic [ref=e469]: 
+                - generic [ref=e471]: I had a great experience at AMG. The staff is incredibly friendly, and the service is excellent. Special thanks to Mr. Hashim for his valuable advice and exceptional treatment. Highly satisfied and will definitely return!
+            - group "2 / 7" [ref=e472]:
+              - generic [ref=e473]:
+                - generic [ref=e474]:
+                  - generic [ref=e475]:
+                    - generic [ref=e476]: Gilang Samad
+                    - generic [ref=e477]:
+                      - generic [ref=e478]:  
+                      - generic [ref=e479]:  
+                      - generic [ref=e480]:  
+                      - generic [ref=e481]:  
+                      - generic [ref=e482]:  
+                  - generic "Read More" [ref=e483]:
+                    - generic [ref=e484]: 
+                - generic [ref=e486]: Very nice service provided for me, very fast and welcoming, good staff and very helpful and kind. Will come back definitely for next visit for my car.
+            - group "3 / 7" [ref=e487]:
+              - generic [ref=e488]:
+                - generic [ref=e489]:
+                  - generic [ref=e490]:
+                    - generic [ref=e491]: Solomon Cruz
+                    - generic [ref=e492]:
+                      - generic [ref=e493]:  
+                      - generic [ref=e494]:  
+                      - generic [ref=e495]:  
+                      - generic [ref=e496]:  
+                      - generic [ref=e497]:  
+                  - generic "Read More" [ref=e498]:
+                    - generic [ref=e499]: 
+                - generic [ref=e501]: Good service with friendly staffs. They have done detailed inspection of my car, oil change and checking with report. Overall good experience. Please keep on improving to give the best services and affordable pricing. Will come back for sure.
+      - generic [ref=e507]:
+        - heading "REQUEST AN APPOINTMENT ONLINE" [level=2] [ref=e510]
+        - paragraph [ref=e513]: Booking your automotive service is now easier than ever. Simply fill out our online form, and our skilled team at Automedics Garage will get you rolling smoothly in no time.
+        - form "Home Form" [ref=e516]:
+          - generic [ref=e517]:
+            - generic [ref=e518]:
+              - generic [ref=e519] [cursor=pointer]: Name
+              - textbox "Name" [ref=e520]:
+                - /placeholder: Enter Your Name
+            - generic [ref=e521]:
+              - generic [ref=e522] [cursor=pointer]: Phone
+              - textbox "Phone" [ref=e523]:
+                - /placeholder: Enter Your Phone
+            - generic [ref=e524]:
+              - generic [ref=e525] [cursor=pointer]: Select Date
+              - textbox "Select Date" [ref=e526]
+            - generic [ref=e527]:
+              - generic [ref=e528] [cursor=pointer]: Select Service
+              - generic [ref=e529]:
+                - generic:
+                  - generic: 
+                - combobox "Select Service" [ref=e530]:
+                  - option "Brake Repair" [selected]
+                  - option "Cooling System"
+                  - option "Battery Repair"
+                  - option "Engine Repair"
+                  - option "Tire Repair"
+                  - option "Steering Repair"
+            - generic [ref=e531]:
+              - generic [ref=e532] [cursor=pointer]: Your Message
+              - textbox "Your Message" [ref=e533]:
+                - /placeholder: Describe Your Problem
+            - button "Send Message" [ref=e535] [cursor=pointer]:
+              - generic [ref=e537]: Send Message
+  - contentinfo [ref=e538]:
+    - generic [ref=e540]:
+      - generic [ref=e542]:
+        - link [ref=e545] [cursor=pointer]:
+          - /url: https://automedicsgarage.com
+        - paragraph [ref=e548]: "Revive Your Ride with Automedics Garage: Unleashing the Power of Precision Car Repairs!"
+        - generic [ref=e550]: Support center 24/7
+        - paragraph [ref=e553]: +974 5204 6669
+      - generic [ref=e555]:
+        - heading "ABOUT US" [level=4] [ref=e558]
+        - generic [ref=e560]:
+          - generic [ref=e562]:
+            - generic [ref=e567]: 
+            - generic [ref=e572]: 
+            - generic [ref=e577]: 
+            - generic [ref=e582]: 
+          - navigation "Menu" [ref=e587]:
+            - list [ref=e588]:
+              - listitem [ref=e589]:
+                - link "Home" [ref=e590] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/
+              - listitem [ref=e591]:
+                - link "Services" [ref=e592] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/services/
+              - listitem [ref=e593]:
+                - link "Our Works" [ref=e594] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/our-works/
+              - listitem [ref=e595]:
+                - link "About" [ref=e596] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/about/
+              - listitem [ref=e597]:
+                - link "Contact" [ref=e598] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/contact/
+      - generic [ref=e600]:
+        - heading "Popular Services" [level=4] [ref=e603]
+        - generic [ref=e605]:
+          - generic [ref=e607]:
+            - generic [ref=e612]: 
+            - generic [ref=e617]: 
+            - generic [ref=e622]: 
+            - generic [ref=e627]: 
+          - navigation "Menu" [ref=e632]:
+            - list [ref=e633]:
+              - listitem [ref=e634]:
+                - link "Home" [ref=e635] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/
+              - listitem [ref=e636]:
+                - link "Services" [ref=e637] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/services/
+              - listitem [ref=e638]:
+                - link "Our Works" [ref=e639] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/our-works/
+              - listitem [ref=e640]:
+                - link "About" [ref=e641] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/about/
+              - listitem [ref=e642]:
+                - link "Contact" [ref=e643] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/contact/
+      - generic [ref=e645]:
+        - heading "Popular Services" [level=4] [ref=e648]
+        - generic [ref=e650]:
+          - generic [ref=e652]:
+            - generic [ref=e657]: 
+            - generic [ref=e662]: 
+            - generic [ref=e667]: 
+            - generic [ref=e672]: 
+          - navigation "Menu" [ref=e677]:
+            - list [ref=e678]:
+              - listitem [ref=e679]:
+                - link "Home" [ref=e680] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/
+              - listitem [ref=e681]:
+                - link "Services" [ref=e682] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/services/
+              - listitem [ref=e683]:
+                - link "Our Works" [ref=e684] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/our-works/
+              - listitem [ref=e685]:
+                - link "About" [ref=e686] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/about/
+              - listitem [ref=e687]:
+                - link "Contact" [ref=e688] [cursor=pointer]:
+                  - /url: https://automedicsgarage.com/contact/
+      - generic [ref=e690]:
+        - heading "SUBSCRIBE" [level=4] [ref=e693]
+        - form "New Form" [ref=e696]:
+          - generic [ref=e697]:
+            - generic [ref=e698]:
+              - generic [ref=e699] [cursor=pointer]: Your Email
+              - textbox "Your Email" [ref=e700]:
+                - /placeholder: Enter Your Email Address
+            - button "Subscribe" [ref=e702] [cursor=pointer]:
+              - generic [ref=e704]: Subscribe
+        - link [ref=e708] [cursor=pointer]:
+          - /url: http://wa.me/+97452046668
+          - generic [ref=e709]: 
+        - link [ref=e713] [cursor=pointer]:
+          - /url: https://form.jotform.com/250564391513051
+          - generic [ref=e714]: 
+    - generic [ref=e720]:
+      - text: © Automedics Garage All rights reserved Copyrights 2023. Designed by
+      - link "AKRDEV." [ref=e721] [cursor=pointer]:
+        - /url: https://akrdeveloper.com/
+  - generic [ref=e722]: desktop
