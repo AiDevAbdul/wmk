@@ -1,57 +1,58 @@
-import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
+import { prisma } from '@/lib/prisma'
+import { NextResponse } from 'next/server'
 
-export async function PUT(
+export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
-  const session = await auth();
-
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   try {
-    const { id } = await params;
-    const body = await request.json();
-    const { status } = body;
+    const contact = await prisma.contactSubmission.findUnique({
+      where: { id: params.id },
+    })
 
-    const submission = await prisma.contactSubmission.update({
-      where: { id },
-      data: { status },
-    });
+    if (!contact) {
+      return NextResponse.json({ error: 'Contact not found' }, { status: 404 })
+    }
 
-    return NextResponse.json(submission);
+    return NextResponse.json(contact)
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to update submission" },
-      { status: 500 }
-    );
+    console.error('Error fetching contact:', error)
+    return NextResponse.json({ error: 'Failed to fetch contact' }, { status: 500 })
+  }
+}
+
+export async function PATCH(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const body = await request.json()
+    const { status } = body
+
+    const contact = await prisma.contactSubmission.update({
+      where: { id: params.id },
+      data: { status },
+    })
+
+    return NextResponse.json(contact)
+  } catch (error) {
+    console.error('Error updating contact:', error)
+    return NextResponse.json({ error: 'Failed to update contact' }, { status: 500 })
   }
 }
 
 export async function DELETE(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
-  const session = await auth();
-
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   try {
-    const { id } = await params;
     await prisma.contactSubmission.delete({
-      where: { id },
-    });
+      where: { id: params.id },
+    })
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true })
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to delete submission" },
-      { status: 500 }
-    );
+    console.error('Error deleting contact:', error)
+    return NextResponse.json({ error: 'Failed to delete contact' }, { status: 500 })
   }
 }

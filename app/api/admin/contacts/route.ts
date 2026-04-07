@@ -1,24 +1,33 @@
-import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
+import { prisma } from '@/lib/prisma'
+import { NextResponse } from 'next/server'
 
-export async function GET() {
-  const session = await auth();
-
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
+export async function GET(request: Request) {
   try {
-    const submissions = await prisma.contactSubmission.findMany({
-      orderBy: { createdAt: "desc" },
-    });
+    const { searchParams } = new URL(request.url)
+    const status = searchParams.get('status') || 'all'
+    const search = searchParams.get('search') || ''
 
-    return NextResponse.json(submissions);
+    const where: any = {}
+
+    if (status !== 'all') {
+      where.status = status
+    }
+
+    if (search) {
+      where.OR = [
+        { name: { contains: search, mode: 'insensitive' } },
+        { phone: { contains: search, mode: 'insensitive' } },
+      ]
+    }
+
+    const contacts = await prisma.contactSubmission.findMany({
+      where,
+      orderBy: { createdAt: 'desc' },
+    })
+
+    return NextResponse.json(contacts)
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch submissions" },
-      { status: 500 }
-    );
+    console.error('Error fetching contacts:', error)
+    return NextResponse.json({ error: 'Failed to fetch contacts' }, { status: 500 })
   }
 }

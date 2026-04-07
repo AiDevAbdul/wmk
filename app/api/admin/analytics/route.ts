@@ -1,49 +1,98 @@
-import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
+import { NextResponse } from "next/server"
+import { prisma } from "@/lib/prisma"
 
-export async function GET() {
-  const session = await auth();
-
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
+export async function GET(request: Request) {
   try {
-    const events = await prisma.analyticsEvent.findMany();
+    const { searchParams } = new URL(request.url)
+    const range = searchParams.get("range") || "30d"
+
+    // Calculate date range
+    const endDate = new Date()
+    const startDate = new Date()
+
+    switch (range) {
+      case "7d":
+        startDate.setDate(endDate.getDate() - 7)
+        break
+      case "30d":
+        startDate.setDate(endDate.getDate() - 30)
+        break
+      case "90d":
+        startDate.setDate(endDate.getDate() - 90)
+        break
+      case "1y":
+        startDate.setFullYear(endDate.getFullYear() - 1)
+        break
+      default:
+        startDate.setDate(endDate.getDate() - 30)
+    }
+
+    // Get analytics events from database
+    const events = await prisma.analyticsEvent.findMany({
+      where: {
+        timestamp: {
+          gte: startDate,
+          lte: endDate,
+        },
+      },
+      orderBy: { timestamp: "desc" },
+    })
 
     // Calculate metrics
-    const totalVisitors = new Set(events.map((e) => e.userId)).size;
-    const pageViews = events.filter((e) => e.eventType === "page_view").length;
-    const phoneClicks = events.filter((e) => e.eventType === "phone_click").length;
-    const whatsappClicks = events.filter((e) => e.eventType === "whatsapp_click").length;
+    const phoneClicks = events.filter(e => e.eventType === "phone_click").length
+    const whatsappClicks = events.filter(e => e.eventType === "whatsapp_click").length
+    const formSubmissions = events.filter(e => e.eventType === "form_submit").length
+    const pageViews = events.filter(e => e.eventType === "page_view").length
 
-    const contacts = await prisma.contactSubmission.count();
+    // Group by event type
+    const eventsByType = events.reduce((acc: any, event) => {
+      if (!acc[event.eventType]) {
+        acc[event.eventType] = 0
+      }
+      acc[event.eventType]++
+      return acc
+    }, {})
 
-    // Top pages
-    const pageViewEvents = events.filter((e) => e.eventType === "page_view");
-    const pageMap = new Map<string, number>();
-    pageViewEvents.forEach((e) => {
-      pageMap.set(e.page, (pageMap.get(e.page) || 0) + 1);
-    });
+    // Group by page
+    const pageStats = events.reduce((acc: any, event) => {
+      if (!acc[event.page]) {
+        acc[event.page] = 0
+      }
+      acc[event.page]++
+      return acc
+    }, {})
 
-    const topPages = Array.from(pageMap.entries())
-      .map(([page, views]) => ({ page, views }))
-      .sort((a, b) => b.views - a.views)
-      .slice(0, 10);
+    // Get contact submissions for conversion rate
+    const contactSubmissions = await prisma.contactSubmission.findMany({
+      where: {
+        createdAt: {
+          gte: startDate,
+          lte: endDate,
+        },
+      },
+    })
+
+    const conversionRate = pageViews > 0 ? ((contactSubmissions.length / pageViews) * 100).toFixed(2) : "0"
 
     return NextResponse.json({
-      totalVisitors,
-      pageViews,
-      phoneClicks,
-      whatsappClicks,
-      contactSubmissions: contacts,
-      topPages,
-    });
+      dateRange: { startDate, endDate },
+      metrics: {
+        pageViews,
+        phoneClicks,
+        whatsappClicks,
+        formSubmissions,
+        contactSubmissions: contactSubmissions.length,
+        conversionRate: parseFloat(conversionRate),
+      },
+      eventsByType,
+      pageStats,
+      topPages: Object.entries(pageStats)
+        .sort(([, a], [, b]) => (b as number) - (a as number))
+        .slice(0, 10)
+        .map(([page, count]) => ({ page, count })),
+    })
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch analytics" },
-      { status: 500 }
-    );
+    console.error("Error fetching analytics:", error)
+    return NextResponse.json({ error: "Failed to fetch analytics" }, { status: 500 })
   }
 }

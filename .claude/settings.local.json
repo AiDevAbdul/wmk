@@ -16,7 +16,9 @@
       "Bash(bash:*)",
       "Bash(mv:*)",
       "mcp__ide__getDiagnostics",
-      "Bash(npx ts-node:*)"
+      "Bash(npx ts-node:*)",
+      "Bash(\"F:/wmk/app/api/admin/contacts/[id]/route.ts\":*)",
+      "Bash(\"F:/wmk/lib/analytics-events.ts\":*)"
     ]
   }
 }
