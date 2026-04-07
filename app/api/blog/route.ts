@@ -12,6 +12,7 @@ export async function GET() {
         slug: true,
         excerpt: true,
         category: true,
+        author: true,
         createdAt: true,
         publishedAt: true,
         published: true,

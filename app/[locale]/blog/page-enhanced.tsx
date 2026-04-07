@@ -30,7 +30,7 @@ const categoryColors: Record<string, string> = {
   'Maintenance': 'from-purple-500/20 to-purple-600/10 border-purple-500/30 text-purple-300',
 };
 
-export default function BlogPage() {
+export default function BlogPageEnhanced() {
   const params = useParams();
   const locale = params.locale as string;
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -38,6 +38,7 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const categories = ['News', 'ECM Tips', 'Hybrid Battery', 'Maintenance'];
 
@@ -128,9 +129,9 @@ export default function BlogPage() {
               <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight leading-tight">
                 Technical
               </h1>
-              <div className="h-1 w-16 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
+              <div className="h-1 w-16 bg-linear-to-r from-primary to-primary/50 rounded-full" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent tracking-tight">
               Knowledge Hub
             </h1>
           </motion.div>
@@ -176,7 +177,7 @@ export default function BlogPage() {
         {/* Premium search bar with glassmorphism */}
         <div className="mb-8">
           <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-all duration-500" />
+            <div className="absolute inset-0 bg-linear-to-r from-primary/10 via-primary/5 to-transparent rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-all duration-500" />
             <div className="relative flex items-center bg-steel-mid/30 backdrop-blur-xl border border-steel-light/10 rounded-2xl hover:border-steel-light/20 transition-all duration-300 group-focus-within:border-primary/40 group-focus-within:bg-steel-mid/50">
               <Search className="absolute left-6 text-steel-light/40 group-focus-within:text-primary transition-colors duration-300" size={22} />
               <input
@@ -200,7 +201,7 @@ export default function BlogPage() {
             onClick={() => setSelectedCategory('')}
             className={`px-6 py-2.5 rounded-xl font-semibold transition-all tracking-wide text-sm ${
               selectedCategory === ''
-                ? 'bg-gradient-to-r from-primary to-primary/90 text-steel-dark shadow-lg shadow-primary/40'
+                ? 'bg-linear-to-r from-primary to-primary/90 text-steel-dark shadow-lg shadow-primary/40'
                 : 'bg-steel-mid/40 text-steel-light/80 hover:bg-steel-mid/60 border border-steel-light/10 hover:border-steel-light/20'
             }`}
           >
@@ -218,7 +219,7 @@ export default function BlogPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-6 py-2.5 rounded-xl font-semibold transition-all tracking-wide text-sm flex items-center gap-2 ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-primary to-primary/90 text-steel-dark shadow-lg shadow-primary/40'
+                  ? 'bg-linear-to-r from-primary to-primary/90 text-steel-dark shadow-lg shadow-primary/40'
                   : 'bg-steel-mid/40 text-steel-light/80 hover:bg-steel-mid/60 border border-steel-light/10 hover:border-steel-light/20'
               }`}
             >
@@ -238,7 +239,7 @@ export default function BlogPage() {
             className="flex justify-center items-center py-32"
           >
             <div className="relative w-16 h-16">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-full blur-lg opacity-50 animate-pulse" />
+              <div className="absolute inset-0 bg-linear-to-r from-primary to-primary/50 rounded-full blur-lg opacity-50 animate-pulse" />
               <div className="absolute inset-2 border-2 border-transparent border-t-primary border-r-primary rounded-full animate-spin" />
             </div>
           </motion.div>
@@ -263,23 +264,23 @@ export default function BlogPage() {
                 <Link href={`/${locale}/blog/${post.slug}`}>
                   <motion.div
                     whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                    className="group relative h-full bg-gradient-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-steel-light/10 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 cursor-pointer"
+                    className="group relative h-full bg-linear-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-steel-light/10 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 cursor-pointer"
                   >
                     {/* Premium glow on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/15 group-hover:via-primary/5 group-hover:to-primary/0 transition-all duration-500 rounded-2xl" />
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/15 group-hover:via-primary/5 group-hover:to-primary/0 transition-all duration-500 rounded-2xl" />
 
                     {/* Animated shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl" />
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/3 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl" />
 
                     {/* Corner accent */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-3xl" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-3xl" />
 
                     <div className="relative p-8 h-full flex flex-col z-10">
                       {/* Category Badge with icon */}
                       <div className="flex items-center justify-between mb-6">
                         <motion.div
                           whileHover={{ scale: 1.08 }}
-                          className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-lg border bg-gradient-to-r ${categoryColors[post.category] || 'from-steel-mid/50 to-steel-dark/50 border-steel-light/20 text-steel-light/80'}`}
+                          className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-lg border bg-linear-to-r ${categoryColors[post.category] || 'from-steel-mid/50 to-steel-dark/50 border-steel-light/20 text-steel-light/80'}`}
                         >
                           {categoryIcons[post.category]}
                           {post.category}
@@ -303,7 +304,7 @@ export default function BlogPage() {
                       </p>
 
                       {/* Divider */}
-                      <div className="h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 mb-6" />
+                      <div className="h-px bg-linear-to-r from-primary/0 via-primary/20 to-primary/0 mb-6" />
 
                       {/* Read More Link with premium styling */}
                       <motion.div
@@ -336,9 +337,9 @@ export default function BlogPage() {
           viewport={{ once: true }}
           className="relative max-w-6xl mx-auto px-4 md:px-8 py-20 mb-12"
         >
-          <div className="relative bg-gradient-to-r from-steel-mid/40 via-steel-mid/20 to-steel-dark/40 backdrop-blur-xl rounded-2xl border border-primary/20 p-12 overflow-hidden">
+          <div className="relative bg-linear-to-r from-steel-mid/40 via-steel-mid/20 to-steel-dark/40 backdrop-blur-xl rounded-2xl border border-primary/20 p-12 overflow-hidden">
             {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+            <div className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div>
@@ -353,7 +354,7 @@ export default function BlogPage() {
                 href="tel:+971554762284"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-all whitespace-nowrap tracking-wide"
+                className="px-8 py-4 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-all whitespace-nowrap tracking-wide"
               >
                 Call Now
               </motion.a>

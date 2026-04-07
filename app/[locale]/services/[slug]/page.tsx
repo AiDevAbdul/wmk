@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState, use } from 'react'
 import { services, serviceDetails } from '@/lib/services'
@@ -191,13 +192,20 @@ export default function ServiceDetailPage({
                 +971 55 476 2284
               </a>
             </div>
-            <div className="card-dark text-center">
-              <MapPin size={40} className="text-primary mx-auto mb-4" />
+            <a
+              href="https://maps.google.com/?q=18+Street+Ras+Al+Khor+Industrial+Area+2+Dubai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-dark text-center hover:bg-steel-mid/50 transition-colors cursor-pointer group"
+            >
+              <MapPin size={40} className="text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="font-semibold mb-2">Visit Us</h3>
-              <p className="text-steel-light text-sm">18 Street, Ras Al Khor Industrial Area 2, Dubai</p>
-            </div>
+              <p className="text-steel-light text-sm group-hover:text-primary transition-colors">18 Street, Ras Al Khor Industrial Area 2, Dubai</p>
+            </a>
             <div className="card-dark text-center">
-              <div className="text-4xl text-primary mx-auto mb-4">💬</div>
+              <div className="flex justify-center mx-auto mb-4">
+                <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={40} height={40} />
+              </div>
               <h3 className="font-semibold mb-2">WhatsApp</h3>
               <a
                 href="https://wa.me/971554762284"

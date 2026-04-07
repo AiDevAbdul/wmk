@@ -13,7 +13,9 @@
       "Bash(npm create:*)",
       "mcp__context7__query-docs",
       "Bash(pkill:*)",
-      "Bash(bash:*)"
+      "Bash(bash:*)",
+      "Bash(mv:*)",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }

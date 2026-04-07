@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Phone, MapPin, Mail, Facebook, Instagram, Linkedin, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
@@ -336,7 +337,8 @@ export default function EnhancedFooter() {
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 rounded-lg font-semibold text-sm"
             >
-              <span className="relative">💬 WhatsApp</span>
+              <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={18} height={18} className="group-hover:scale-110 transition-transform duration-300" />
+              <span className="relative">WhatsApp</span>
             </a>
           </div>
         </div>

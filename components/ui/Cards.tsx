@@ -19,7 +19,7 @@ export function ServiceCard({
     <Link href={href} className="block h-full">
       <div className="group cursor-pointer h-full relative overflow-hidden rounded-2xl">
         {/* Multi-layer Background with Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/80 rounded-2xl transition-all duration-500 group-hover:from-steel-mid/80 group-hover:via-steel-mid/60 group-hover:to-steel-dark/90"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/80 rounded-2xl transition-all duration-500 group-hover:from-steel-mid/80 group-hover:via-steel-mid/60 group-hover:to-steel-dark/90"></div>
 
         {/* Animated Border Gradient */}
         <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/60 transition-all duration-500"></div>
@@ -28,20 +28,20 @@ export function ServiceCard({
         <div className="absolute inset-0 rounded-2xl shadow-2xl shadow-primary/0 group-hover:shadow-primary/40 transition-all duration-500"></div>
 
         {/* Animated Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
 
         {/* Shine Effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-2xl"></div>
 
         {/* Content */}
         <div className="relative p-8 h-full flex flex-col z-10">
           {/* Icon Container with Enhanced Styling */}
           <div className="mb-6 relative">
             {/* Icon Glow Background */}
-            <div className="absolute -inset-2 bg-gradient-to-br from-primary/30 to-primary/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"></div>
+            <div className="absolute -inset-2 bg-linear-to-br from-primary/30 to-primary/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"></div>
 
             {/* Icon Box */}
-            <div className="relative w-16 h-16 bg-gradient-to-br from-primary/40 to-primary/15 rounded-xl flex items-center justify-center border-2 border-primary/40 group-hover:border-primary/80 group-hover:scale-125 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300">
+            <div className="relative w-16 h-16 bg-linear-to-br from-primary/40 to-primary/15 rounded-xl flex items-center justify-center border-2 border-primary/40 group-hover:border-primary/80 group-hover:scale-125 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300">
               <Icon size={32} className="text-primary group-hover:text-primary transition-all duration-300 group-hover:scale-110" />
             </div>
           </div>
@@ -52,7 +52,7 @@ export function ServiceCard({
           </h3>
 
           {/* Description */}
-          <p className="text-steel-light/75 text-sm leading-relaxed flex-grow group-hover:text-steel-light/95 transition-colors duration-300">
+          <p className="text-steel-light/75 text-sm leading-relaxed grow group-hover:text-steel-light/95 transition-colors duration-300">
             {description}
           </p>
 
@@ -94,14 +94,14 @@ export function ReviewCard({
   return (
     <div className="group relative h-full">
       {/* Card Background with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
       {/* Card Border Glow */}
       <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
       {/* Shine Effect */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
       </div>
 
       {/* Content */}
@@ -114,12 +114,12 @@ export function ReviewCard({
         </div>
 
         {/* Review Text */}
-        <p className="text-white font-medium leading-relaxed text-base mb-6 flex-grow group-hover:text-white/95 transition-colors duration-300">
+        <p className="text-white font-medium leading-relaxed text-base mb-6 grow group-hover:text-white/95 transition-colors duration-300">
           "{text}"
         </p>
 
         {/* Divider */}
-        <div className="w-12 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full mb-4 group-hover:w-16 transition-all duration-300"></div>
+        <div className="w-12 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full mb-4 group-hover:w-16 transition-all duration-300"></div>
 
         {/* Customer Name */}
         <p className="font-bold text-sm text-primary tracking-tight uppercase group-hover:text-primary transition-colors duration-300">
@@ -141,7 +141,7 @@ export function ProcessStep({
 }) {
   return (
     <div className="flex gap-4">
-      <div className="flex-shrink-0">
+      <div className="shrink-0">
         <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary text-steel-dark font-bold text-lg tracking-tight">
           {number}
         </div>

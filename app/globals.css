@@ -257,6 +257,26 @@
   100% { transform: translateX(-100%); }
 }
 
+@keyframes card-lift {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(245, 197, 24, 0.2); }
+  50% { border-color: rgba(245, 197, 24, 0.5); }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }

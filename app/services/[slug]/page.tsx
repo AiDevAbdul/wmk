@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState, use } from 'react'
 import { services, serviceDetails } from '@/lib/services'
@@ -197,7 +198,9 @@ export default function ServiceDetailPage({
               <p className="text-steel-light text-sm">18 Street, Ras Al Khor Industrial Area 2, Dubai</p>
             </div>
             <div className="card-dark text-center">
-              <div className="text-4xl text-primary mx-auto mb-4">💬</div>
+              <div className="flex justify-center mx-auto mb-4">
+                <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={40} height={40} />
+              </div>
               <h3 className="font-semibold mb-2">WhatsApp</h3>
               <a
                 href="https://wa.me/971554762284"

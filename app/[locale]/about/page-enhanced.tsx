@@ -42,7 +42,7 @@ export default function EnhancedAboutPage() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
 
         {/* Accent Glow Elements */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl z-0 animate-pulse"></div>
@@ -75,7 +75,7 @@ export default function EnhancedAboutPage() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight"
             >
               <span className="block">About WMK Auto</span>
-              <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Repairing Garage</span>
+              <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Repairing Garage</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -111,7 +111,7 @@ export default function EnhancedAboutPage() {
                   transition={{ delay: 0.1, duration: 0.6 }}
                   className="inline-flex items-center gap-2 mb-6"
                 >
-                  <div className="w-8 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
+                  <div className="w-8 h-1 bg-linear-to-r from-primary to-primary/60 rounded-full"></div>
                   <span className="text-primary font-semibold text-xs tracking-widest uppercase">Our Journey</span>
                 </motion.div>
 
@@ -123,7 +123,7 @@ export default function EnhancedAboutPage() {
                   className="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-8"
                 >
                   <span className="block text-white">From Small Workshop</span>
-                  <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">To Elite Authority</span>
+                  <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">To Elite Authority</span>
                 </motion.h2>
               </div>
 
@@ -184,12 +184,12 @@ export default function EnhancedAboutPage() {
               className="relative h-96 hidden lg:flex items-center justify-center"
             >
               {/* Glow Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-2xl"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-2xl"></div>
 
               {/* Timeline Card */}
-              <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/15 via-primary/5 to-steel-mid/10 border-2 border-primary/30 backdrop-blur-xl p-8 flex flex-col items-center justify-center space-y-6 overflow-hidden group hover:border-primary/60 transition-all duration-500">
+              <div className="relative w-full h-full rounded-3xl bg-linear-to-br from-primary/15 via-primary/5 to-steel-mid/10 border-2 border-primary/30 backdrop-blur-xl p-8 flex flex-col items-center justify-center space-y-6 overflow-hidden group hover:border-primary/60 transition-all duration-500">
                 {/* Animated gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
 
                 {/* Timeline SVG */}
                 <svg
@@ -254,7 +254,7 @@ export default function EnhancedAboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-24 bg-gradient-to-b from-steel-mid to-steel-dark relative overflow-hidden">
+      <section className="py-24 bg-linear-to-b from-steel-mid to-steel-dark relative overflow-hidden">
         {/* Background Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -270,7 +270,7 @@ export default function EnhancedAboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Our <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Core Values</span>
+              Our <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Core Values</span>
             </h2>
             <p className="text-steel-light/80 font-medium max-w-2xl mx-auto">
               The principles that guide every decision and interaction
@@ -299,14 +299,14 @@ export default function EnhancedAboutPage() {
                   className="group relative"
                 >
                   {/* Card Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Border Glow */}
                   <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
                   {/* Shine Effect */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
                   </div>
 
                   {/* Content */}
@@ -316,8 +316,8 @@ export default function EnhancedAboutPage() {
                       transition={{ type: 'spring', stiffness: 300 }}
                       className="relative mb-6 flex justify-center"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                      <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/40 group-hover:border-primary/80 transition-all duration-300">
+                      <div className="absolute inset-0 bg-linear-to-br from-primary/40 to-primary/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                      <div className="relative w-16 h-16 flex items-center justify-center bg-linear-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/40 group-hover:border-primary/80 transition-all duration-300">
                         <Icon size={32} className="text-primary" />
                       </div>
                     </motion.div>
@@ -348,7 +348,7 @@ export default function EnhancedAboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Our <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Expert Team</span>
+              Our <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Expert Team</span>
             </h2>
             <p className="text-steel-light/80 font-medium">Certified professionals dedicated to your vehicle's care</p>
           </motion.div>
@@ -372,14 +372,14 @@ export default function EnhancedAboutPage() {
                 className="group relative"
               >
                 {/* Card Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Border Glow */}
                 <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
                 {/* Shine Effect */}
                 <div className="absolute inset-0 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
                 </div>
 
                 {/* Content */}
@@ -413,7 +413,7 @@ export default function EnhancedAboutPage() {
       </section>
 
       {/* Certifications & Licenses Section */}
-      <section className="py-24 bg-gradient-to-b from-steel-mid to-steel-dark relative overflow-hidden">
+      <section className="py-24 bg-linear-to-b from-steel-mid to-steel-dark relative overflow-hidden">
         {/* Background Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -429,7 +429,7 @@ export default function EnhancedAboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Certifications & <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Licenses</span>
+              Certifications & <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Licenses</span>
             </h2>
             <p className="text-steel-light/80 font-medium">Trusted by industry standards and regulatory bodies</p>
           </motion.div>
@@ -459,7 +459,7 @@ export default function EnhancedAboutPage() {
                 className="group relative"
               >
                 {/* Card Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Border Glow */}
                 <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>

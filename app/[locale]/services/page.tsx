@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { services } from '@/lib/services'
 import { ServiceCard, CTABanner } from '@/components/ui/Cards'
 import { Code, Zap, Shield, Wrench, Wind, Palette, Circle, Droplet, Thermometer, Sparkles, ArrowRight } from 'lucide-react'
@@ -321,7 +322,8 @@ export default function EnhancedServicesPage() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <span className="relative flex items-center gap-2">
-                  💬 WhatsApp
+                  <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={20} height={20} className="group-hover:scale-110 transition-transform duration-300" />
+                  WhatsApp
                 </span>
               </a>
             </div>
