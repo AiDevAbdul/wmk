@@ -30,7 +30,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#1E2128" />
         <link rel="icon" href="/favicon.ico" />
 
-        {/* Google Fonts */}
+        {/* Google Fonts with font-display=swap for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

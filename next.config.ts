@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+  compress: true,
+  poweredByHeader: false,
+  productionBrowserSourceMaps: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -20,6 +23,10 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['next-intl'],
+  },
+  onDemandEntries: {
+    maxInactiveAge: 60 * 1000,
+    pagesBufferLength: 5,
   },
 }
 

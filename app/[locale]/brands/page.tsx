@@ -185,6 +185,7 @@ export default function EnhancedBrandsPage() {
                             alt={brand.logoAlt}
                             width={48}
                             height={48}
+                            loading="lazy"
                             className="w-12 h-12 object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none'

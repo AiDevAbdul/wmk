@@ -46,6 +46,11 @@ export default function BlogPage() {
   }, []);
 
   useEffect(() => {
+    if (!Array.isArray(posts)) {
+      setFilteredPosts([]);
+      return;
+    }
+
     let filtered = posts.filter((p) => p.published !== false);
 
     if (search) {
@@ -67,9 +72,10 @@ export default function BlogPage() {
     try {
       const res = await fetch('/api/blog');
       const data = await res.json();
-      setPosts(data);
+      setPosts(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Failed to fetch posts:', error);
+      setPosts([]);
     } finally {
       setLoading(false);
     }
@@ -90,14 +96,12 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-steel-dark overflow-hidden">
-      {/* Animated background elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary/2 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent-red/2 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      {/* Hero Section - Premium Luxury */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -105,7 +109,6 @@ export default function BlogPage() {
         className="relative pt-32 pb-24 px-4 md:px-8"
       >
         <div className="max-w-6xl mx-auto">
-          {/* Breadcrumb */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -117,7 +120,6 @@ export default function BlogPage() {
             <span className="text-primary">Technical Hub</span>
           </motion.div>
 
-          {/* Main heading with premium typography */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,7 +137,6 @@ export default function BlogPage() {
             </h1>
           </motion.div>
 
-          {/* Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -145,7 +146,6 @@ export default function BlogPage() {
             Expert insights on ECM repair, hybrid battery services, car programming, and automotive maintenance. Stay informed with industry-leading technical knowledge.
           </motion.p>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -166,14 +166,12 @@ export default function BlogPage() {
         </div>
       </motion.div>
 
-      {/* Search & Filter Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
         className="relative max-w-6xl mx-auto px-4 md:px-8 mb-20"
       >
-        {/* Premium search bar with glassmorphism */}
         <div className="mb-8">
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-all duration-500" />
@@ -190,7 +188,6 @@ export default function BlogPage() {
           </div>
         </div>
 
-        {/* Category filters with premium styling */}
         <div className="flex flex-wrap gap-3 items-center">
           <span className="text-steel-light/60 text-sm font-semibold tracking-wide uppercase">Filter:</span>
 
@@ -229,7 +226,6 @@ export default function BlogPage() {
         </div>
       </motion.div>
 
-      {/* Posts Grid - Premium Cards */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 pb-24">
         {loading ? (
           <motion.div
@@ -256,26 +252,22 @@ export default function BlogPage() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-max"
           >
-            {filteredPosts.map((post, idx) => (
+            {filteredPosts.map((post) => (
               <motion.div key={post.id} variants={itemVariants}>
                 <Link href={`/${locale}/blog/${post.slug}`}>
                   <motion.div
                     whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                    className="group relative h-full bg-gradient-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-steel-light/10 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 cursor-pointer"
+                    className="group relative min-h-96 bg-gradient-to-br from-steel-mid/80 via-steel-mid/70 to-steel-dark/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-steel-light/20 hover:border-primary/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 cursor-pointer"
                   >
-                    {/* Premium glow on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/15 group-hover:via-primary/5 group-hover:to-primary/0 transition-all duration-500 rounded-2xl" />
 
-                    {/* Animated shine effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl" />
 
-                    {/* Corner accent */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-3xl" />
 
                     <div className="relative p-8 h-full flex flex-col z-10">
-                      {/* Category Badge with icon */}
                       <div className="flex items-center justify-between mb-6">
                         <motion.div
                           whileHover={{ scale: 1.08 }}
@@ -292,20 +284,16 @@ export default function BlogPage() {
                         </span>
                       </div>
 
-                      {/* Title with premium typography */}
                       <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300 line-clamp-2 tracking-tight leading-tight">
                         {post.title}
                       </h3>
 
-                      {/* Excerpt */}
                       <p className="text-steel-light/70 text-sm leading-relaxed line-clamp-3 grow mb-6 font-light tracking-wide">
                         {post.excerpt}
                       </p>
 
-                      {/* Divider */}
                       <div className="h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 mb-6" />
 
-                      {/* Read More Link with premium styling */}
                       <motion.div
                         whileHover={{ x: 6 }}
                         className="flex items-center gap-3 text-primary font-semibold text-sm group-hover:gap-4 transition-all"
@@ -327,7 +315,6 @@ export default function BlogPage() {
         )}
       </div>
 
-      {/* CTA Section */}
       {filteredPosts.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -337,7 +324,6 @@ export default function BlogPage() {
           className="relative max-w-6xl mx-auto px-4 md:px-8 py-20 mb-12"
         >
           <div className="relative bg-gradient-to-r from-steel-mid/40 via-steel-mid/20 to-steel-dark/40 backdrop-blur-xl rounded-2xl border border-primary/20 p-12 overflow-hidden">
-            {/* Background glow */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
