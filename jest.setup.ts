@@ -26,7 +26,7 @@ jest.mock('next/navigation', () => ({
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props) => {
+  default: (props: any) => {
     // eslint-disable-next-line jsx-a11y/alt-text
     return props
   },
@@ -35,22 +35,22 @@ jest.mock('next/image', () => ({
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }) => children,
-    button: ({ children, ...props }) => children,
-    a: ({ children, ...props }) => children,
-    span: ({ children, ...props }) => children,
-    h1: ({ children, ...props }) => children,
-    h2: ({ children, ...props }) => children,
-    h3: ({ children, ...props }) => children,
-    p: ({ children, ...props }) => children,
+    div: ({ children, ...props }: any) => children,
+    button: ({ children, ...props }: any) => children,
+    a: ({ children, ...props }: any) => children,
+    span: ({ children, ...props }: any) => children,
+    h1: ({ children, ...props }: any) => children,
+    h2: ({ children, ...props }: any) => children,
+    h3: ({ children, ...props }: any) => children,
+    p: ({ children, ...props }: any) => children,
   },
-  AnimatePresence: ({ children }) => children,
+  AnimatePresence: ({ children }: any) => children,
 }))
 
 // Suppress console errors in tests
 const originalError = console.error
 beforeAll(() => {
-  console.error = (...args) => {
+  console.error = (...args: any[]) => {
     if (
       typeof args[0] === 'string' &&
       args[0].includes('Warning: ReactDOM.render')
