@@ -28,7 +28,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-steel-mid to-steel-dark py-20">
+      <section className="bg-linear-to-b from-steel-mid to-steel-dark py-20">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

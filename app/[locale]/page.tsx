@@ -60,7 +60,7 @@ export default function Home() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
 
         {/* Accent Glow Elements - Enhanced */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl z-0 animate-pulse"></div>
@@ -95,7 +95,7 @@ export default function Home() {
                 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight"
               >
                 <span className="block">Advanced Auto</span>
-                <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Repair & Programming</span>
+                <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Repair & Programming</span>
               </motion.h1>
 
               {/* Subheading */}
@@ -154,10 +154,10 @@ export default function Home() {
                 {/* Call Now - Primary CTA */}
                 <a
                   href="tel:+971554762284"
-                  className="group relative flex items-center justify-center gap-3 text-lg font-bold px-12 py-5 rounded-xl bg-gradient-to-r from-primary to-primary/90 text-steel-dark shadow-2xl shadow-primary/50 hover:shadow-primary/70 hover:scale-110 transition-all duration-300 overflow-hidden tracking-tight"
+                  className="group relative flex items-center justify-center gap-3 text-lg font-bold px-12 py-5 rounded-xl bg-linear-to-r from-primary to-primary/90 text-steel-dark shadow-2xl shadow-primary/50 hover:shadow-primary/70 hover:scale-110 transition-all duration-300 overflow-hidden tracking-tight"
                 >
                   {/* Animated background shine */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
                   {/* Pulsing ring effect */}
                   <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-white/30 transition-colors duration-300"></div>
@@ -176,7 +176,7 @@ export default function Home() {
                   className="group relative flex items-center justify-center gap-2 text-base font-semibold px-10 py-5 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-300 overflow-hidden tracking-tight"
                 >
                   {/* Hover glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
                   <div className="relative flex items-center gap-2">
                     <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={22} height={22} className="group-hover:scale-110 transition-transform duration-300" />
@@ -198,19 +198,19 @@ export default function Home() {
           >
             <div className="relative max-w-2xl mx-auto">
               {/* Multi-layer Glow Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/50 via-primary/30 to-primary/20 rounded-3xl blur-3xl opacity-70"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent rounded-3xl blur-2xl opacity-50"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-primary/50 via-primary/30 to-primary/20 rounded-3xl blur-3xl opacity-70"></div>
+              <div className="absolute inset-0 bg-linear-to-b from-primary/20 to-transparent rounded-3xl blur-2xl opacity-50"></div>
 
               {/* Premium Card */}
-              <div className="relative bg-gradient-to-br from-primary/20 via-primary/10 to-steel-mid/20 backdrop-blur-2xl rounded-3xl px-8 py-6 sm:px-10 sm:py-7 border-2 border-primary/60 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:border-primary/90 transition-all duration-500 group overflow-hidden">
+              <div className="relative bg-linear-to-br from-primary/20 via-primary/10 to-steel-mid/20 backdrop-blur-2xl rounded-3xl px-8 py-6 sm:px-10 sm:py-7 border-2 border-primary/60 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:border-primary/90 transition-all duration-500 group overflow-hidden">
 
                 {/* Animated gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
 
                 {/* Content */}
                 <div className="relative flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
                   {/* Icon Container */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary/40 to-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-500 border border-primary/30">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-linear-to-br from-primary/40 to-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-500 border border-primary/30">
                     <MapPin size={32} className="text-primary group-hover:animate-bounce" />
                   </div>
 
@@ -277,12 +277,12 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center justify-center gap-2 mb-4">
-              <div className="w-12 h-1 bg-gradient-to-r from-primary/0 to-primary rounded-full"></div>
+              <div className="w-12 h-1 bg-linear-to-r from-primary/0 to-primary rounded-full"></div>
               <span className="text-primary font-semibold text-sm tracking-widest uppercase">Our Expertise</span>
-              <div className="w-12 h-1 bg-gradient-to-l from-primary/0 to-primary rounded-full"></div>
+              <div className="w-12 h-1 bg-linear-to-l from-primary/0 to-primary rounded-full"></div>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-              What We <span className="bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Fix</span>
+              What We <span className="bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Fix</span>
             </h2>
             <p className="text-steel-light/80 text-lg max-w-2xl mx-auto leading-relaxed">
               Comprehensive automotive solutions for all your repair and programming needs
@@ -320,9 +320,9 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-center"
           >
-            <Link href="/services" className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 overflow-hidden">
+            <Link href="/services" className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 overflow-hidden">
               {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               <span className="relative">View All Services</span>
               <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
@@ -331,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* Specialization Highlight */}
-      <section className="py-24 bg-gradient-to-br from-steel-mid via-steel-mid to-steel-dark relative overflow-hidden">
+      <section className="py-24 bg-linear-to-br from-steel-mid via-steel-mid to-steel-dark relative overflow-hidden">
         {/* Background Accent Elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/8 rounded-full blur-3xl -z-10"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
@@ -353,7 +353,7 @@ export default function Home() {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 className="inline-flex items-center gap-2"
               >
-                <div className="w-8 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
+                <div className="w-8 h-1 bg-linear-to-r from-primary to-primary/60 rounded-full"></div>
                 <span className="text-primary font-semibold text-xs tracking-widest uppercase">Our Specialty</span>
               </motion.div>
 
@@ -366,7 +366,7 @@ export default function Home() {
                 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight"
               >
                 <span className="block text-white">Advanced ECM &</span>
-                <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Programming Specialists</span>
+                <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Programming Specialists</span>
               </motion.h2>
 
               {/* Description */}
@@ -429,10 +429,10 @@ export default function Home() {
               >
                 <a
                   href="/services/ecm-repair"
-                  className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 overflow-hidden tracking-tight"
+                  className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 overflow-hidden tracking-tight"
                 >
                   {/* Shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   <span className="relative">Learn More About ECM Repair</span>
                   <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
@@ -448,13 +448,13 @@ export default function Home() {
               className="relative h-96 hidden md:flex items-center justify-center"
             >
               {/* Glow Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-2xl"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-2xl"></div>
 
               {/* Premium Card Container */}
-              <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-primary/15 via-primary/5 to-steel-mid/10 border-2 border-primary/30 backdrop-blur-xl p-8 flex flex-col items-center justify-center space-y-6 overflow-hidden group hover:border-primary/60 transition-all duration-500">
+              <div className="relative w-full h-full rounded-3xl bg-linear-to-br from-primary/15 via-primary/5 to-steel-mid/10 border-2 border-primary/30 backdrop-blur-xl p-8 flex flex-col items-center justify-center space-y-6 overflow-hidden group hover:border-primary/60 transition-all duration-500">
 
                 {/* Animated gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
 
                 {/* Circuit SVG */}
                 <svg
@@ -537,7 +537,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
               <span className="text-white">Trusted With Every</span>
               <br />
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Make & Model</span>
+              <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">Make & Model</span>
             </h2>
             <p className="text-lg text-white/95 leading-relaxed font-semibold max-w-2xl mx-auto">
               We service 16+ premium automotive brands with expert diagnostics and programming capabilities.
@@ -555,7 +555,7 @@ export default function Home() {
                 <motion.div
                   key={`left-${idx}`}
                   whileHover={{ scale: 1.08, y: -4 }}
-                  className="group flex-shrink-0 w-32 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-primary/8 to-primary/4 border border-primary/20 rounded-xl hover:border-primary/60 hover:bg-primary/12 transition-all duration-300 cursor-pointer"
+                  className="group flex-shrink-0 w-32 flex flex-col items-center justify-center p-6 bg-linear-to-br from-primary/8 to-primary/4 border border-primary/20 rounded-xl hover:border-primary/60 hover:bg-primary/12 transition-all duration-300 cursor-pointer"
                 >
                   {/* Logo Container */}
                   <div className="w-12 h-12 mb-3 flex items-center justify-center relative">
@@ -591,7 +591,7 @@ export default function Home() {
                 <motion.div
                   key={`right-${idx}`}
                   whileHover={{ scale: 1.08, y: -4 }}
-                  className="group flex-shrink-0 w-32 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-primary/8 to-primary/4 border border-primary/20 rounded-xl hover:border-primary/60 hover:bg-primary/12 transition-all duration-300 cursor-pointer"
+                  className="group flex-shrink-0 w-32 flex flex-col items-center justify-center p-6 bg-linear-to-br from-primary/8 to-primary/4 border border-primary/20 rounded-xl hover:border-primary/60 hover:bg-primary/12 transition-all duration-300 cursor-pointer"
                 >
                   {/* Logo Container */}
                   <div className="w-12 h-12 mb-3 flex items-center justify-center relative">
@@ -632,7 +632,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose WMK */}
-      <section className="py-24 bg-gradient-to-b from-steel-mid to-steel-dark relative overflow-hidden">
+      <section className="py-24 bg-linear-to-b from-steel-mid to-steel-dark relative overflow-hidden">
         {/* Background Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -654,7 +654,7 @@ export default function Home() {
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Why Choose <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">WMK</span>
+              Why Choose <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">WMK</span>
             </h2>
             <p className="text-white font-medium text-lg max-w-2xl mx-auto leading-relaxed">
               We're not just another repair shop. We're your trusted partner for elite automotive expertise.
@@ -683,14 +683,14 @@ export default function Home() {
                   className="group relative"
                 >
                   {/* Card Background with Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Card Border Glow */}
                   <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
                   {/* Shine Effect */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
                   </div>
 
                   {/* Content */}
@@ -701,8 +701,8 @@ export default function Home() {
                       transition={{ type: 'spring', stiffness: 300 }}
                       className="relative mb-6 flex justify-center"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                      <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/40 group-hover:border-primary/80 transition-all duration-300">
+                      <div className="absolute inset-0 bg-linear-to-br from-primary/40 to-primary/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                      <div className="relative w-16 h-16 flex items-center justify-center bg-linear-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/40 group-hover:border-primary/80 transition-all duration-300">
                         <Icon size={32} className="text-primary group-hover:text-primary transition-colors duration-300" />
                       </div>
                     </motion.div>
@@ -725,7 +725,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-gradient-to-b from-steel-dark to-steel-mid relative overflow-hidden">
+      <section className="py-24 bg-linear-to-b from-steel-dark to-steel-mid relative overflow-hidden">
         {/* Background Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -747,7 +747,7 @@ export default function Home() {
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              What Our <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Customers Say</span>
+              What Our <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Customers Say</span>
             </h2>
             <p className="text-white font-medium text-lg max-w-2xl mx-auto leading-relaxed">
               Real feedback from satisfied clients who trust WMK for their automotive needs.

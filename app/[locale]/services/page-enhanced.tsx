@@ -68,7 +68,7 @@ export default function EnhancedServicesPage() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
 
         {/* Accent Glow Elements */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl z-0 animate-pulse"></div>
@@ -101,7 +101,7 @@ export default function EnhancedServicesPage() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight"
             >
               <span className="block">Comprehensive Auto</span>
-              <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Repair Solutions</span>
+              <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Repair Solutions</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -173,7 +173,7 @@ export default function EnhancedServicesPage() {
                 onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
                 className={`px-6 py-3 rounded-full font-semibold text-sm tracking-tight transition-all duration-300 ${
                   selectedCategory === category.id || (selectedCategory === null && category.id === 'all')
-                    ? 'bg-gradient-to-r from-primary to-primary/90 text-steel-dark shadow-lg shadow-primary/50'
+                    ? 'bg-linear-to-r from-primary to-primary/90 text-steel-dark shadow-lg shadow-primary/50'
                     : 'bg-steel-mid/50 text-white hover:bg-steel-mid border border-steel-mid hover:border-primary/50'
                 }`}
               >
@@ -213,7 +213,7 @@ export default function EnhancedServicesPage() {
       </section>
 
       {/* Why Choose Our Services Section */}
-      <section className="py-24 bg-gradient-to-b from-steel-mid to-steel-dark relative overflow-hidden">
+      <section className="py-24 bg-linear-to-b from-steel-mid to-steel-dark relative overflow-hidden">
         {/* Background Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -234,7 +234,7 @@ export default function EnhancedServicesPage() {
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Service Excellence <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Guaranteed</span>
+              Service Excellence <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Guaranteed</span>
             </h2>
           </motion.div>
 
@@ -258,14 +258,14 @@ export default function EnhancedServicesPage() {
                 className="group relative"
               >
                 {/* Card Background with Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Card Border Glow */}
                 <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
                 {/* Shine Effect */}
                 <div className="absolute inset-0 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
                 </div>
 
                 {/* Content */}
@@ -306,9 +306,9 @@ export default function EnhancedServicesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+971554762284"
-                className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 overflow-hidden tracking-tight"
+                className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 overflow-hidden tracking-tight"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <span className="relative flex items-center gap-2">
                   📞 Call Now
                 </span>
@@ -320,7 +320,7 @@ export default function EnhancedServicesPage() {
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center gap-2 px-10 py-5 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-300 overflow-hidden tracking-tight rounded-xl font-semibold"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <span className="relative flex items-center gap-2">
                   <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={20} height={20} className="group-hover:scale-110 transition-transform duration-300" />
                   WhatsApp

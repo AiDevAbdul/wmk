@@ -49,7 +49,7 @@ export default function EnhancedBrandsPage() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
 
         {/* Accent Glow Elements */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl z-0 animate-pulse"></div>
@@ -82,7 +82,7 @@ export default function EnhancedBrandsPage() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight"
             >
               <span className="block">Cars We</span>
-              <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Service & Support</span>
+              <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Service & Support</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -135,7 +135,7 @@ export default function EnhancedBrandsPage() {
       </section>
 
       {/* Featured Brands Section */}
-      <section className="py-20 bg-gradient-to-b from-steel-dark to-steel-mid">
+      <section className="py-20 bg-linear-to-b from-steel-dark to-steel-mid">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -145,7 +145,7 @@ export default function EnhancedBrandsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
-              Featured <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Brands</span>
+              Featured <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Brands</span>
             </h2>
             <p className="text-steel-light/80 font-medium">Our most popular services</p>
           </motion.div>
@@ -162,7 +162,7 @@ export default function EnhancedBrandsPage() {
                 <Link href={`/brands/${brand.slug}`}>
                   <div className="group cursor-pointer h-full relative overflow-hidden rounded-2xl">
                     {/* Multi-layer Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/80 rounded-2xl transition-all duration-500 group-hover:from-steel-mid/80 group-hover:via-steel-mid/60 group-hover:to-steel-dark/90"></div>
+                    <div className="absolute inset-0 bg-linear-to-br from-steel-mid/60 via-steel-mid/40 to-steel-dark/80 rounded-2xl transition-all duration-500 group-hover:from-steel-mid/80 group-hover:via-steel-mid/60 group-hover:to-steel-dark/90"></div>
 
                     {/* Border Glow */}
                     <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/60 transition-all duration-500"></div>
@@ -171,15 +171,15 @@ export default function EnhancedBrandsPage() {
                     <div className="absolute inset-0 rounded-2xl shadow-2xl shadow-primary/0 group-hover:shadow-primary/40 transition-all duration-500"></div>
 
                     {/* Shine Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-2xl"></div>
 
                     {/* Content */}
                     <div className="relative p-8 h-full flex flex-col z-10">
                       {/* Logo Container */}
                       <div className="mb-6 relative">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-primary/30 to-primary/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"></div>
+                        <div className="absolute -inset-2 bg-linear-to-br from-primary/30 to-primary/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"></div>
 
-                        <div className="relative w-20 h-20 bg-gradient-to-br from-primary/40 to-primary/15 rounded-xl flex items-center justify-center border-2 border-primary/40 group-hover:border-primary/80 group-hover:scale-125 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300">
+                        <div className="relative w-20 h-20 bg-linear-to-br from-primary/40 to-primary/15 rounded-xl flex items-center justify-center border-2 border-primary/40 group-hover:border-primary/80 group-hover:scale-125 group-hover:shadow-2xl group-hover:shadow-primary/50 transition-all duration-300">
                           <Image
                             src={brand.logo}
                             alt={brand.logoAlt}
@@ -236,7 +236,7 @@ export default function EnhancedBrandsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
-              All <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Supported Brands</span>
+              All <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Supported Brands</span>
             </h2>
             <p className="text-steel-light/80 font-medium">Complete list of makes and models we service</p>
           </motion.div>
@@ -251,18 +251,18 @@ export default function EnhancedBrandsPage() {
             {regularBrands.map((brand) => (
               <motion.div key={brand.id} variants={itemVariants}>
                 <Link href={`/brands/${brand.slug}`}>
-                  <div className="group cursor-pointer relative overflow-hidden rounded-xl p-6 bg-gradient-to-br from-steel-mid/60 to-steel-dark/80 border border-primary/20 hover:border-primary/60 transition-all duration-300 h-full flex flex-col">
+                  <div className="group cursor-pointer relative overflow-hidden rounded-xl p-6 bg-linear-to-br from-steel-mid/60 to-steel-dark/80 border border-primary/20 hover:border-primary/60 transition-all duration-300 h-full flex flex-col">
                     {/* Glow Effect */}
                     <div className="absolute inset-0 rounded-xl shadow-2xl shadow-primary/0 group-hover:shadow-primary/30 transition-all duration-300"></div>
 
                     {/* Shine Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-xl"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 rounded-xl"></div>
 
                     {/* Content */}
                     <div className="relative z-10 flex flex-col h-full">
                       {/* Logo */}
                       <div className="mb-4 flex justify-center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center border border-primary/30 group-hover:border-primary/60 group-hover:scale-110 transition-all duration-300">
+                        <div className="w-16 h-16 bg-linear-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center border border-primary/30 group-hover:border-primary/60 group-hover:scale-110 transition-all duration-300">
                           <Image
                             src={brand.logo}
                             alt={brand.logoAlt}
@@ -300,7 +300,7 @@ export default function EnhancedBrandsPage() {
       </section>
 
       {/* Why We're Different */}
-      <section className="py-24 bg-gradient-to-b from-steel-mid to-steel-dark relative overflow-hidden">
+      <section className="py-24 bg-linear-to-b from-steel-mid to-steel-dark relative overflow-hidden">
         {/* Background Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -316,7 +316,7 @@ export default function EnhancedBrandsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Why Choose WMK for <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Your Brand</span>
+              Why Choose WMK for <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Your Brand</span>
             </h2>
           </motion.div>
 
@@ -338,7 +338,7 @@ export default function EnhancedBrandsPage() {
                 whileHover={{ y: -8 }}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
                 <div className="relative p-8 text-center h-full flex flex-col justify-center">

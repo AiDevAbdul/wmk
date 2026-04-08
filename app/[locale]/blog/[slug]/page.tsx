@@ -197,7 +197,7 @@ export default function BlogPostPage() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-16 pt-12 border-t border-steel-light/10"
         >
-          <div className="bg-gradient-to-r from-steel-mid/50 to-steel-mid/30 backdrop-blur-sm rounded-xl p-8 border border-steel-light/10">
+          <div className="bg-linear-to-r from-steel-mid/50 to-steel-mid/30 backdrop-blur-sm rounded-xl p-8 border border-steel-light/10">
             <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">Need Expert Help?</h3>
             <p className="text-steel-light/80 mb-6 leading-relaxed">
               Contact our technical team for professional ECM repair, hybrid battery services, and car programming solutions.
@@ -207,7 +207,7 @@ export default function BlogPostPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="tel:+971554762284"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all"
               >
                 Call Now
               </motion.a>
@@ -234,7 +234,7 @@ export default function BlogPostPage() {
         >
           <Link
             href={`/${locale}/blog`}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all group"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             Back to Articles

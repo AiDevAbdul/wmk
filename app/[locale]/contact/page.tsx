@@ -96,7 +96,7 @@ export default function EnhancedContactPage() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
 
         {/* Accent Glow Elements */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl z-0 animate-pulse"></div>
@@ -129,7 +129,7 @@ export default function EnhancedContactPage() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight"
             >
               <span className="block">Contact Our</span>
-              <span className="block bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Expert Team</span>
+              <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Expert Team</span>
             </motion.h1>
 
             {/* Subheading with Trust Signal */}
@@ -200,14 +200,14 @@ export default function EnhancedContactPage() {
                   className="group relative"
                 >
                   {/* Card Background with Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Card Border Glow */}
                   <div className="absolute inset-0 rounded-xl border border-primary/20 group-hover:border-primary/60 transition-colors duration-300"></div>
 
                   {/* Shine Effect */}
                   <div className="absolute inset-0 rounded-xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
                   </div>
 
                   {/* Content */}
@@ -217,8 +217,8 @@ export default function EnhancedContactPage() {
                       transition={{ type: 'spring', stiffness: 300 }}
                       className="relative mb-4 flex justify-center"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                      <div className="relative w-16 h-16 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/40 group-hover:border-primary/80 transition-all duration-300">
+                      <div className="absolute inset-0 bg-linear-to-br from-primary/40 to-primary/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                      <div className="relative w-16 h-16 flex items-center justify-center bg-linear-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/40 group-hover:border-primary/80 transition-all duration-300">
                         <Icon size={32} className="text-primary" />
                       </div>
                     </motion.div>
@@ -250,7 +250,7 @@ export default function EnhancedContactPage() {
       </section>
 
       {/* Contact Form & Map Section */}
-      <section className="py-24 bg-gradient-to-b from-steel-mid to-steel-dark">
+      <section className="py-24 bg-linear-to-b from-steel-mid to-steel-dark">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form - Left Column */}
@@ -385,7 +385,7 @@ export default function EnhancedContactPage() {
                   className={`w-full py-4 rounded-lg font-bold text-lg tracking-tight transition-all duration-300 overflow-hidden relative group ${
                     formState === 'success'
                       ? 'bg-green-600 text-white'
-                      : 'bg-gradient-to-r from-primary to-primary/90 text-steel-dark hover:shadow-2xl hover:shadow-primary/50'
+                      : 'bg-linear-to-r from-primary to-primary/90 text-steel-dark hover:shadow-2xl hover:shadow-primary/50'
                   }`}
                 >
                   {formState === 'submitting' && (
@@ -402,7 +402,7 @@ export default function EnhancedContactPage() {
                   )}
                   {formState === 'idle' && (
                     <span className="relative flex items-center justify-center gap-2">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                      <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                       Send Message via WhatsApp
                     </span>
                   )}
@@ -420,7 +420,7 @@ export default function EnhancedContactPage() {
             >
               {/* Map */}
               <div className="relative h-96 rounded-2xl overflow-hidden border-2 border-primary/20 group hover:border-primary/60 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.8234567890123!2d55.3586!3d25.1972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sRas%20Al%20Khor%20Industrial%20Area%202!5e0!3m2!1sen!2sae!4v1234567890"
                   width="100%"
@@ -435,10 +435,10 @@ export default function EnhancedContactPage() {
               {/* Business Hours Card */}
               <motion.div
                 whileHover={{ y: -4 }}
-                className="group relative bg-gradient-to-br from-steel-mid/60 to-steel-dark/80 rounded-2xl p-8 border border-primary/20 hover:border-primary/60 transition-all duration-300"
+                className="group relative bg-linear-to-br from-steel-mid/60 to-steel-dark/80 rounded-2xl p-8 border border-primary/20 hover:border-primary/60 transition-all duration-300"
               >
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-primary/4 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-primary/8 to-primary/4 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Content */}
                 <div className="relative">
@@ -497,7 +497,7 @@ export default function EnhancedContactPage() {
           >
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
-                Frequently Asked <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Questions</span>
+                Frequently Asked <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Questions</span>
               </h2>
               <p className="text-steel-light/80 font-medium">Quick answers to common questions</p>
             </div>
@@ -549,7 +549,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left p-6 bg-gradient-to-br from-steel-mid/60 to-steel-dark/80 rounded-xl border border-primary/20 hover:border-primary/60 transition-all duration-300 flex items-center justify-between"
+        className="w-full text-left p-6 bg-linear-to-br from-steel-mid/60 to-steel-dark/80 rounded-xl border border-primary/20 hover:border-primary/60 transition-all duration-300 flex items-center justify-between"
       >
         <span className="font-semibold text-white text-lg tracking-tight">{question}</span>
         <motion.div
