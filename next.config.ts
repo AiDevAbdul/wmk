@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
     maxInactiveAge: 60 * 1000,
     pagesBufferLength: 5,
   },
+  staticPageGenerationTimeout: 60,
 }
 
 export default nextConfig
