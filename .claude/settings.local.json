@@ -20,7 +20,8 @@
       "Bash(\"F:/wmk/app/api/admin/contacts/[id]/route.ts\":*)",
       "Bash(\"F:/wmk/lib/analytics-events.ts\":*)",
       "Bash(node:*)",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "mcp__chrome-devtools__wait_for"
     ]
   }
 }

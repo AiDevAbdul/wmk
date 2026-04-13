@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
 const handler = NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -12,37 +13,42 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        try {
+          if (!credentials?.email || !credentials?.password) {
+            return null;
+          }
+
+          const user = await prisma.adminUser.findUnique({
+            where: { email: credentials.email as string },
+          });
+
+          if (!user) {
+            return null;
+          }
+
+          const passwordMatch = await bcrypt.compare(
+            credentials.password as string,
+            user.password
+          );
+
+          if (!passwordMatch) {
+            return null;
+          }
+
+          return {
+            id: user.id,
+            email: user.email,
+            role: user.role,
+          };
+        } catch (error) {
+          console.error("Auth error:", error);
           return null;
         }
-
-        const user = await prisma.adminUser.findUnique({
-          where: { email: credentials.email as string },
-        });
-
-        if (!user) {
-          return null;
-        }
-
-        const passwordMatch = await bcrypt.compare(
-          credentials.password as string,
-          user.password
-        );
-
-        if (!passwordMatch) {
-          return null;
-        }
-
-        return {
-          id: user.id,
-          email: user.email,
-          role: user.role,
-        };
       },
     }),
   ],
   pages: {
-    signIn: "/admin/login",
+    signIn: "/en/login",
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -65,5 +71,5 @@ const handler = NextAuth({
   },
 });
 
-export const { handlers, auth } = handler;
-export default handler;
+export { handler as default };
+export const { auth } = handler;

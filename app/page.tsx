@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Phone, MapPin, Zap, Shield, Code, Wrench, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ServiceCard, StatCounter, ReviewCard, CTABanner, SectionHeading } from '@/components/ui/Cards'
+import { ServiceCard, StatCounter, ReviewCard, CTABanner } from '@/components/ui/Cards'
 import { services } from '@/lib/services'
 import { brands } from '@/lib/brands'
 
@@ -194,13 +194,13 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-20 w-full"
+            className="mt-20 w-full pointer-events-auto"
           >
             <a
               href="https://maps.google.com/?q=18+Street+Ras+Al+Khor+Industrial+Area+2+Dubai"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative max-w-2xl mx-auto block group cursor-pointer"
+              className="relative max-w-2xl mx-auto block group cursor-pointer pointer-events-auto"
             >
               {/* Multi-layer Glow Background */}
               <div className="absolute inset-0 bg-linear-to-r from-primary/50 via-primary/30 to-primary/20 rounded-3xl blur-3xl opacity-70 pointer-events-none"></div>
@@ -226,7 +226,7 @@ export default function Home() {
                       <p className="font-bold text-white text-xl sm:text-2xl tracking-tight">Ras Al Khor Industrial Area 2</p>
                     </div>
                     <p className="text-sm sm:text-base text-steel-light/90 font-medium leading-relaxed">18 Street, Dubai, UAE</p>
-                    <div className="flex flex-col sm:flex-row gap-3 mt-3 text-xs sm:text-sm font-semibold text-primary/90">
+                    <div className="flex flex-col sm:flex-row gap-1 sm:gap-3 mt-3 text-xs sm:text-sm font-semibold text-primary/90">
                       <span>🕐 10:00 AM - 10:00 PM</span>
                       <span className="hidden sm:inline">•</span>
                       <span>Sat - Thu (Fri OFF)</span>
