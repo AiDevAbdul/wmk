@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { withSentryConfig } from '@sentry/nextjs'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -31,4 +32,14 @@ const nextConfig: NextConfig = {
   staticPageGenerationTimeout: 60,
 }
 
-export default nextConfig
+export default withSentryConfig(nextConfig, {
+  org: 'wmk-auto-garage',
+  project: 'wmk-website',
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: true,
+  widenClientFileUpload: true,
+  tunnelRoute: '/monitoring',
+  sourcemaps: {
+    disable: true,
+  },
+})

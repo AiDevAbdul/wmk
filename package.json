@@ -16,6 +16,7 @@
   "dependencies": {
     "@google-analytics/data": "^5.2.1",
     "@prisma/client": "^5.20.0",
+    "@sentry/nextjs": "^10.48.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/bcryptjs": "^2.4.6",
     "@vercel/analytics": "^2.0.1",
