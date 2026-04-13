@@ -65,5 +65,5 @@ const handler = NextAuth({
   },
 });
 
-export const { handlers, auth, signIn, signOut } = handler;
+export const { handlers, auth } = handler;
 export default handler;
