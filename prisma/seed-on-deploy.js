@@ -5,7 +5,13 @@ const prisma = new PrismaClient();
 async function seedBlogPosts() {
   try {
     // Check if blog posts already exist
-    const existingPosts = await prisma.blogPost.count();
+    let existingPosts = 0;
+    try {
+      existingPosts = await prisma.blogPost.count();
+    } catch (error) {
+      console.log('Database not yet initialized, proceeding with seed...');
+    }
+
     if (existingPosts > 0) {
       console.log('Blog posts already seeded, skipping...');
       return;
