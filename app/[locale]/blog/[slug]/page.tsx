@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, User, Tag, Share2 } from 'lucide-react';
 import { useParams } from 'next/navigation';
+import { marked } from 'marked';
 
 interface BlogPost {
   id: string;
@@ -181,13 +182,10 @@ export default function BlogPostPage() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="prose prose-invert max-w-none mb-12"
         >
-          <div className="text-white/90 whitespace-pre-wrap leading-relaxed text-lg space-y-6">
-            {post.content.split('\n\n').map((paragraph, idx) => (
-              <p key={idx} className="text-steel-light/90">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <div
+            className="prose-content text-steel-light/90 leading-relaxed text-lg space-y-6"
+            dangerouslySetInnerHTML={{ __html: marked(post.content) }}
+          />
         </motion.div>
 
         {/* CTA Section */}
