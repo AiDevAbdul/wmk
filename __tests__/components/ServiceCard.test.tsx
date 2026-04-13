@@ -1,71 +1,45 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { ServiceCard } from '@/components/ui/Cards'
+import { Cpu } from 'lucide-react'
 
 describe('ServiceCard Component', () => {
-  const mockService = {
-    id: '1',
-    name: 'ECM Repair',
-    slug: 'ecm-repair',
+  const mockProps = {
+    icon: Cpu,
+    title: 'ECM Repair',
     description: 'Expert ECM repair and programming services',
-    icon: 'Cpu',
-    features: ['Diagnostics', 'Programming', 'Testing'],
+    href: '/en/services/ecm-repair',
   }
 
   it('should render service card with title', () => {
-    render(
-      <ServiceCard
-        service={mockService}
-        locale="en"
-      />
-    )
+    render(<ServiceCard {...mockProps} />)
     expect(screen.getByText('ECM Repair')).toBeInTheDocument()
   })
 
   it('should render service description', () => {
-    render(
-      <ServiceCard
-        service={mockService}
-        locale="en"
-      />
-    )
+    render(<ServiceCard {...mockProps} />)
     expect(screen.getByText('Expert ECM repair and programming services')).toBeInTheDocument()
   })
 
-  it('should render all features', () => {
-    render(
-      <ServiceCard
-        service={mockService}
-        locale="en"
-      />
-    )
-    expect(screen.getByText('Diagnostics')).toBeInTheDocument()
-    expect(screen.getByText('Programming')).toBeInTheDocument()
-    expect(screen.getByText('Testing')).toBeInTheDocument()
+  it('should render learn more link', () => {
+    render(<ServiceCard {...mockProps} />)
+    expect(screen.getByText('Learn More')).toBeInTheDocument()
   })
 
   it('should have correct link href', () => {
-    const { container } = render(
-      <ServiceCard
-        service={mockService}
-        locale="en"
-      />
-    )
+    const { container } = render(<ServiceCard {...mockProps} />)
     const link = container.querySelector('a')
     expect(link).toHaveAttribute('href', '/en/services/ecm-repair')
   })
 
-  it('should render with Arabic locale', () => {
-    const arabicService = {
-      ...mockService,
-      nameAr: 'إصلاح ECM',
+  it('should render with different href', () => {
+    const customProps = {
+      ...mockProps,
+      href: '/en/services/hybrid-battery',
+      title: 'Hybrid Battery',
     }
-    render(
-      <ServiceCard
-        service={arabicService}
-        locale="ar"
-      />
-    )
-    expect(screen.getByText('ECM Repair')).toBeInTheDocument()
+    const { container } = render(<ServiceCard {...customProps} />)
+    const link = container.querySelector('a')
+    expect(link).toHaveAttribute('href', '/en/services/hybrid-battery')
   })
 })

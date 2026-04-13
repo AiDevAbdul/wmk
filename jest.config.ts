@@ -29,6 +29,9 @@ const config: Config = {
     '!**/coverage/**',
     '!**/jest.config.ts',
   ],
+  transformIgnorePatterns: [
+    'node_modules/(?!(isomorphic-dompurify|@exodus)/)',
+  ],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

@@ -1,5 +1,10 @@
 import '@testing-library/jest-dom'
 
+// Mock isomorphic-dompurify to avoid ESM issues
+jest.mock('isomorphic-dompurify', () => ({
+  sanitize: (input: string) => input.replace(/<[^>]*>/g, '').trim(),
+}))
+
 // Mock next/navigation
 jest.mock('next/navigation', () => ({
   useRouter() {
