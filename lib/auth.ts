@@ -72,4 +72,8 @@ const handler = NextAuth({
 });
 
 export { handler as default };
-export const { auth } = handler;
+
+export async function auth() {
+  const session = await handler.auth();
+  return session;
+}
