@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-WMK Auto Repairing Garage LLC — Elite automotive website for Ras Al Khor, Dubai. Specializes in ECM/ECU repair, hybrid battery services, and car programming.
+WMK Auto Repairing Garage LLC — Elite automotive website for Ras Al Khor, Dubai. ECM/ECU repair, hybrid battery services, car programming.
 
 ## Quick Start
 
@@ -14,26 +14,24 @@ npm run lint     # Linting
 npm run seed     # Seed database with initial admin user
 ```
 
-**Environment Setup:**
+**Environment:**
 ```
 # Production (Vercel)
 DATABASE_URL="postgres://user:password@db.prisma.io:5432/postgres?sslmode=require"
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="https://yourdomain.com"
 
 # Local Development (SQLite)
 DATABASE_URL="file:./prisma/dev.db"
-
-NEXTAUTH_SECRET="your-secret-key"
-NEXTAUTH_URL="http://localhost:3000"
 ```
 
 ## Key Architecture
 
-- **Routes:** Locale-prefixed (`/[locale]/services`, `/[locale]/brands`, `/[locale]/blog`) with EN/AR support
-- **Data:** 12 services + 16 brands in `lib/services.ts` and `lib/brands.ts`
-- **Database:** PostgreSQL + Prisma (admin users, blog posts, contacts, analytics, services)
-- **Blog System:** 4 tables (blog_posts, admin_users, contact_submissions, analytics_events)
-- **Styling:** Tailwind v4 with `@tailwindcss/postcss`, theme in `app/globals.css`
-- **Auth:** NextAuth credentials provider, protected `/admin` routes
+- **Routes:** Locale-prefixed (`/[locale]/services`, `/[locale]/blog`) with EN/AR support
+- **Database:** PostgreSQL (production) + Prisma ORM
+- **Blog System:** Public API + admin CRUD endpoints
+- **Auth:** NextAuth v4 credentials provider, protected `/admin` routes
+- **Styling:** Tailwind v4 with `@tailwindcss/postcss`
 
 ## Critical Notes
 
@@ -44,34 +42,14 @@ NEXTAUTH_URL="http://localhost:3000"
 - Locale always prefixed in URL (`/en/*`, `/ar/*`); middleware enforces this
 - Phone (+971 55 476 2284) must be clickable `tel:` link on all pages
 - WhatsApp button fixed bottom-right (highest conversion driver)
-- **Documentation files saved in `/docs/` folder only**
-
-## Database & Blog System
-
-**PostgreSQL Setup (Production):**
-- Provider: PostgreSQL via Prisma Data Platform (db.prisma.io)
-- Migration lock: `prisma/migrations/migration_lock.toml` set to `postgresql`
-- Vercel: Add `DATABASE_URL` to environment variables
-- Auto-seeding: `npm run seed` populates admin user + 4 blog posts
-
-**Blog Features:**
-- Public endpoints: `/api/blog` (list), `/api/blog/[slug]` (detail)
-- Admin endpoints: `/api/admin/blog/*` (CRUD operations, protected)
-- Frontend: `/[locale]/blog` (list with search/filter), `/[locale]/blog/[slug]` (detail)
-- Markdown support: Blog content rendered via `marked` library
-- Categories: News, ECM Tips, Hybrid Battery, Maintenance
-- Sample posts seeded on deployment
-
-**Local Development:**
-- Use SQLite: `DATABASE_URL="file:./prisma/dev.db"`
-- Run `npm run seed` to populate sample data
-- Schema auto-syncs with `npx prisma db push`
 
 ## Documentation
 
 See `/docs/` for detailed guides:
-- `architecture.md` — Project structure, routing, components
-- `development.md` — Common tasks, code patterns
+- `QUICK_REFERENCE.md` — Common tasks, patterns, routing
+- `architecture.md` — Project structure, data models
+- `development.md` — Development workflows, code examples
+- `NEXTAUTH_SETUP.md` — NextAuth v4 configuration & API routes
+- `DATABASE_SETUP.md` — PostgreSQL/SQLite setup, blog system, seeding
 - `seo-conversion.md` — SEO strategy, schemas, optimization
-- `plan.md` — Implementation roadmap (Phase 1-3 complete)
 - `WMK_AutoGarage_Website_Spec.md` — Full specification
