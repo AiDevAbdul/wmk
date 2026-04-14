@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Save } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Save, MapPin, Clock, Phone, Mail } from 'lucide-react';
 
 interface Settings {
   phone: string;
@@ -36,8 +37,6 @@ export default function SettingsPage() {
 
   const fetchSettings = async () => {
     try {
-      // In a real app, fetch from API
-      // For now, use defaults
       setLoading(false);
     } catch (error) {
       console.error('Failed to fetch settings:', error);
@@ -50,14 +49,6 @@ export default function SettingsPage() {
     setMessage('');
 
     try {
-      // In a real app, save to API
-      // const res = await fetch('/api/admin/settings', {
-      //   method: 'PUT',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(settings),
-      // });
-
-      // For now, just show success
       setMessage('Settings saved successfully!');
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
@@ -69,149 +60,221 @@ export default function SettingsPage() {
   };
 
   if (loading) {
-    return <div className="min-h-screen bg-steel-dark p-8 text-steel-light">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="w-12 h-12 rounded-full border-2 border-primary/30 border-t-primary animate-spin mx-auto mb-4" />
+          <p className="text-steel-light">Loading settings...</p>
+        </div>
+      </div>
+    );
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring' as const, stiffness: 300, damping: 30 },
+    },
+  };
+
   return (
-    <div className="min-h-screen bg-steel-dark p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-white mb-8">Settings</h1>
+    <div className="space-y-8">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Settings</h1>
+        <p className="text-steel-light">Manage your business information and preferences</p>
+      </motion.div>
 
-        <div className="space-y-8">
-          {/* Contact Information */}
-          <div className="bg-steel-mid rounded-lg p-6 border border-steel-light/10">
-            <h2 className="text-xl font-bold text-white mb-6">Contact Information</h2>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">Phone Number</label>
-                <input
-                  type="tel"
-                  value={settings.phone}
-                  onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-                  className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="+971 55 476 2284"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">WhatsApp Link</label>
-                <input
-                  type="url"
-                  value={settings.whatsapp}
-                  onChange={(e) => setSettings({ ...settings, whatsapp: e.target.value })}
-                  className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="https://wa.me/971554762284"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">Email</label>
-                <input
-                  type="email"
-                  value={settings.email}
-                  onChange={(e) => setSettings({ ...settings, email: e.target.value })}
-                  className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="info@wmk.ae"
-                />
-              </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="space-y-6"
+      >
+        {/* Contact Information */}
+        <motion.div
+          variants={itemVariants}
+          className="rounded-xl border border-primary/10 bg-steel-mid/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 rounded-lg bg-primary/10">
+              <Phone size={24} className="text-primary" />
             </div>
+            <h2 className="text-xl font-bold">Contact Information</h2>
           </div>
 
-          {/* Address */}
-          <div className="bg-steel-mid rounded-lg p-6 border border-steel-light/10">
-            <h2 className="text-xl font-bold text-white mb-6">Address</h2>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">Address (English)</label>
-                <textarea
-                  value={settings.address}
-                  onChange={(e) => setSettings({ ...settings, address: e.target.value })}
-                  className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="18 Street, Ras Al Khor Industrial Area 2, Dubai, UAE"
-                  rows={2}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">Address (Arabic)</label>
-                <textarea
-                  value={settings.addressAr}
-                  onChange={(e) => setSettings({ ...settings, addressAr: e.target.value })}
-                  className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                  placeholder="شارع 18، منطقة راس الخور الصناعية 2، دبي، الإمارات"
-                  rows={2}
-                  dir="rtl"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Latitude</label>
-                  <input
-                    type="text"
-                    value={settings.latitude}
-                    onChange={(e) => setSettings({ ...settings, latitude: e.target.value })}
-                    className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                    placeholder="25.1972"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Longitude</label>
-                  <input
-                    type="text"
-                    value={settings.longitude}
-                    onChange={(e) => setSettings({ ...settings, longitude: e.target.value })}
-                    className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                    placeholder="55.3586"
-                  />
-                </div>
-              </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-white mb-2">Phone Number</label>
+              <input
+                type="tel"
+                value={settings.phone}
+                onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
+                className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all"
+                placeholder="+971 55 476 2284"
+              />
             </div>
-          </div>
-
-          {/* Business Hours */}
-          <div className="bg-steel-mid rounded-lg p-6 border border-steel-light/10">
-            <h2 className="text-xl font-bold text-white mb-6">Business Hours</h2>
 
             <div>
-              <label className="block text-sm font-medium text-white mb-2">Hours</label>
-              <textarea
-                value={settings.hours}
-                onChange={(e) => setSettings({ ...settings, hours: e.target.value })}
-                className="w-full px-4 py-2 bg-steel-dark text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary"
-                placeholder="Mon–Thu, Sat–Sun: 08:00–20:00 (Closed Friday)"
-                rows={3}
+              <label className="block text-sm font-semibold text-white mb-2">WhatsApp Link</label>
+              <input
+                type="url"
+                value={settings.whatsapp}
+                onChange={(e) => setSettings({ ...settings, whatsapp: e.target.value })}
+                className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all"
+                placeholder="https://wa.me/971554762284"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-white mb-2">Email Address</label>
+              <input
+                type="email"
+                value={settings.email}
+                onChange={(e) => setSettings({ ...settings, email: e.target.value })}
+                className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all"
+                placeholder="info@wmk.ae"
               />
             </div>
           </div>
+        </motion.div>
 
-          {/* Message */}
-          {message && (
-            <div className={`p-4 rounded-lg ${
-              message.includes('success')
-                ? 'bg-green-500/10 border border-green-500/30 text-green-400'
-                : 'bg-red-500/10 border border-red-500/30 text-red-400'
-            }`}>
-              {message}
+        {/* Address */}
+        <motion.div
+          variants={itemVariants}
+          className="rounded-xl border border-primary/10 bg-steel-mid/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 rounded-lg bg-primary/10">
+              <MapPin size={24} className="text-primary" />
             </div>
-          )}
-
-          {/* Save Button */}
-          <div className="flex gap-4">
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="flex items-center gap-2 px-6 py-2 bg-primary text-steel-dark font-semibold rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50"
-            >
-              <Save size={18} />
-              {saving ? 'Saving...' : 'Save Settings'}
-            </button>
+            <h2 className="text-xl font-bold">Location & Coordinates</h2>
           </div>
-        </div>
-      </div>
+
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-white mb-2">Address (English)</label>
+              <textarea
+                value={settings.address}
+                onChange={(e) => setSettings({ ...settings, address: e.target.value })}
+                className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+                placeholder="18 Street, Ras Al Khor Industrial Area 2, Dubai, UAE"
+                rows={2}
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-white mb-2">Address (Arabic)</label>
+              <textarea
+                value={settings.addressAr}
+                onChange={(e) => setSettings({ ...settings, addressAr: e.target.value })}
+                className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+                placeholder="شارع 18، منطقة راس الخور الصناعية 2، دبي، الإمارات"
+                rows={2}
+                dir="rtl"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-white mb-2">Latitude</label>
+                <input
+                  type="text"
+                  value={settings.latitude}
+                  onChange={(e) => setSettings({ ...settings, latitude: e.target.value })}
+                  className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all font-mono text-sm"
+                  placeholder="25.1972"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-white mb-2">Longitude</label>
+                <input
+                  type="text"
+                  value={settings.longitude}
+                  onChange={(e) => setSettings({ ...settings, longitude: e.target.value })}
+                  className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all font-mono text-sm"
+                  placeholder="55.3586"
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Business Hours */}
+        <motion.div
+          variants={itemVariants}
+          className="rounded-xl border border-primary/10 bg-steel-mid/50 backdrop-blur-sm p-6 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 rounded-lg bg-primary/10">
+              <Clock size={24} className="text-primary" />
+            </div>
+            <h2 className="text-xl font-bold">Business Hours</h2>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-white mb-2">Operating Hours</label>
+            <textarea
+              value={settings.hours}
+              onChange={(e) => setSettings({ ...settings, hours: e.target.value })}
+              className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+              placeholder="Mon–Thu, Sat–Sun: 08:00–20:00 (Closed Friday)"
+              rows={3}
+            />
+            <p className="text-xs text-steel-light mt-2">Format: Day(s): HH:MM–HH:MM (Notes)</p>
+          </div>
+        </motion.div>
+
+        {/* Message */}
+        {message && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`p-4 rounded-lg text-sm font-medium ${
+              message.includes('success')
+                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                : 'bg-red-500/10 text-red-400 border border-red-500/20'
+            }`}
+          >
+            {message}
+          </motion.div>
+        )}
+
+        {/* Save Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="flex gap-4 pt-4 border-t border-primary/10"
+        >
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/80 text-steel-dark font-bold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <Save size={20} />
+            {saving ? 'Saving...' : 'Save Settings'}
+          </button>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
