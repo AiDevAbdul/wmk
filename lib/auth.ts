@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { validatePassword, checkRateLimit, getRateLimitRemaining } from "@/lib/security";
 
-const handler = NextAuth({
+export const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -94,8 +94,6 @@ const handler = NextAuth({
   },
 });
 
-export { handler as default };
-
-export function auth(req: any, res?: any) {
-  return handler(req, res);
+export async function auth(req?: any, res?: any) {
+  return await handler.auth(req, res);
 }

@@ -1,6 +1,5 @@
 import createMiddleware from 'next-intl/middleware'
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@/lib/auth'
 
 const intlMiddleware = createMiddleware({
   locales: ['en', 'ar'],
@@ -9,19 +8,17 @@ const intlMiddleware = createMiddleware({
 })
 
 export default async function middleware(request: NextRequest) {
-  // Protect admin routes with server-side auth check
-  if (request.nextUrl.pathname.startsWith('/admin')) {
-    try {
-      const session = await auth(request)
+  const pathname = request.nextUrl.pathname
 
-      if (!session) {
-        return NextResponse.redirect(new URL('/en/login', request.url))
-      }
-    } catch (error) {
-      console.error('Auth middleware error:', error)
+  // Check for auth cookie
+  const sessionCookie = request.cookies.get('next-auth.session-token')?.value ||
+                        request.cookies.get('__Secure-next-auth.session-token')?.value
+
+  // Protect admin routes - redirect to login if no session cookie
+  if (pathname.startsWith('/admin')) {
+    if (!sessionCookie) {
       return NextResponse.redirect(new URL('/en/login', request.url))
     }
-
     return NextResponse.next()
   }
 
