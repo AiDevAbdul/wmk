@@ -4,7 +4,7 @@ WMK Auto Repairing Garage LLC — Elite automotive website for Ras Al Khor, Duba
 
 ## Quick Start
 
-**Tech Stack:** Next.js 16 · React 19 · TypeScript · Tailwind CSS 4.2 · Framer Motion · next-intl · Prisma · SQLite
+**Tech Stack:** Next.js 16 · React 19 · TypeScript · Tailwind CSS 4.2 · Framer Motion · next-intl · Prisma · PostgreSQL
 
 **Commands:**
 ```bash
@@ -16,16 +16,22 @@ npm run seed     # Seed database with initial admin user
 
 **Environment Setup:**
 ```
+# Production (Vercel)
+DATABASE_URL="postgres://user:password@db.prisma.io:5432/postgres?sslmode=require"
+
+# Local Development (SQLite)
 DATABASE_URL="file:./prisma/dev.db"
+
 NEXTAUTH_SECRET="your-secret-key"
 NEXTAUTH_URL="http://localhost:3000"
 ```
 
 ## Key Architecture
 
-- **Routes:** Locale-prefixed (`/[locale]/services`, `/[locale]/brands`) with EN/AR support
+- **Routes:** Locale-prefixed (`/[locale]/services`, `/[locale]/brands`, `/[locale]/blog`) with EN/AR support
 - **Data:** 12 services + 16 brands in `lib/services.ts` and `lib/brands.ts`
-- **Database:** SQLite + Prisma (admin, blog, contacts, analytics)
+- **Database:** PostgreSQL + Prisma (admin users, blog posts, contacts, analytics, services)
+- **Blog System:** 4 tables (blog_posts, admin_users, contact_submissions, analytics_events)
 - **Styling:** Tailwind v4 with `@tailwindcss/postcss`, theme in `app/globals.css`
 - **Auth:** NextAuth credentials provider, protected `/admin` routes
 
@@ -39,6 +45,27 @@ NEXTAUTH_URL="http://localhost:3000"
 - Phone (+971 55 476 2284) must be clickable `tel:` link on all pages
 - WhatsApp button fixed bottom-right (highest conversion driver)
 - **Documentation files saved in `/docs/` folder only**
+
+## Database & Blog System
+
+**PostgreSQL Setup (Production):**
+- Provider: PostgreSQL via Prisma Data Platform (db.prisma.io)
+- Migration lock: `prisma/migrations/migration_lock.toml` set to `postgresql`
+- Vercel: Add `DATABASE_URL` to environment variables
+- Auto-seeding: `npm run seed` populates admin user + 4 blog posts
+
+**Blog Features:**
+- Public endpoints: `/api/blog` (list), `/api/blog/[slug]` (detail)
+- Admin endpoints: `/api/admin/blog/*` (CRUD operations, protected)
+- Frontend: `/[locale]/blog` (list with search/filter), `/[locale]/blog/[slug]` (detail)
+- Markdown support: Blog content rendered via `marked` library
+- Categories: News, ECM Tips, Hybrid Battery, Maintenance
+- Sample posts seeded on deployment
+
+**Local Development:**
+- Use SQLite: `DATABASE_URL="file:./prisma/dev.db"`
+- Run `npm run seed` to populate sample data
+- Schema auto-syncs with `npx prisma db push`
 
 ## Documentation
 
