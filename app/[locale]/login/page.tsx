@@ -23,7 +23,13 @@ export default function LoginPage() {
     });
 
     if (result?.error) {
-      setError('Invalid email or password');
+      if (result.error.includes('Too many login attempts')) {
+        setError('Too many login attempts. Please try again in 15 minutes.');
+      } else if (result.error.includes('security requirements')) {
+        setError('Password does not meet security requirements. Please contact administrator.');
+      } else {
+        setError('Invalid email or password');
+      }
       setLoading(false);
     } else if (result?.ok) {
       router.push('/admin');
@@ -71,6 +77,17 @@ export default function LoginPage() {
                 {error}
               </div>
             )}
+
+            <div className="p-3 bg-steel-dark/50 border border-steel-light/20 rounded-lg text-steel-light text-xs">
+              <p className="font-semibold mb-2">Password Requirements:</p>
+              <ul className="space-y-1">
+                <li>• At least 12 characters</li>
+                <li>• At least 1 uppercase letter (A-Z)</li>
+                <li>• At least 1 lowercase letter (a-z)</li>
+                <li>• At least 1 number (0-9)</li>
+                <li>• At least 1 special character (!@#$%^&*)</li>
+              </ul>
+            </div>
 
             <button
               type="submit"

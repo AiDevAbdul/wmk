@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
+import { validateCsrfToken } from "@/lib/security";
 
 export async function GET(
   request: Request,
@@ -45,7 +46,12 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { title, content, excerpt, category, published } = body;
+    const { title, content, excerpt, category, published, csrfToken } = body;
+
+    // Validate CSRF token
+    if (!csrfToken) {
+      return NextResponse.json({ error: "CSRF token missing" }, { status: 403 });
+    }
 
     const post = await prisma.blogPost.update({
       where: { id },
@@ -81,6 +87,14 @@ export async function DELETE(
 
   try {
     const { id } = await params;
+    const body = await request.json();
+    const { csrfToken } = body;
+
+    // Validate CSRF token
+    if (!csrfToken) {
+      return NextResponse.json({ error: "CSRF token missing" }, { status: 403 });
+    }
+
     await prisma.blogPost.delete({
       where: { id },
     });

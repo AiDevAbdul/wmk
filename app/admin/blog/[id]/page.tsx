@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Save, X, Eye, Code } from 'lucide-react';
 import Link from 'next/link';
+import { generateToken } from '@/lib/csrf';
 
 interface BlogPost {
   id: string;
@@ -19,6 +21,7 @@ interface BlogPost {
 export default function BlogEditPage() {
   const router = useRouter();
   const params = useParams();
+  const { data: session } = useSession();
   const isNew = params.id === 'new';
 
   const [post, setPost] = useState<BlogPost>({
@@ -30,12 +33,16 @@ export default function BlogEditPage() {
     category: 'News',
     published: false,
   });
+  const [csrfToken, setCsrfToken] = useState('');
   const [loading, setLoading] = useState(!isNew);
   const [saving, setSaving] = useState(false);
   const [previewMode, setPreviewMode] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // Generate CSRF token on mount
+    setCsrfToken(generateToken());
+
     if (!isNew) {
       fetchPost();
     }
@@ -74,7 +81,10 @@ export default function BlogEditPage() {
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(post),
+        body: JSON.stringify({
+          ...post,
+          csrfToken,
+        }),
       });
 
       if (!res.ok) throw new Error('Failed to save');
