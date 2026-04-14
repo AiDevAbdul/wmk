@@ -144,7 +144,7 @@ export default function EnhancedContactPage() {
               </p>
               <div className="flex items-center justify-center gap-2 text-sm text-primary font-semibold">
                 <CheckCircle size={18} />
-                <span>Available 8 AM - 8 PM, 7 days a week</span>
+                <span>Available 8 AM - 10 PM, Saturday to Thursday</span>
               </div>
             </motion.div>
           </motion.div>
@@ -179,9 +179,9 @@ export default function EnhancedContactPage() {
               {
                 icon: Clock,
                 title: 'Hours',
-                content: 'Mon-Sun: 8 AM - 8 PM',
+                content: 'Sat-Thu: 8 AM - 10 PM',
                 link: null,
-                description: 'Open 7 days a week',
+                description: 'Closed Friday',
               },
               {
                 icon: MessageCircle,
@@ -445,8 +445,8 @@ export default function EnhancedContactPage() {
                   <h3 className="text-2xl font-bold mb-6 text-primary tracking-tight">Business Hours</h3>
                   <div className="space-y-4">
                     {[
-                      { day: 'Monday - Saturday', hours: '8:00 AM - 8:00 PM' },
-                      { day: 'Sunday', hours: '8:00 AM - 8:00 PM' },
+                      { day: 'Saturday - Thursday', hours: '8:00 AM - 10:00 PM' },
+                      { day: 'Friday', hours: 'Closed' },
                       { day: 'Holidays', hours: 'Call for availability' },
                     ].map((item, i) => (
                       <motion.div

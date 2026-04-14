@@ -22,7 +22,7 @@ export default function SettingsPage() {
     email: 'info@wmk.ae',
     address: '18 Street, Ras Al Khor Industrial Area 2, Dubai, UAE',
     addressAr: 'شارع 18، منطقة راس الخور الصناعية 2، دبي، الإمارات',
-    hours: 'Mon–Thu, Sat–Sun: 08:00–20:00 (Closed Friday)',
+    hours: 'Saturday–Thursday: 08:00–22:00 (Closed Friday)',
     latitude: '25.1972',
     longitude: '55.3586',
   });
@@ -244,7 +244,7 @@ export default function SettingsPage() {
               value={settings.hours}
               onChange={(e) => setSettings({ ...settings, hours: e.target.value })}
               className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
-              placeholder="Mon–Thu, Sat–Sun: 08:00–20:00 (Closed Friday)"
+              placeholder="Saturday–Thursday: 08:00–22:00 (Closed Friday)"
               rows={3}
             />
             <p className="text-xs text-steel-light mt-2">Format: Day(s): HH:MM–HH:MM (Notes)</p>

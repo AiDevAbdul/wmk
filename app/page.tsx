@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, MapPin, Zap, Shield, Code, Wrench, ArrowRight } from 'lucide-react'
+import { Phone, Zap, Shield, Code, Wrench, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ServiceCard, StatCounter, ReviewCard, CTABanner } from '@/components/ui/Cards'
+import { LocationBadge } from '@/components/ui/LocationBadge'
 import { services } from '@/lib/services'
 import { brands } from '@/lib/brands'
 
@@ -46,7 +47,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-steel-dark">
+      <section className="relative min-h-screen flex items-center justify-center bg-steel-dark">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 z-0 opacity-20">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -60,20 +61,20 @@ export default function Home() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-1"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-steel-dark via-steel-dark/90 to-steel-mid/50 z-0 pointer-events-none"></div>
 
         {/* Accent Glow Elements - Enhanced */}
         <div className="absolute top-20 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl z-0 animate-pulse"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-        <div className="container-max relative z-10 py-20 pb-40">
+        <div className="container-max relative z-10 py-20 pb-32">
           <div className="flex justify-center">
             {/* Left Content - Text & CTA */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: "easeOut" }}
-              className="text-center space-y-8 max-w-3xl"
+              className="text-center space-y-8 max-w-3xl w-full"
             >
               {/* Badge */}
               <motion.div
@@ -185,63 +186,12 @@ export default function Home() {
                 </a>
               </motion.div>
 
+              {/* Premium Location Badge - Inside Container */}
+              <LocationBadge />
+
             </motion.div>
 
           </div>
-
-          {/* Premium Location Badge - Below Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-20 w-full pointer-events-auto"
-          >
-            <a
-              href="https://maps.google.com/?q=18+Street+Ras+Al+Khor+Industrial+Area+2+Dubai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative max-w-2xl mx-auto block group cursor-pointer pointer-events-auto"
-            >
-              {/* Multi-layer Glow Background */}
-              <div className="absolute inset-0 bg-linear-to-r from-primary/50 via-primary/30 to-primary/20 rounded-3xl blur-3xl opacity-70 pointer-events-none"></div>
-              <div className="absolute inset-0 bg-linear-to-b from-primary/20 to-transparent rounded-3xl blur-2xl opacity-50 pointer-events-none"></div>
-
-              {/* Premium Card */}
-              <div className="relative bg-linear-to-br from-primary/20 via-primary/10 to-steel-mid/20 backdrop-blur-2xl rounded-3xl px-8 py-6 sm:px-10 sm:py-7 border-2 border-primary/60 shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:border-primary/90 transition-all duration-500 overflow-hidden">
-
-                {/* Animated gradient overlay on hover */}
-                <div className="absolute inset-0 bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-
-                {/* Content */}
-                <div className="relative flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
-                  {/* Icon Container */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-linear-to-br from-primary/40 to-primary/20 flex items-center justify-center shrink-0 group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-500 border border-primary/30">
-                    <MapPin size={32} className="text-primary group-hover:animate-bounce" />
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="text-center sm:text-left flex-1">
-                    <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
-                      <span className="text-2xl">📍</span>
-                      <p className="font-bold text-white text-xl sm:text-2xl tracking-tight">Ras Al Khor Industrial Area 2</p>
-                    </div>
-                    <p className="text-sm sm:text-base text-steel-light/90 font-medium leading-relaxed">18 Street, Dubai, UAE</p>
-                    <div className="flex flex-col sm:flex-row gap-1 sm:gap-3 mt-3 text-xs sm:text-sm font-semibold text-primary/90">
-                      <span>🕐 10:00 AM - 10:00 PM</span>
-                      <span className="hidden sm:inline">•</span>
-                      <span>Sat - Thu (Fri OFF)</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-primary/80 mt-2 font-semibold tracking-wide uppercase">Elite Auto Repair Specialists</p>
-                  </div>
-
-                  {/* Action Indicator */}
-                  <div className="hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 group-hover:bg-primary/40 transition-colors duration-300">
-                    <span className="text-primary text-xl group-hover:scale-125 transition-transform duration-300">→</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </motion.div>
         </div>
       </section>
 

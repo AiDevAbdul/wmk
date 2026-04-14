@@ -219,7 +219,7 @@ export default function EnhancedFooter() {
                 <div>
                   <p className="text-xs text-steel-light/70 font-medium">Hours</p>
                   <p className="text-white font-semibold text-sm">
-                    8 AM - 8 PM, 7 days
+                    8 AM - 10 PM, Sat-Thu
                   </p>
                 </div>
               </div>
@@ -319,7 +319,7 @@ export default function EnhancedFooter() {
         <div className="container-max flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-white font-semibold mb-1">Need immediate assistance?</p>
-            <p className="text-steel-light/80 text-sm">Our team is available 24/7 for emergencies</p>
+            <p className="text-steel-light/80 text-sm">Our team is available Saturday-Thursday, 8 AM - 10 PM</p>
           </div>
 
           <div className="flex gap-4">
