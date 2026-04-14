@@ -2,8 +2,8 @@ import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
-export async function GET() {
-  const session = await auth();
+export async function GET(request: Request) {
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -16,6 +16,7 @@ export async function GET() {
 
     return NextResponse.json(posts);
   } catch (error) {
+    console.error("Blog GET error:", error);
     return NextResponse.json(
       { error: "Failed to fetch blog posts" },
       { status: 500 }
@@ -24,7 +25,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -48,6 +49,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(post, { status: 201 });
   } catch (error) {
+    console.error("Blog POST error:", error);
     return NextResponse.json(
       { error: "Failed to create blog post" },
       { status: 500 }

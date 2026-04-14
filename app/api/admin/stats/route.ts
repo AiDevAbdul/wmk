@@ -1,7 +1,14 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const session = await auth(request);
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const [services, blogPosts, contacts] = await Promise.all([
       prisma.service.count(),

@@ -6,7 +6,7 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -24,6 +24,7 @@ export async function GET(
 
     return NextResponse.json(post);
   } catch (error) {
+    console.error("Blog GET detail error:", error);
     return NextResponse.json(
       { error: "Failed to fetch blog post" },
       { status: 500 }
@@ -35,7 +36,7 @@ export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -60,6 +61,7 @@ export async function PUT(
 
     return NextResponse.json(post);
   } catch (error) {
+    console.error("Blog PUT error:", error);
     return NextResponse.json(
       { error: "Failed to update blog post" },
       { status: 500 }
@@ -71,7 +73,7 @@ export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -85,6 +87,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error("Blog DELETE error:", error);
     return NextResponse.json(
       { error: "Failed to delete blog post" },
       { status: 500 }

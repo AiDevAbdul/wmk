@@ -6,7 +6,7 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -24,6 +24,7 @@ export async function GET(
 
     return NextResponse.json(service);
   } catch (error) {
+    console.error("Service GET detail error:", error);
     return NextResponse.json(
       { error: "Failed to fetch service" },
       { status: 500 }
@@ -35,7 +36,7 @@ export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -60,6 +61,7 @@ export async function PUT(
 
     return NextResponse.json(service);
   } catch (error) {
+    console.error("Service PUT error:", error);
     return NextResponse.json(
       { error: "Failed to update service" },
       { status: 500 }
@@ -71,7 +73,7 @@ export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const session = await auth();
+  const session = await auth(request);
 
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -85,6 +87,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error("Service DELETE error:", error);
     return NextResponse.json(
       { error: "Failed to delete service" },
       { status: 500 }
