@@ -139,8 +139,9 @@ export default function ServiceEditPage() {
         <div className="space-y-6">
           {/* English Name */}
           <div>
-            <label className="block text-sm font-medium text-white mb-2">Name (English)</label>
+            <label htmlFor="service-name-en" className="block text-sm font-medium text-white mb-2">Name (English)</label>
             <input
+              id="service-name-en"
               type="text"
               value={service.nameEn}
               onChange={(e) => setService({ ...service, nameEn: e.target.value })}
@@ -151,8 +152,9 @@ export default function ServiceEditPage() {
 
           {/* Arabic Name */}
           <div>
-            <label className="block text-sm font-medium text-white mb-2">Name (Arabic)</label>
+            <label htmlFor="service-name-ar" className="block text-sm font-medium text-white mb-2">Name (Arabic)</label>
             <input
+              id="service-name-ar"
               type="text"
               value={service.nameAr}
               onChange={(e) => setService({ ...service, nameAr: e.target.value })}
@@ -164,8 +166,9 @@ export default function ServiceEditPage() {
 
           {/* Slug */}
           <div>
-            <label className="block text-sm font-medium text-white mb-2">Slug</label>
+            <label htmlFor="service-slug" className="block text-sm font-medium text-white mb-2">Slug</label>
             <input
+              id="service-slug"
               type="text"
               value={service.slug}
               onChange={(e) => setService({ ...service, slug: e.target.value })}
@@ -176,8 +179,9 @@ export default function ServiceEditPage() {
 
           {/* English Description */}
           <div>
-            <label className="block text-sm font-medium text-white mb-2">Description (English)</label>
+            <label htmlFor="service-desc-en" className="block text-sm font-medium text-white mb-2">Description (English)</label>
             <textarea
+              id="service-desc-en"
               value={service.description}
               onChange={(e) => setService({ ...service, description: e.target.value })}
               className="w-full px-4 py-2 bg-steel-mid text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary font-mono text-sm"
@@ -188,8 +192,9 @@ export default function ServiceEditPage() {
 
           {/* Arabic Description */}
           <div>
-            <label className="block text-sm font-medium text-white mb-2">Description (Arabic)</label>
+            <label htmlFor="service-desc-ar" className="block text-sm font-medium text-white mb-2">Description (Arabic)</label>
             <textarea
+              id="service-desc-ar"
               value={service.descriptionAr}
               onChange={(e) => setService({ ...service, descriptionAr: e.target.value })}
               className="w-full px-4 py-2 bg-steel-mid text-white border border-steel-light/20 rounded-lg focus:outline-none focus:border-primary font-mono text-sm"
@@ -201,8 +206,8 @@ export default function ServiceEditPage() {
 
           {/* Brands */}
           <div>
-            <label className="block text-sm font-medium text-white mb-3">Related Brands</label>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <label htmlFor="service-brands" className="block text-sm font-medium text-white mb-3">Related Brands</label>
+            <div id="service-brands" className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {brands.map((brand) => (
                 <label key={brand} className="flex items-center gap-2 cursor-pointer">
                   <input
@@ -220,7 +225,7 @@ export default function ServiceEditPage() {
           {/* FAQ */}
           <div>
             <div className="flex justify-between items-center mb-3">
-              <label className="block text-sm font-medium text-white">FAQ Items</label>
+              <label htmlFor="faq-items" className="block text-sm font-medium text-white">FAQ Items</label>
               <button
                 onClick={handleAddFAQ}
                 className="px-3 py-1 bg-primary/20 text-primary text-sm rounded hover:bg-primary/30 transition-colors"
@@ -229,11 +234,12 @@ export default function ServiceEditPage() {
               </button>
             </div>
 
-            <div className="space-y-4">
+            <div id="faq-items" className="space-y-4">
               {faqItems.map((item, idx) => (
                 <div key={idx} className="bg-steel-dark/50 p-4 rounded-lg border border-steel-light/10">
                   <div className="mb-3">
                     <input
+                      id={`faq-question-${idx}`}
                       type="text"
                       value={item.question}
                       onChange={(e) => handleFAQChange(idx, 'question', e.target.value)}
@@ -243,6 +249,7 @@ export default function ServiceEditPage() {
                   </div>
                   <div className="mb-3">
                     <textarea
+                      id={`faq-answer-${idx}`}
                       value={item.answer}
                       onChange={(e) => handleFAQChange(idx, 'answer', e.target.value)}
                       className="w-full px-3 py-2 bg-steel-mid text-white border border-steel-light/20 rounded text-sm focus:outline-none focus:border-primary"

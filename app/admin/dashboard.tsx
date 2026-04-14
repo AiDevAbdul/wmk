@@ -97,6 +97,9 @@ export default function Dashboard() {
     const fetchStats = async () => {
       try {
         const res = await fetch('/api/admin/stats');
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
         const data = await res.json();
         setStats(data);
       } catch (error) {

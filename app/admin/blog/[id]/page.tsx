@@ -182,10 +182,11 @@ export default function BlogEditPage() {
         >
           {/* Title */}
           <div>
-            <label className="block text-sm font-semibold text-white mb-2">
+            <label htmlFor="post-title" className="block text-sm font-semibold text-white mb-2">
               Post Title <span className="text-red-400">*</span>
             </label>
             <input
+              id="post-title"
               type="text"
               value={post.title}
               onChange={(e) => setPost({ ...post, title: e.target.value })}
@@ -196,10 +197,11 @@ export default function BlogEditPage() {
 
           {/* Slug */}
           <div>
-            <label className="block text-sm font-semibold text-white mb-2">
+            <label htmlFor="post-slug" className="block text-sm font-semibold text-white mb-2">
               URL Slug <span className="text-red-400">*</span>
             </label>
             <input
+              id="post-slug"
               type="text"
               value={post.slug}
               onChange={(e) => setPost({ ...post, slug: e.target.value })}
@@ -211,8 +213,9 @@ export default function BlogEditPage() {
 
           {/* Excerpt */}
           <div>
-            <label className="block text-sm font-semibold text-white mb-2">Excerpt</label>
+            <label htmlFor="post-excerpt" className="block text-sm font-semibold text-white mb-2">Excerpt</label>
             <textarea
+              id="post-excerpt"
               value={post.excerpt}
               onChange={(e) => setPost({ ...post, excerpt: e.target.value })}
               placeholder="Brief summary of your post"
@@ -224,8 +227,9 @@ export default function BlogEditPage() {
           {/* Category & Status */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">Category</label>
+              <label htmlFor="post-category" className="block text-sm font-semibold text-white mb-2">Category</label>
               <select
+                id="post-category"
                 value={post.category}
                 onChange={(e) => setPost({ ...post, category: e.target.value })}
                 className="w-full px-4 py-3 bg-steel-mid border border-primary/20 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all cursor-pointer"
@@ -238,8 +242,9 @@ export default function BlogEditPage() {
             </div>
 
             <div className="flex items-end">
-              <label className="flex items-center gap-3 cursor-pointer p-3 rounded-lg hover:bg-steel-dark/50 transition-colors w-full">
+              <label htmlFor="post-published" className="flex items-center gap-3 cursor-pointer p-3 rounded-lg hover:bg-steel-dark/50 transition-colors w-full">
                 <input
+                  id="post-published"
                   type="checkbox"
                   checked={post.published}
                   onChange={(e) => setPost({ ...post, published: e.target.checked })}
@@ -252,10 +257,11 @@ export default function BlogEditPage() {
 
           {/* Content */}
           <div>
-            <label className="block text-sm font-semibold text-white mb-2">
+            <label htmlFor="post-content" className="block text-sm font-semibold text-white mb-2">
               Content <span className="text-red-400">*</span>
             </label>
             <textarea
+              id="post-content"
               value={post.content}
               onChange={(e) => setPost({ ...post, content: e.target.value })}
               placeholder="Write your post content here... (Markdown supported)"

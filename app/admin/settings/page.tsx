@@ -122,8 +122,9 @@ export default function SettingsPage() {
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">Phone Number</label>
+              <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">Phone Number</label>
               <input
+                id="phone"
                 type="tel"
                 value={settings.phone}
                 onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
@@ -133,8 +134,9 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">WhatsApp Link</label>
+              <label htmlFor="whatsapp" className="block text-sm font-semibold text-white mb-2">WhatsApp Link</label>
               <input
+                id="whatsapp"
                 type="url"
                 value={settings.whatsapp}
                 onChange={(e) => setSettings({ ...settings, whatsapp: e.target.value })}
@@ -144,8 +146,9 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">Email Address</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">Email Address</label>
               <input
+                id="email"
                 type="email"
                 value={settings.email}
                 onChange={(e) => setSettings({ ...settings, email: e.target.value })}
@@ -170,8 +173,9 @@ export default function SettingsPage() {
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">Address (English)</label>
+              <label htmlFor="address-en" className="block text-sm font-semibold text-white mb-2">Address (English)</label>
               <textarea
+                id="address-en"
                 value={settings.address}
                 onChange={(e) => setSettings({ ...settings, address: e.target.value })}
                 className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
@@ -181,8 +185,9 @@ export default function SettingsPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-white mb-2">Address (Arabic)</label>
+              <label htmlFor="address-ar" className="block text-sm font-semibold text-white mb-2">Address (Arabic)</label>
               <textarea
+                id="address-ar"
                 value={settings.addressAr}
                 onChange={(e) => setSettings({ ...settings, addressAr: e.target.value })}
                 className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
@@ -194,8 +199,9 @@ export default function SettingsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">Latitude</label>
+                <label htmlFor="latitude" className="block text-sm font-semibold text-white mb-2">Latitude</label>
                 <input
+                  id="latitude"
                   type="text"
                   value={settings.latitude}
                   onChange={(e) => setSettings({ ...settings, latitude: e.target.value })}
@@ -205,8 +211,9 @@ export default function SettingsPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">Longitude</label>
+                <label htmlFor="longitude" className="block text-sm font-semibold text-white mb-2">Longitude</label>
                 <input
+                  id="longitude"
                   type="text"
                   value={settings.longitude}
                   onChange={(e) => setSettings({ ...settings, longitude: e.target.value })}
@@ -231,8 +238,9 @@ export default function SettingsPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-white mb-2">Operating Hours</label>
+            <label htmlFor="hours" className="block text-sm font-semibold text-white mb-2">Operating Hours</label>
             <textarea
+              id="hours"
               value={settings.hours}
               onChange={(e) => setSettings({ ...settings, hours: e.target.value })}
               className="w-full px-4 py-3 bg-steel-dark border border-primary/20 rounded-lg text-white placeholder-steel-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all resize-none"
