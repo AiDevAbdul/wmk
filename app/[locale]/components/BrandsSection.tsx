@@ -4,117 +4,98 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { brands } from '@/lib/brands'
+import { useParams } from 'next/navigation'
+
+function BrandCard({ brand }: { brand: typeof brands[0] }) {
+  return (
+    <div
+      className="flex-shrink-0 w-28 flex flex-col items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 group cursor-pointer hover:-translate-y-1"
+      style={{
+        background: 'rgba(255,255,255,0.04)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      <div className="w-10 h-10 relative flex items-center justify-center">
+        <Image
+          src={brand.logo}
+          alt={brand.logoAlt}
+          width={40}
+          height={40}
+          className="w-full h-full object-contain filter brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+        />
+      </div>
+      <span className="text-[11px] font-semibold text-steel-light/50 group-hover:text-white transition-colors duration-300 text-center tracking-wide">
+        {brand.name}
+      </span>
+    </div>
+  )
+}
 
 export function BrandsSection() {
+  const params = useParams()
+  const locale = (params?.locale as string) || 'en'
+  const doubled = [...brands, ...brands, ...brands]
+
   return (
-    <section className="py-20 bg-steel-dark">
-      <div className="container-max">
-        {/* Section Header */}
+    <section className="relative py-28 bg-steel-dark overflow-hidden">
+      {/* Section header */}
+      <div className="container-max relative z-10 mb-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase">Trusted Partners</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            <span className="text-white">Trusted With Every</span>
-            <br />
-            <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">Make & Model</span>
-          </h2>
-          <p className="text-lg text-white/95 leading-relaxed font-semibold max-w-2xl mx-auto">
-            We service 16+ premium automotive brands with expert diagnostics and programming capabilities.
-          </p>
-        </motion.div>
-
-        {/* Brands Carousel - Left to Right */}
-        <div className="mb-12 overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: ['0%', '-100%'] }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          >
-            {[...brands, ...brands].map((brand, idx) => (
-              <motion.div
-                key={`left-${idx}`}
-                whileHover={{ scale: 1.08, y: -4 }}
-                className="group flex-shrink-0 w-32 flex flex-col items-center justify-center p-6 bg-linear-to-br from-primary/8 to-primary/4 border border-primary/20 rounded-xl hover:border-primary/60 hover:bg-primary/12 transition-all duration-300 cursor-pointer"
-              >
-                {/* Logo Container */}
-                <div className="w-12 h-12 mb-3 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-primary/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <Image
-                    src={brand.logo}
-                    alt={brand.logoAlt}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                </div>
-                {/* Brand Name */}
-                <span className="font-semibold text-sm text-center text-white/90 group-hover:text-primary transition-colors duration-300 tracking-tight">
-                  {brand.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Brands Carousel - Right to Left */}
-        <div className="mb-16 overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: ['-100%', '0%'] }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          >
-            {[...brands, ...brands].map((brand, idx) => (
-              <motion.div
-                key={`right-${idx}`}
-                whileHover={{ scale: 1.08, y: -4 }}
-                className="group flex-shrink-0 w-32 flex flex-col items-center justify-center p-6 bg-linear-to-br from-primary/8 to-primary/4 border border-primary/20 rounded-xl hover:border-primary/60 hover:bg-primary/12 transition-all duration-300 cursor-pointer"
-              >
-                {/* Logo Container */}
-                <div className="w-12 h-12 mb-3 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-primary/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <Image
-                    src={brand.logo}
-                    alt={brand.logoAlt}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                </div>
-                {/* Brand Name */}
-                <span className="font-semibold text-sm text-center text-white/90 group-hover:text-primary transition-colors duration-300 tracking-tight">
-                  {brand.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center"
         >
-          <Link href="/brands" className="btn-primary inline-block">
-            View All Brands & Services
-          </Link>
+          <span className="section-label mb-5 inline-flex">Trusted With Every Make</span>
+          <h2 className="font-black text-white mb-4" style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+            16+ Premium Brands,{' '}
+            <span className="text-gold-gradient">One Expert Team</span>
+          </h2>
+          <p className="text-steel-light/60 text-base max-w-xl mx-auto leading-relaxed">
+            From Tesla EVs to German performance vehicles, we have the equipment and expertise to service every major brand.
+          </p>
         </motion.div>
       </div>
+
+      {/* Marquee row 1 — LTR */}
+      <div className="relative mb-4 overflow-hidden">
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #06080F, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #06080F, transparent)' }} />
+
+        <div className="flex gap-4 animate-marquee-ltr w-max">
+          {doubled.map((brand, idx) => (
+            <BrandCard key={`ltr-${idx}`} brand={brand} />
+          ))}
+        </div>
+      </div>
+
+      {/* Marquee row 2 — RTL */}
+      <div className="relative mb-14 overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #06080F, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #06080F, transparent)' }} />
+
+        <div className="flex gap-4 animate-marquee-rtl w-max">
+          {doubled.map((brand, idx) => (
+            <BrandCard key={`rtl-${idx}`} brand={brand} />
+          ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 text-center"
+      >
+        <Link href={`/${locale}/brands`} className="btn-primary inline-flex gap-2 text-sm">
+          View All Brands &amp; Services
+        </Link>
+      </motion.div>
     </section>
   )
 }

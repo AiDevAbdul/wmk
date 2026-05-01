@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Hexagonal badge -->
+  <polygon points="32,2 58,17 58,47 32,62 6,47 6,17" fill="#06080F"/>
+  <!-- Gold border -->
+  <polygon points="32,2 58,17 58,47 32,62 6,47 6,17" fill="none" stroke="#F5C518" stroke-width="2.5"/>
+  <!-- Inner subtle border ring -->
+  <polygon points="32,5.5 55.5,19.25 55.5,44.75 32,58.5 8.5,44.75 8.5,19.25" fill="none" stroke="#F5C518" stroke-width="0.6" opacity="0.3"/>
+  <!-- W monogram — symmetric, bold -->
+  <polyline points="10,21 19.5,45 27,26.5 32,44 37,26.5 44.5,45 54,21"
+    fill="none" stroke="#F5C518" stroke-width="5.5"
+    stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

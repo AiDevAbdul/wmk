@@ -31,11 +31,20 @@ Edit `lib/services.ts` or `lib/brands.ts` to add/update services or brands. Both
 
 ### Update Theme Colors
 Edit `@theme` section in `app/globals.css`. Color palette:
-- `bg-primary`: #F5C518 (yellow accent)
-- `bg-steel-dark`: #1E2128 (hero background)
-- `bg-steel-mid`: #4E5566 (card backgrounds)
-- `bg-steel-light`: #8A919E (secondary text)
-- `bg-accent-red`: #E53935 (warnings)
+- `bg-primary`: #F5C518 (gold accent — brand primary)
+- `bg-steel-dark`: #06080F (deepest navy — body/hero background)
+- `bg-steel-mid`: #0C1423 (elevated surface — card/section backgrounds)
+- `bg-steel`: #152035 (mid surface — section alternates)
+- `bg-steel-light`: #8294B0 (secondary text, muted elements)
+- `bg-accent-red`: #EF4444 (warnings)
+
+New design utilities (also in `globals.css`):
+- `.glass-card` — frosted glass card (dark bg + backdrop-blur + subtle border)
+- `.glass-card-gold` — glass card with gold border tint
+- `.btn-primary` — gold gradient button with spring hover
+- `.btn-glass` — frosted glass secondary button
+- `.section-label` — small gold pill label for section headers
+- `.text-gold-gradient` — animated gold gradient text
 
 ### Add New Page
 1. Create folder: `app/[locale]/your-page/`
@@ -186,9 +195,10 @@ NEXTAUTH_URL="http://localhost:3000"
 
 ## Color Contrast Rules
 
-- On `bg-primary` (yellow #F5C518): use `text-steel-dark` for text
-- On `bg-steel-mid` (gray #4E5566): use `text-white` for body text, NOT `text-steel-light`
+- On `bg-primary` (gold #F5C518): use `text-[#06080F]` for text (not `text-steel-dark` — the token changed)
+- On `bg-steel-mid` (#0C1423): use `text-white` for body, `text-steel-light/70` for secondary
 - Always ensure WCAG AA compliance (4.5:1 contrast ratio minimum)
+- Gold on deep navy (#06080F): ~12:1 ratio ✓ (WCAG AAA)
 
 ## Performance Optimization
 

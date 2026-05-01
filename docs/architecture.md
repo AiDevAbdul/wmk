@@ -143,42 +143,50 @@ export const brandDetails: Record<string, any> = {
 
 | Component | Purpose |
 |---|---|
-| `<ServiceCard />` | Dark card with yellow icon, title, description, arrow link |
-| `<BrandLogo />` | Grayscale logo that highlights to yellow on hover |
-| `<StatCounter />` | Animated count-up number + label on scroll |
-| `<ReviewCard />` | Star rating + reviewer name + quote |
-| `<CTABanner />` | Yellow banner with phone + WhatsApp button |
-| `<ProcessStep />` | Numbered step card for "Our Process" |
-| `<SectionHeading />` | Large bold heading with optional yellow underline |
-| `<FAQAccordion />` | Expand/collapse with Schema-ready structure |
-| `<Header />` | Sticky nav with logo, menu, Call Now button |
-| `<Footer />` | 4-column footer with NAP, links, language toggle |
-| `<WhatsAppFloat />` | Fixed bottom-right WhatsApp bubble |
+| `<ServiceCard />` | Glass card with gold icon, title, description, learn-more arrow |
+| `<ServiceCardFeatured />` | Tall gold-tinted bento feature card for ECM (homepage only) |
+| `<StatCounter />` | Spring-animated count-up number + label (uses Framer Motion `useSpring`) |
+| `<ReviewCard />` | Glass card — star rating, italic quote, avatar initial, verified badge |
+| `<CTABanner />` | Dark section with gold CTA + WhatsApp glass button |
+| `<ProcessStep />` | Numbered step with gold icon box |
+| `<SectionHeading />` | Bold heading wrapper |
+| `<Header />` | Frosted-glass sticky nav — logo + centered links + locale switcher (EN/AR) + CTA |
+| `<Footer />` | 5-column Apple-style footer — brand info, services, brands, company, language |
+| `<WhatsAppFloat />` | Fixed bottom-right — gradient green pill with tooltip + pulse ring |
 
 ## Styling & Theme
 
 ### Color Palette
-- **Primary Yellow**: #F5C518 (signals, precision)
-- **Primary Dark Yellow**: #D4A800 (hover state)
-- **Steel Dark**: #1E2128 (hero bg, nav)
-- **Steel Mid**: #4E5566 (card backgrounds)
-- **Steel Light**: #8A919E (secondary text)
-- **Accent Red**: #E53935 (warnings, ABS/airbag)
-- **Surface**: #F2F3F5 (off-white sections)
+- **Primary Gold**: #F5C518 (brand accent — CTAs, highlights)
+- **Primary Dark Gold**: #C9A012 (hover/pressed state)
+- **Steel Dark**: #06080F (deepest navy — body background, hero)
+- **Steel Mid**: #0C1423 (elevated surface — sections, nav blur)
+- **Steel**: #152035 (mid surface — section alternates)
+- **Steel Light**: #8294B0 (secondary text, muted elements)
+- **Accent Red**: #EF4444 (warnings, error states)
+- **Surface**: #F0F4FF (light reference, used for text on dark)
 
-**Contrast:** Yellow on dark = 9.7:1 ratio ✓ (WCAG AAA compliant)
+**Contrast:** Gold (#F5C518) on deep navy (#06080F) = ~12:1 ratio ✓ (WCAG AAA)
 
 ### Typography
-- **Display (H1–H2)**: Barlow Condensed Bold 700
-- **Sub-headings (H3–H4)**: Exo 2 SemiBold 600
-- **Body**: IBM Plex Sans Regular 400, Medium 500
-- **Monospace**: JetBrains Mono
-- **Arabic**: Noto Kufi Arabic (RTL fallback)
+- **All text**: Inter (Google Fonts) — Apple SF Pro-like clean sans-serif
+- **Display/headings**: Inter 800–900, letter-spacing −0.03em to −0.04em
+- **Body**: Inter 400–500, line-height 1.6
+- **Labels/caps**: Inter 600, tracking-widest uppercase
+
+### Design Utilities (`app/globals.css`)
+- `.glass-card` — frosted dark glass card (`backdrop-blur-xl` + `rgba(8,12,28,0.72)` bg + `rgba(255,255,255,0.07)` border)
+- `.glass-card-gold` — glass card with gold border tint (`rgba(245,197,24,0.22)`)
+- `.btn-primary` — gold gradient button with spring hover lift + glow shadow
+- `.btn-glass` — frosted glass secondary button
+- `.section-label` — gold pill label (`px-4 py-1.5 rounded-full` + gold border)
+- `.text-gold-gradient` — `linear-gradient(135deg, #F5C518, #E8B000, #F5C518)` clipped to text
+- `.container-max` — `max-w-7xl mx-auto px-6 md:px-10 xl:px-16`
 
 ### Tailwind v4 Setup
 - Uses `@tailwindcss/postcss` plugin in `postcss.config.mjs`
 - Custom theme defined in `app/globals.css` using `@theme` directive
-- Custom components: `.container-max`, `.btn-primary`, `.btn-secondary`, `.btn-outline`, `.card-dark`, `.text-gradient`
+- No `tailwind.config.ts` exists — all config is in `postcss.config.mjs` + `globals.css`
 
 ## Technical Patterns
 

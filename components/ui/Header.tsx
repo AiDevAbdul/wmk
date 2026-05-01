@@ -1,131 +1,237 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { useState, useEffect, useRef } from 'react'
+import { useParams, usePathname } from 'next/navigation'
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
-export default function EnhancedHeader() {
+const navLinks = [
+  { label: 'Services', href: '/services' },
+  { label: 'Brands', href: '/brands' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+]
+
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const params = useParams()
+  const pathname = usePathname()
+  const locale = (params?.locale as string) || 'en'
+  const isAR = locale === 'ar'
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services' },
-    { label: 'Brands', href: '/brands' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
-  ]
+  useEffect(() => { setIsOpen(false) }, [pathname])
+
+  const switchLocale = (newLocale: string) => {
+    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`)
+    window.location.href = newPath
+  }
+
+  const prefixedHref = (href: string) => `/${locale}${href}`
+
+  const isActive = (href: string) => pathname === prefixedHref(href) || pathname.startsWith(prefixedHref(href) + '/')
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-steel-dark/95 backdrop-blur-md border-b border-primary/10 shadow-2xl shadow-primary/5'
-          : 'bg-steel-dark/80 backdrop-blur-sm border-b border-steel-mid/30'
-      }`}
-    >
-      <nav className="container-max flex items-center justify-between h-20">
-        {/* Logo with Glow */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="relative w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center text-steel-dark font-bold text-sm tracking-tight overflow-hidden"
-          >
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-primary/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative">WMK</span>
-          </motion.div>
-          <span className="hidden sm:inline font-bold text-lg tracking-tight text-white group-hover:text-primary transition-colors duration-300">
-            WMK Auto
-          </span>
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? 'py-0'
+            : 'py-2'
+        }`}
+      >
+        {/* Glass blur backdrop */}
+        <div
+          className={`absolute inset-0 transition-all duration-500 ${
+            scrolled
+              ? 'bg-[rgba(6,8,15,0.88)] backdrop-blur-2xl border-b border-white/[0.07]'
+              : 'bg-transparent'
+          }`}
+        />
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="relative text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 group"
-            >
-              {item.label}
-              {/* Animated underline */}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/60 group-hover:w-full transition-all duration-300" />
-            </Link>
-          ))}
-        </div>
+        <nav className="container-max relative flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href={prefixedHref('/')} className="flex items-center gap-2.5 group flex-shrink-0" aria-label="WMK Auto Garage Home">
+            <div className="relative w-11 h-11 flex-shrink-0">
+              <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="44px" className="object-contain" priority />
+            </div>
+            <div className="hidden sm:block leading-none">
+              <p className="font-extrabold text-sm tracking-tight text-white group-hover:text-primary transition-colors duration-200">WMK Auto Garage</p>
+              <p className="text-[10px] font-medium text-steel-light/50 tracking-widest uppercase mt-0.5">LLC · Dubai</p>
+            </div>
+          </Link>
 
-        {/* CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="tel:+971554762284"
-            className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 overflow-hidden text-sm tracking-tight"
-          >
-            {/* Shine effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <Phone size={18} className="relative group-hover:rotate-12 transition-transform duration-300" />
-            <span className="relative">Call Now</span>
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 hover:bg-steel-mid/50 rounded-lg transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="md:hidden bg-steel-mid/95 backdrop-blur-md border-t border-primary/10"
-        >
-          <div className="container-max py-4 flex flex-col gap-3">
-            {navItems.map((item, idx) => (
-              <motion.div
+          {/* Desktop nav — centered */}
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((item) => (
+              <Link
                 key={item.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.05 }}
+                href={prefixedHref(item.href)}
+                className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  isActive(item.href)
+                    ? 'text-white bg-white/10'
+                    : 'text-white/60 hover:text-white hover:bg-white/[0.06]'
+                }`}
               >
-                <Link
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2 text-white hover:text-primary hover:bg-steel-dark/50 rounded-lg transition-all duration-300"
-                >
-                  {item.label}
-                </Link>
-              </motion.div>
+                {item.label}
+              </Link>
             ))}
-            <motion.a
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: navItems.length * 0.05 }}
-              href="tel:+971554762284"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 overflow-hidden text-sm tracking-tight mt-2"
-            >
-              <Phone size={18} />
-              <span>Call Now: +971 55 476 2284</span>
-            </motion.a>
           </div>
-        </motion.div>
-      )}
-    </header>
+
+          {/* Right: locale switcher + CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Locale switcher */}
+            <div className="flex items-center gap-1 p-1 rounded-xl bg-white/[0.06] border border-white/[0.08]">
+              {['en', 'ar'].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => switchLocale(l)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all duration-200 cursor-pointer ${
+                    locale === l
+                      ? 'bg-primary text-[#06080F]'
+                      : 'text-white/50 hover:text-white/90'
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+
+            {/* Call CTA */}
+            <a
+              href="tel:+971554762284"
+              className="btn-primary text-xs gap-2 px-5 py-2.5 rounded-xl"
+            >
+              <Phone size={14} strokeWidth={2.5} />
+              <span>Call Now</span>
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden relative p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/[0.08] transition-all duration-200 cursor-pointer"
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={isOpen ? 'close' : 'open'}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+              >
+                {isOpen ? <X size={22} /> : <Menu size={22} />}
+              </motion.div>
+            </AnimatePresence>
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 28, stiffness: 280 }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 md:hidden flex flex-col"
+              style={{ background: 'rgba(10,14,26,0.97)', backdropFilter: 'blur(32px)', borderLeft: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              {/* Drawer header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.07]">
+                <Link href={prefixedHref('/')} className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                  <div className="relative w-10 h-10 flex-shrink-0">
+                    <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="40px" className="object-contain" />
+                  </div>
+                  <div className="leading-none">
+                    <p className="font-extrabold text-sm text-white">WMK Auto Garage</p>
+                    <p className="text-[9px] text-steel-light/40 tracking-widest uppercase mt-0.5">LLC · Dubai</p>
+                  </div>
+                </Link>
+                <button onClick={() => setIsOpen(false)} className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/[0.08] transition-all cursor-pointer" aria-label="Close menu">
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Links */}
+              <div className="flex-1 overflow-y-auto py-4 px-4 space-y-1">
+                {navLinks.map((item, idx) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.04 }}
+                  >
+                    <Link
+                      href={prefixedHref(item.href)}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        isActive(item.href)
+                          ? 'bg-primary/15 text-primary border border-primary/25'
+                          : 'text-white/70 hover:text-white hover:bg-white/[0.07]'
+                      }`}
+                    >
+                      {item.label}
+                      <ChevronDown size={14} className="-rotate-90 opacity-40" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Drawer footer */}
+              <div className="px-4 py-5 border-t border-white/[0.07] space-y-3">
+                {/* Locale switcher */}
+                <div className="flex gap-2">
+                  {['en', 'ar'].map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => switchLocale(l)}
+                      className={`flex-1 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all duration-200 cursor-pointer ${
+                        locale === l ? 'bg-primary text-[#06080F]' : 'bg-white/[0.07] text-white/60 hover:text-white'
+                      }`}
+                    >
+                      {l === 'en' ? 'English' : 'العربية'}
+                    </button>
+                  ))}
+                </div>
+
+                <a
+                  href="tel:+971554762284"
+                  className="btn-primary w-full justify-center text-sm gap-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Phone size={16} strokeWidth={2.5} />
+                  <span>+971 55 476 2284</span>
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

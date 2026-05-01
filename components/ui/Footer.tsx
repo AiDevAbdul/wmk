@@ -2,347 +2,200 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { Phone, MapPin, Clock, Facebook, Instagram, Youtube } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { Phone, MapPin, Mail, Facebook, Instagram, Linkedin, ArrowRight } from 'lucide-react'
-import { useState } from 'react'
+import { useParams, usePathname } from 'next/navigation'
 
-export default function EnhancedFooter() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
+const footerLinks = {
+  services: [
+    { label: 'ECM / ECU Repair', href: '/services/ecm-repair' },
+    { label: 'Hybrid Battery', href: '/services/hybrid-battery' },
+    { label: 'Car Programming', href: '/services/car-programming' },
+    { label: 'ABS & Airbag', href: '/services/abs-airbag' },
+    { label: 'AC Repair', href: '/services/ac-repair' },
+    { label: 'All Services', href: '/services' },
+  ],
+  brands: [
+    { label: 'Tesla', href: '/brands/tesla' },
+    { label: 'BYD', href: '/brands/byd' },
+    { label: 'BMW', href: '/brands/bmw' },
+    { label: 'Mercedes-Benz', href: '/brands/mercedes' },
+    { label: 'Toyota', href: '/brands/toyota' },
+    { label: 'All Brands', href: '/brands' },
+  ],
+  company: [
+    { label: 'About Us', href: '/about' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Contact', href: '/contact' },
+  ],
+}
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) {
-      setSubscribed(true)
-      setEmail('')
-      setTimeout(() => setSubscribed(false), 3000)
-    }
+export default function Footer() {
+  const params = useParams()
+  const pathname = usePathname()
+  const locale = (params?.locale as string) || 'en'
+
+  const prefixed = (href: string) => `/${locale}${href}`
+
+  const switchLocale = (newLocale: string) => {
+    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`)
+    window.location.href = newPath
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  }
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.55, delay },
+  })
 
   return (
-    <footer className="bg-gradient-to-b from-steel-dark to-steel-dark/95 border-t border-steel-mid/30">
-      {/* Main Footer Content */}
+    <footer style={{ background: '#04060E', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      {/* Main footer */}
       <div className="container-max py-20">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"
-        >
-          {/* Column 1: Company Info */}
-          <motion.div variants={itemVariants} className="lg:col-span-1">
-            <div className="space-y-6">
-              {/* Logo */}
-              <Link href="/" className="flex items-center gap-2 group">
-                <div className="relative w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center text-steel-dark font-bold text-sm tracking-tight overflow-hidden">
-                  <div className="absolute inset-0 bg-primary/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="relative">WMK</span>
-                </div>
-                <span className="font-bold text-lg tracking-tight text-white group-hover:text-primary transition-colors duration-300">
-                  WMK Auto
-                </span>
-              </Link>
-
-              {/* Tagline */}
-              <p className="text-steel-light/80 font-medium text-sm leading-relaxed">
-                Elite automotive repair and programming specialists in Dubai
-              </p>
-
-              {/* Social Links */}
-              <div className="flex gap-4">
-                {[
-                  { icon: Facebook, href: '#', label: 'Facebook' },
-                  { icon: Instagram, href: '#', label: 'Instagram' },
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                ].map((social, i) => {
-                  const Icon = social.icon
-                  return (
-                    <motion.a
-                      key={i}
-                      href={social.href}
-                      aria-label={social.label}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/20 hover:border-primary/60 transition-all duration-300"
-                    >
-                      <Icon size={18} />
-                    </motion.a>
-                  )
-                })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+          {/* Brand column */}
+          <motion.div {...fadeUp(0)} className="lg:col-span-2 space-y-6">
+            <Link href={prefixed('/')} className="flex items-center gap-3 group w-fit">
+              <div className="relative w-14 h-14 flex-shrink-0">
+                <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="56px" className="object-contain" />
               </div>
-
-              {/* Trust Badges */}
-              <div className="space-y-2 pt-4 border-t border-steel-light/20">
-                <div className="flex items-center gap-2 text-xs text-primary font-semibold">
-                  <span>✓</span>
-                  <span>RTA Licensed</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-primary font-semibold">
-                  <span>✓</span>
-                  <span>10+ Years Experience</span>
-                </div>
+              <div>
+                <p className="font-extrabold text-white text-base tracking-tight group-hover:text-primary transition-colors duration-200">WMK Auto Garage LLC</p>
+                <p className="text-[10px] text-steel-light/40 tracking-widest uppercase mt-0.5">Ras Al Khor · Dubai</p>
               </div>
-            </div>
-          </motion.div>
+            </Link>
 
-          {/* Column 2: Services */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-bold text-white mb-6 tracking-tight">Services</h3>
-            <ul className="space-y-3">
-              {[
-                { label: 'ECM Repair', href: '/services/ecm-repair' },
-                { label: 'Hybrid Battery', href: '/services/hybrid-battery' },
-                { label: 'Car Programming', href: '/services/car-programming' },
-                { label: 'ABS & Airbag', href: '/services/abs-airbag' },
-                { label: 'AC Repair', href: '/services/ac-repair' },
-                { label: 'View All', href: '/services' },
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.href}
-                    className="text-steel-light/80 hover:text-primary font-medium text-sm transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            <p className="text-sm text-steel-light/55 leading-relaxed max-w-xs">
+              Dubai's elite ECM repair and car programming specialists. 16+ brands, 10+ years of expertise, RTA licensed.
+            </p>
 
-          {/* Column 3: Brands */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-bold text-white mb-6 tracking-tight">Brands</h3>
-            <ul className="space-y-3">
-              {[
-                { label: 'Tesla', href: '/brands/tesla' },
-                { label: 'BYD', href: '/brands/byd' },
-                { label: 'BMW', href: '/brands/bmw' },
-                { label: 'Mercedes', href: '/brands/mercedes' },
-                { label: 'Toyota', href: '/brands/toyota' },
-                { label: 'View All', href: '/brands' },
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.href}
-                    className="text-steel-light/80 hover:text-primary font-medium text-sm transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Column 4: Company */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-bold text-white mb-6 tracking-tight">Company</h3>
-            <ul className="space-y-3">
-              {[
-                { label: 'About Us', href: '/about' },
-                { label: 'Blog', href: '/blog' },
-                { label: 'Contact', href: '/contact' },
-                { label: 'Privacy Policy', href: '#' },
-                { label: 'Terms & Conditions', href: '#' },
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.href}
-                    className="text-steel-light/80 hover:text-primary font-medium text-sm transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Column 5: Contact & Newsletter */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-bold text-white mb-6 tracking-tight">Contact</h3>
-            <div className="space-y-4 mb-8">
-              {/* Phone */}
-              <a
-                href="tel:+971554762284"
-                className="flex items-start gap-3 group"
-              >
-                <Phone size={18} className="text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <p className="text-xs text-steel-light/70 font-medium">Call Us</p>
-                  <p className="text-white font-semibold hover:text-primary transition-colors duration-300">
-                    +971 55 476 2284
-                  </p>
+            {/* Contact info */}
+            <div className="space-y-3">
+              <a href="tel:+971554762284" className="flex items-center gap-3 group w-fit">
+                <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200">
+                  <Phone size={14} className="text-primary" strokeWidth={2} />
                 </div>
+                <span className="text-sm text-steel-light/70 group-hover:text-white transition-colors duration-200">+971 55 476 2284</span>
               </a>
 
-              {/* Location */}
               <a
                 href="https://maps.google.com/?q=WMK+Auto+Repairing+Garage+Ras+Al+Khor+Dubai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 group"
+                className="flex items-center gap-3 group w-fit"
               >
-                <MapPin size={18} className="text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <p className="text-xs text-steel-light/70 font-medium">Visit Us</p>
-                  <p className="text-white font-semibold hover:text-primary transition-colors duration-300 text-sm">
-                    Ras Al Khor, Dubai
-                  </p>
+                <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200">
+                  <MapPin size={14} className="text-primary" strokeWidth={2} />
                 </div>
+                <span className="text-sm text-steel-light/70 group-hover:text-white transition-colors duration-200">Ras Al Khor Industrial Area 2</span>
               </a>
 
-              {/* Hours */}
-              <div className="flex items-start gap-3">
-                <Mail size={18} className="text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <p className="text-xs text-steel-light/70 font-medium">Hours</p>
-                  <p className="text-white font-semibold text-sm">
-                    8 AM - 8 PM, 7 days
-                  </p>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Clock size={14} className="text-primary" strokeWidth={2} />
                 </div>
+                <span className="text-sm text-steel-light/70">Sat–Thu: 8AM–8PM</span>
               </div>
             </div>
 
-            {/* Newsletter Signup */}
-            <div className="space-y-3">
-              <p className="text-xs text-steel-light/70 font-medium uppercase tracking-widest">Newsletter</p>
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
-                  className="flex-1 bg-steel-dark/50 text-white px-3 py-2 rounded-lg border border-steel-light/20 focus:border-primary focus:outline-none transition-all duration-300 text-sm"
-                  required
-                />
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-primary text-steel-dark p-2 rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all duration-300"
+            {/* Social links */}
+            <div className="flex gap-2 pt-1">
+              {[
+                { icon: Facebook, label: 'Facebook', href: '#' },
+                { icon: Instagram, label: 'Instagram', href: '#' },
+                { icon: Youtube, label: 'YouTube', href: '#' },
+              ].map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-9 h-9 rounded-xl flex items-center justify-center text-steel-light/40 hover:text-white transition-all duration-200"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)' }}
                 >
-                  <ArrowRight size={18} />
-                </motion.button>
-              </form>
-              {subscribed && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-xs text-primary font-semibold"
-                >
-                  ✓ Thanks for subscribing!
-                </motion.p>
-              )}
+                  <Icon size={16} strokeWidth={1.8} />
+                </a>
+              ))}
             </div>
           </motion.div>
-        </motion.div>
 
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-steel-light/20 to-transparent mb-8"></div>
-
-        {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-6"
-        >
-          {/* Copyright */}
-          <p className="text-steel-light/70 font-medium text-sm text-center md:text-left">
-            © 2024 WMK Auto Repairing Garage LLC. All rights reserved.
-          </p>
-
-          {/* Language Selector */}
-          <div className="flex items-center gap-4">
-            <span className="text-steel-light/70 font-medium text-sm">Language:</span>
-            <div className="flex gap-2">
-              {[
-                { code: 'EN', label: 'English' },
-                { code: 'AR', label: 'العربية' },
-              ].map((lang) => (
-                <button
-                  key={lang.code}
-                  className="px-3 py-1 rounded-lg text-xs font-semibold transition-all duration-300 bg-steel-mid/50 text-white hover:bg-primary hover:text-steel-dark"
-                >
-                  {lang.code}
-                </button>
+          {/* Services */}
+          <motion.div {...fadeUp(0.08)}>
+            <p className="text-xs font-bold text-white/40 tracking-[0.12em] uppercase mb-5">Services</p>
+            <ul className="space-y-2.5">
+              {footerLinks.services.map((item) => (
+                <li key={item.href}>
+                  <Link href={prefixed(item.href)}
+                    className="text-sm text-steel-light/55 hover:text-white transition-colors duration-200">
+                    {item.label}
+                  </Link>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </motion.div>
 
-          {/* Payment Methods */}
-          <div className="flex items-center gap-3">
-            <span className="text-steel-light/70 font-medium text-xs">Accepted:</span>
-            <div className="flex gap-2">
-              {['💳', '📱', '🏦'].map((icon, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 rounded-lg bg-steel-mid/50 flex items-center justify-center text-lg"
-                >
-                  {icon}
-                </div>
+          {/* Brands */}
+          <motion.div {...fadeUp(0.16)}>
+            <p className="text-xs font-bold text-white/40 tracking-[0.12em] uppercase mb-5">Brands</p>
+            <ul className="space-y-2.5">
+              {footerLinks.brands.map((item) => (
+                <li key={item.href}>
+                  <Link href={prefixed(item.href)}
+                    className="text-sm text-steel-light/55 hover:text-white transition-colors duration-200">
+                    {item.label}
+                  </Link>
+                </li>
               ))}
+            </ul>
+          </motion.div>
+
+          {/* Company */}
+          <motion.div {...fadeUp(0.24)}>
+            <p className="text-xs font-bold text-white/40 tracking-[0.12em] uppercase mb-5">Company</p>
+            <ul className="space-y-2.5">
+              {footerLinks.company.map((item) => (
+                <li key={item.href}>
+                  <Link href={prefixed(item.href)}
+                    className="text-sm text-steel-light/55 hover:text-white transition-colors duration-200">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Locale */}
+            <div className="mt-8">
+              <p className="text-xs font-bold text-white/40 tracking-[0.12em] uppercase mb-3">Language</p>
+              <div className="flex gap-2">
+                {['en', 'ar'].map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => switchLocale(l)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer ${
+                      locale === l ? 'bg-primary text-[#06080F]' : 'text-steel-light/50 hover:text-white'
+                    }`}
+                    style={locale === l ? {} : { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.07)' }}
+                  >
+                    {l === 'en' ? 'EN' : 'AR'}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Floating CTA Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-gradient-to-r from-primary/10 to-primary/5 border-t border-primary/20 py-6"
-      >
-        <div className="container-max flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="text-white font-semibold mb-1">Need immediate assistance?</p>
-            <p className="text-steel-light/80 text-sm">Our team is available 24/7 for emergencies</p>
-          </div>
-
-          <div className="flex gap-4">
-            <a
-              href="tel:+971554762284"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 overflow-hidden text-sm tracking-tight"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-              <span className="relative">📞 Call Now</span>
-            </a>
-
-            <a
-              href="https://wa.me/971554762284"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300 rounded-lg font-semibold text-sm"
-            >
-              <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={18} height={18} className="group-hover:scale-110 transition-transform duration-300" />
-              <span className="relative">WhatsApp</span>
-            </a>
-          </div>
+      {/* Bottom bar */}
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container-max py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-steel-light/35">
+            © {new Date().getFullYear()} WMK Auto Repairing Garage LLC. All rights reserved.
+          </p>
+          <p className="text-xs text-steel-light/25">
+            Ras Al Khor Industrial Area 2, Dubai, UAE · +971 55 476 2284
+          </p>
         </div>
-      </motion.div>
+      </div>
     </footer>
   )
 }

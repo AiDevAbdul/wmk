@@ -1,193 +1,171 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Cpu, Wifi, Wrench } from 'lucide-react'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+
+const features = [
+  {
+    icon: Cpu,
+    title: 'Expert ECM Repair',
+    desc: 'Full ECM/ECU diagnostics and repair for all major automotive brands. We restore your engine brain to factory spec.',
+  },
+  {
+    icon: Wrench,
+    title: 'Advanced Diagnostics',
+    desc: 'Latest OBD2 and factory-level diagnostic equipment for precise fault detection. No guesswork, only data.',
+  },
+  {
+    icon: Wifi,
+    title: 'Online Programming',
+    desc: 'Remote ECU reprogramming and live data updates. Available for select brands without leaving the workshop.',
+  },
+]
 
 export function SpecializationSection() {
-  return (
-    <section className="py-24 bg-linear-to-br from-steel-mid via-steel-mid to-steel-dark relative overflow-hidden">
-      {/* Background Accent Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/8 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+  const params = useParams()
+  const locale = (params?.locale as string) || 'en'
 
-      <div className="container-max">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+  return (
+    <section className="relative py-28 bg-steel-mid overflow-hidden">
+      {/* Inset top/bottom lines */}
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" />
+
+      {/* Background ambient */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute -top-20 left-0 w-[400px] h-[400px] opacity-[0.06]"
+          style={{ background: 'radial-gradient(circle, #F5C518, transparent 60%)' }} />
+        <div className="absolute -bottom-10 right-0 w-[300px] h-[300px] opacity-[0.04]"
+          style={{ background: 'radial-gradient(circle, #3B6FD4, transparent 60%)' }} />
+      </div>
+
+      <div className="container-max relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+          {/* Left — Content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-10"
           >
-            {/* Section Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-flex items-center gap-2"
-            >
-              <div className="w-8 h-1 bg-linear-to-r from-primary to-primary/60 rounded-full"></div>
-              <span className="text-primary font-semibold text-xs tracking-widest uppercase">Our Specialty</span>
-            </motion.div>
+            <div>
+              <span className="section-label mb-5 inline-flex">Our Specialty</span>
+              <h2 className="font-black text-white mb-5" style={{ letterSpacing: '-0.04em', lineHeight: 1.05 }}>
+                Advanced ECM &amp;{' '}
+                <span className="text-gold-gradient">Programming</span>
+                <br />Specialists
+              </h2>
+              <p className="text-steel-light/65 text-base leading-relaxed max-w-lg">
+                Precision ECM repair and advanced programming for all major automotive brands. We combine
+                factory-grade diagnostics with deep technician expertise for reliable, guaranteed results.
+              </p>
+            </div>
 
-            {/* Main Heading */}
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="text-5xl md:text-6xl font-bold leading-tight tracking-tight"
-            >
-              <span className="block text-white">Advanced ECM &</span>
-              <span className="block bg-linear-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">Programming Specialists</span>
-            </motion.h2>
+            {/* Feature list */}
+            <div className="space-y-4">
+              {features.map((item, idx) => {
+                const Icon = item.icon
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + idx * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 hover:bg-white/[0.04] group"
+                    style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300"
+                      style={{ background: 'rgba(245,197,24,0.10)', border: '1px solid rgba(245,197,24,0.20)' }}>
+                      <Icon size={18} className="text-primary" strokeWidth={1.8} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white text-sm mb-1 tracking-tight">{item.title}</p>
+                      <p className="text-steel-light/60 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-lg text-white/95 leading-relaxed font-semibold max-w-xl"
+            <Link
+              href={`/${locale}/services/ecm-repair`}
+              className="btn-primary inline-flex text-sm gap-2 self-start"
             >
-              Precision ECM repair and advanced programming for all major automotive brands. We combine cutting-edge diagnostics with expert technician knowledge.
-            </motion.p>
-
-            {/* Feature List - Enhanced */}
-            <motion.ul
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="space-y-5"
-            >
-              {[
-                { icon: '⚙️', title: 'Expert ECM Repair', desc: 'Reprogramming for all major brands with precision diagnostics' },
-                { icon: '🔧', title: 'Advanced Diagnostics', desc: 'Latest equipment and software for accurate fault detection' },
-                { icon: '🌐', title: 'Online Programming', desc: 'Remote ECM updates and programming capabilities' },
-              ].map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 + idx * 0.1, duration: 0.6 }}
-                  className="flex items-start gap-4 group p-5 rounded-xl bg-primary/8 border border-primary/20 hover:bg-primary/12 hover:border-primary/40 transition-all duration-300"
-                >
-                  {/* Icon Container */}
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center text-xl group-hover:bg-primary/30 group-hover:border-primary/70 transition-all duration-300 mt-1">
-                    {item.icon}
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="flex-1 pt-1">
-                    <p className="font-semibold text-white text-base tracking-tight mb-2 group-hover:text-primary transition-colors duration-300">
-                      {item.title}
-                    </p>
-                    <p className="text-white/90 text-sm leading-relaxed font-medium">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.li>
-              ))}
-            </motion.ul>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="pt-4"
-            >
-              <a
-                href="/services/ecm-repair"
-                className="group relative inline-flex items-center justify-center gap-3 px-10 py-4 bg-linear-to-r from-primary to-primary/90 text-steel-dark font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 overflow-hidden tracking-tight"
-              >
-                {/* Shine effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <span className="relative">Learn More About ECM Repair</span>
-                <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
-            </motion.div>
+              <span>Explore ECM Repair</span>
+              <ArrowRight size={15} />
+            </Link>
           </motion.div>
 
-          {/* Right Side - Visual Element */}
+          {/* Right — Circuit visual */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative h-96 hidden md:flex items-center justify-center"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:flex items-center justify-center"
           >
-            {/* Glow Background */}
-            <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-2xl"></div>
+            <div
+              className="relative w-full max-w-sm aspect-square rounded-[32px] flex flex-col items-center justify-center p-10"
+              style={{
+                background: 'linear-gradient(135deg, rgba(245,197,24,0.08) 0%, rgba(10,14,26,0.9) 100%)',
+                border: '1px solid rgba(245,197,24,0.18)',
+                boxShadow: '0 0 60px rgba(245,197,24,0.06), 0 24px 48px rgba(0,0,0,0.4)',
+              }}
+            >
+              {/* Rotating ring */}
+              <div className="absolute inset-8 rounded-full border border-primary/10 animate-spin-slow" />
+              <div className="absolute inset-16 rounded-full border border-primary/[0.07]" style={{ animationDirection: 'reverse' }} />
 
-            {/* Premium Card Container */}
-            <div className="relative w-full h-full rounded-3xl bg-linear-to-br from-primary/15 via-primary/5 to-steel-mid/10 border-2 border-primary/30 backdrop-blur-xl p-8 flex flex-col items-center justify-center space-y-6 overflow-hidden group hover:border-primary/60 transition-all duration-500">
-
-              {/* Animated gradient overlay */}
-              <div className="absolute inset-0 bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-
-              {/* Circuit SVG */}
-              <svg
-                viewBox="0 0 300 300"
-                className="w-48 h-48 relative z-10"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              {/* SVG circuit */}
+              <svg viewBox="0 0 240 240" className="w-56 h-56 relative z-10" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <style>{`
-                    @keyframes dash {
-                      to { stroke-dashoffset: 0; }
-                    }
-                    @keyframes pulse-glow {
-                      0%, 100% { opacity: 0.5; }
-                      50% { opacity: 1; }
-                    }
-                    .circuit-line {
-                      stroke: #F5C518;
-                      stroke-width: 2.5;
-                      fill: none;
-                      stroke-dasharray: 800;
-                      stroke-dashoffset: 800;
-                      animation: dash 3s ease-in-out forwards;
-                    }
-                    .circuit-dot {
-                      fill: #F5C518;
-                      animation: pulse-glow 2s ease-in-out infinite;
-                    }
+                    .cl { stroke:#F5C518; stroke-width:1.8; fill:none; stroke-dasharray:600; stroke-dashoffset:600; animation:circuit-draw 2.5s ease forwards; }
+                    .cd { fill:#F5C518; animation:glow-dot 2s ease-in-out infinite; }
+                    @keyframes circuit-draw { to { stroke-dashoffset: 0; } }
+                    @keyframes glow-dot { 0%,100%{opacity:.5;transform:scale(.9);}50%{opacity:1;transform:scale(1.1);} }
                   `}</style>
                 </defs>
-                <circle cx="150" cy="150" r="120" fill="none" stroke="#4E5566" strokeWidth="1.5" opacity="0.4" />
-                <circle cx="150" cy="150" r="90" fill="none" stroke="#4E5566" strokeWidth="1" opacity="0.2" />
 
-                <path className="circuit-line" d="M 150 30 L 150 80 M 150 80 L 100 80 M 100 80 L 100 130" />
-                <path className="circuit-line" d="M 150 80 L 200 80 M 200 80 L 200 130" style={{ animationDelay: '0.2s' }} />
-                <path className="circuit-line" d="M 150 270 L 150 220 M 150 220 L 100 220 M 100 220 L 100 170" style={{ animationDelay: '0.4s' }} />
-                <path className="circuit-line" d="M 150 220 L 200 220 M 200 220 L 200 170" style={{ animationDelay: '0.6s' }} />
+                {/* Outer decorative circles */}
+                <circle cx="120" cy="120" r="110" fill="none" stroke="rgba(245,197,24,0.08)" strokeWidth="1" />
+                <circle cx="120" cy="120" r="80" fill="none" stroke="rgba(245,197,24,0.05)" strokeWidth="1" />
 
-                <circle cx="150" cy="150" r="35" fill="none" stroke="#F5C518" strokeWidth="2.5" opacity="0.6" />
-                <circle cx="150" cy="150" r="25" fill="#F5C518" opacity="0.4" />
+                {/* Circuit paths */}
+                <path className="cl" d="M120 20 L120 70 M120 70 L80 70 M80 70 L80 110" style={{ animationDelay: '0s' }} />
+                <path className="cl" d="M120 70 L160 70 M160 70 L160 110" style={{ animationDelay: '0.2s' }} />
+                <path className="cl" d="M120 220 L120 170 M120 170 L80 170 M80 170 L80 130" style={{ animationDelay: '0.4s' }} />
+                <path className="cl" d="M120 170 L160 170 M160 170 L160 130" style={{ animationDelay: '0.6s' }} />
 
-                {/* Pulsing dots */}
-                <circle className="circuit-dot" cx="100" cy="80" r="4" style={{ animationDelay: '0s' }} />
-                <circle className="circuit-dot" cx="200" cy="80" r="4" style={{ animationDelay: '0.3s' }} />
-                <circle className="circuit-dot" cx="100" cy="220" r="4" style={{ animationDelay: '0.6s' }} />
-                <circle className="circuit-dot" cx="200" cy="220" r="4" style={{ animationDelay: '0.9s' }} />
+                {/* Center chip */}
+                <rect x="90" y="100" width="60" height="40" rx="6" fill="rgba(245,197,24,0.12)" stroke="#F5C518" strokeWidth="1.5" />
+                <rect x="98" y="108" width="44" height="24" rx="3" fill="rgba(245,197,24,0.20)" />
+
+                {/* Chip pins */}
+                {[104, 112, 120, 128].map((x, i) => (
+                  <g key={i}>
+                    <line x1={x} y1="100" x2={x} y2="93" stroke="#F5C518" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1={x} y1="140" x2={x} y2="147" stroke="#F5C518" strokeWidth="1.5" strokeLinecap="round" />
+                  </g>
+                ))}
+
+                {/* Dots */}
+                <circle className="cd" cx="80" cy="70" r="4" style={{ animationDelay: '0s' }} />
+                <circle className="cd" cx="160" cy="70" r="4" style={{ animationDelay: '0.3s' }} />
+                <circle className="cd" cx="80" cy="170" r="4" style={{ animationDelay: '0.6s' }} />
+                <circle className="cd" cx="160" cy="170" r="4" style={{ animationDelay: '0.9s' }} />
               </svg>
 
-              {/* Text Badge Below SVG */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="relative z-10 text-center"
-              >
-                <p className="text-sm font-semibold text-primary tracking-widest uppercase mb-1">ECM Expertise</p>
-                <p className="text-xs text-steel-light/70 font-medium">Precision Diagnostics & Programming</p>
-              </motion.div>
+              {/* Label */}
+              <div className="absolute bottom-8 text-center">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary/80">ECM Expertise</p>
+                <p className="text-[10px] text-steel-light/40 mt-0.5">Precision Diagnostics &amp; Programming</p>
+              </div>
             </div>
           </motion.div>
         </div>
