@@ -42,10 +42,16 @@ export default function BlogPage() {
     if (!confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      await fetch(`/api/admin/blog/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/admin/blog/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ csrfToken: crypto.randomUUID() }),
+      });
+      if (!res.ok) throw new Error('Delete failed');
       setPosts(posts.filter((p) => p.id !== id));
     } catch (error) {
       console.error('Failed to delete post:', error);
+      alert('Failed to delete post. Please try again.');
     }
   };
 

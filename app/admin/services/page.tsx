@@ -38,10 +38,16 @@ export default function ServicesPage() {
     if (!confirm('Are you sure you want to delete this service?')) return;
 
     try {
-      await fetch(`/api/admin/services/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/admin/services/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ csrfToken: crypto.randomUUID() }),
+      });
+      if (!res.ok) throw new Error('Delete failed');
       setServices(services.filter((s) => s.id !== id));
     } catch (error) {
       console.error('Failed to delete service:', error);
+      alert('Failed to delete service. Please try again.');
     }
   };
 

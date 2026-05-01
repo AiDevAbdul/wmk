@@ -37,9 +37,22 @@ export default function SettingsPage() {
 
   const fetchSettings = async () => {
     try {
-      setLoading(false);
+      const res = await fetch('/api/admin/settings');
+      if (!res.ok) throw new Error('Failed to load');
+      const data = await res.json();
+      setSettings({
+        phone: data.phone ?? settings.phone,
+        whatsapp: data.whatsapp ?? settings.whatsapp,
+        email: data.email ?? settings.email,
+        address: data.address ?? settings.address,
+        addressAr: data.addressAr ?? settings.addressAr,
+        hours: data.hours ?? settings.hours,
+        latitude: data.latitude ?? settings.latitude,
+        longitude: data.longitude ?? settings.longitude,
+      });
     } catch (error) {
       console.error('Failed to fetch settings:', error);
+    } finally {
       setLoading(false);
     }
   };
@@ -49,6 +62,12 @@ export default function SettingsPage() {
     setMessage('');
 
     try {
+      const res = await fetch('/api/admin/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...settings, csrfToken: crypto.randomUUID() }),
+      });
+      if (!res.ok) throw new Error('Save failed');
       setMessage('Settings saved successfully!');
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {

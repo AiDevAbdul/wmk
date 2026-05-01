@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,6 +34,14 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   const { data: session } = useSession();
   const [sidebarHovered, setSidebarHovered] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [newContacts, setNewContacts] = useState(0);
+
+  useEffect(() => {
+    fetch('/api/admin/stats')
+      .then((r) => r.json())
+      .then((d) => setNewContacts(d.newContacts ?? 0))
+      .catch(() => {});
+  }, []);
 
   const handleSignOut = () => {
     signOut({ redirect: true, callbackUrl: '/admin/login' });
@@ -86,18 +94,34 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                   <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
                   <div className="absolute left-0 top-0 h-full w-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <Icon size={20} className="relative z-10 flex-shrink-0" />
+                  <div className="relative flex-shrink-0">
+                    <Icon size={20} className="relative z-10" />
+                    {item.href === '/admin/contacts' && newContacts > 0 && (
+                      <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold leading-none">
+                        {newContacts > 9 ? '9+' : newContacts}
+                      </span>
+                    )}
+                  </div>
                   <motion.span
                     animate={{ opacity: sidebarHovered ? 1 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="relative z-10 font-medium text-sm whitespace-nowrap"
+                    className="relative z-10 font-medium text-sm whitespace-nowrap flex-1"
                   >
                     {item.label}
                   </motion.span>
+                  {item.href === '/admin/contacts' && newContacts > 0 && (
+                    <motion.span
+                      animate={{ opacity: sidebarHovered ? 1 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="relative z-10 ml-auto flex-shrink-0 px-1.5 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-bold"
+                    >
+                      {newContacts > 9 ? '9+' : newContacts}
+                    </motion.span>
+                  )}
                   <motion.div
                     animate={{ opacity: sidebarHovered ? 1 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="ml-auto"
+                    className={item.href === '/admin/contacts' && newContacts > 0 ? 'hidden' : 'ml-auto'}
                   >
                     <ChevronRight
                       size={16}
@@ -165,7 +189,12 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     className="flex items-center gap-3 px-4 py-3 hover:bg-steel-dark/50 transition-colors border-b border-primary/10 last:border-b-0"
                   >
                     <Icon size={18} className="text-primary" />
-                    <span className="text-sm font-medium">{item.label}</span>
+                    <span className="text-sm font-medium flex-1">{item.label}</span>
+                    {item.href === '/admin/contacts' && newContacts > 0 && (
+                      <span className="px-1.5 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-bold">
+                        {newContacts > 9 ? '9+' : newContacts}
+                      </span>
+                    )}
                   </Link>
                 );
               })}

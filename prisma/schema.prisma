@@ -67,6 +67,22 @@ model ContactSubmission {
   @@map("contact_submissions")
 }
 
+// Site-wide settings (single row, id is always "1")
+model SiteSettings {
+  id        String   @id @default("1")
+  phone     String   @default("+971 55 476 2284")
+  whatsapp  String   @default("https://wa.me/971554762284")
+  email     String   @default("info@wmk.ae")
+  address   String   @default("18 Street, Ras Al Khor Industrial Area 2, Dubai, UAE")
+  addressAr String   @default("شارع 18، منطقة راس الخور الصناعية 2، دبي، الإمارات")
+  hours     String   @default("Saturday–Thursday: 08:00–22:00 (Closed Friday)")
+  latitude  String   @default("25.1972")
+  longitude String   @default("55.3586")
+  updatedAt DateTime @updatedAt
+
+  @@map("site_settings")
+}
+
 // Analytics events
 model AnalyticsEvent {
   id        String   @id @default(cuid())
