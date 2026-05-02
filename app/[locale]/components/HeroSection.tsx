@@ -40,7 +40,7 @@ export function HeroSection() {
       </div>
 
       {/* ── Main content ── */}
-      <div className="container-max relative z-10 pt-28 pb-16 flex flex-col items-center text-center">
+      <div className="container-max w-full relative z-10 pt-28 pb-16 flex flex-col items-center text-center">
 
         {/* Label pill */}
         <motion.div
@@ -81,7 +81,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row gap-3 mb-14"
+          className="flex flex-col sm:flex-row items-center gap-3 mb-14"
         >
           <a href="tel:+971554762284" className="btn-primary text-sm gap-2.5 px-8 py-4 rounded-2xl">
             <Phone size={16} strokeWidth={2.5} />
