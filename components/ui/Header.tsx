@@ -60,13 +60,9 @@ export default function Header() {
 
         <nav className="container-max relative flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={prefixedHref('/')} className="flex items-center gap-2.5 group flex-shrink-0" aria-label="WMK Auto Garage Home">
-            <div className="relative w-11 h-11 flex-shrink-0">
-              <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="44px" className="object-contain" priority />
-            </div>
-            <div className="hidden sm:block leading-none">
-              <p className="font-extrabold text-sm tracking-tight text-white group-hover:text-primary transition-colors duration-200">WMK Auto Garage</p>
-              <p className="text-[10px] font-medium text-steel-light/50 tracking-widest uppercase mt-0.5">LLC · Dubai</p>
+          <Link href={prefixedHref('/')} className="flex items-center flex-shrink-0" aria-label="WMK Auto Garage Home">
+            <div className="relative w-14 h-14 flex-shrink-0 drop-shadow-[0_0_12px_rgba(255,183,0,0.45)]">
+              <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="56px" className="object-contain" priority />
             </div>
           </Link>
 
@@ -163,13 +159,9 @@ export default function Header() {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.07]">
-                <Link href={prefixedHref('/')} className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                  <div className="relative w-10 h-10 flex-shrink-0">
-                    <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="40px" className="object-contain" />
-                  </div>
-                  <div className="leading-none">
-                    <p className="font-extrabold text-sm text-white">WMK Auto Garage</p>
-                    <p className="text-[9px] text-steel-light/40 tracking-widest uppercase mt-0.5">LLC · Dubai</p>
+                <Link href={prefixedHref('/')} className="flex items-center" onClick={() => setIsOpen(false)}>
+                  <div className="relative w-12 h-12 flex-shrink-0 drop-shadow-[0_0_10px_rgba(255,183,0,0.4)]">
+                    <Image src="/wmk-nobg.png" alt="WMK Auto Garage LLC" fill sizes="48px" className="object-contain" />
                   </div>
                 </Link>
                 <button onClick={() => setIsOpen(false)} className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/[0.08] transition-all cursor-pointer" aria-label="Close menu">
