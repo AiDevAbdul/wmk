@@ -274,24 +274,6 @@ export default function EnhancedFooter() {
             © 2024 WMK Auto Repairing Garage LLC. All rights reserved.
           </p>
 
-          {/* Language Selector */}
-          <div className="flex items-center gap-4">
-            <span className="text-steel-light/70 font-medium text-sm">Language:</span>
-            <div className="flex gap-2">
-              {[
-                { code: 'EN', label: 'English' },
-                { code: 'AR', label: 'العربية' },
-              ].map((lang) => (
-                <button
-                  key={lang.code}
-                  className="px-3 py-1 rounded-lg text-xs font-semibold transition-all duration-300 bg-steel-mid/50 text-white hover:bg-primary hover:text-steel-dark"
-                >
-                  {lang.code}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Payment Methods */}
           <div className="flex items-center gap-3">
             <span className="text-steel-light/70 font-medium text-xs">Accepted:</span>

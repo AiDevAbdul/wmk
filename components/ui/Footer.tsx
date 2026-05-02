@@ -95,7 +95,7 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Clock size={14} className="text-primary" strokeWidth={2} />
                 </div>
-                <span className="text-sm text-steel-light/70">Sat–Thu: 8AM–8PM</span>
+                <span className="text-sm text-steel-light/70">Sat–Thu: 8AM–10PM</span>
               </div>
             </div>
 
@@ -163,24 +163,6 @@ export default function Footer() {
               ))}
             </ul>
 
-            {/* Locale */}
-            <div className="mt-8">
-              <p className="text-xs font-bold text-white/40 tracking-[0.12em] uppercase mb-3">Language</p>
-              <div className="flex gap-2">
-                {['en', 'ar'].map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => switchLocale(l)}
-                    className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer ${
-                      locale === l ? 'bg-primary text-[#06080F]' : 'text-steel-light/50 hover:text-white'
-                    }`}
-                    style={locale === l ? {} : { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.07)' }}
-                  >
-                    {l === 'en' ? 'EN' : 'AR'}
-                  </button>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

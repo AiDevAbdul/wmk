@@ -83,25 +83,8 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Right: locale switcher + CTA */}
+          {/* Right: CTA */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Locale switcher */}
-            <div className="flex items-center gap-1 p-1 rounded-xl bg-white/[0.06] border border-white/[0.08]">
-              {['en', 'ar'].map((l) => (
-                <button
-                  key={l}
-                  onClick={() => switchLocale(l)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide uppercase transition-all duration-200 cursor-pointer ${
-                    locale === l
-                      ? 'bg-primary text-[#06080F]'
-                      : 'text-white/50 hover:text-white/90'
-                  }`}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
-
             {/* Call CTA */}
             <a
               href="tel:+971554762284"
@@ -196,21 +179,6 @@ export default function Header() {
 
               {/* Drawer footer */}
               <div className="px-4 py-5 border-t border-white/[0.07] space-y-3">
-                {/* Locale switcher */}
-                <div className="flex gap-2">
-                  {['en', 'ar'].map((l) => (
-                    <button
-                      key={l}
-                      onClick={() => switchLocale(l)}
-                      className={`flex-1 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all duration-200 cursor-pointer ${
-                        locale === l ? 'bg-primary text-[#06080F]' : 'bg-white/[0.07] text-white/60 hover:text-white'
-                      }`}
-                    >
-                      {l === 'en' ? 'English' : 'العربية'}
-                    </button>
-                  ))}
-                </div>
-
                 <a
                   href="tel:+971554762284"
                   className="btn-primary w-full justify-center text-sm gap-2"
