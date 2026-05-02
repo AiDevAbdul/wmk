@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, MapPin, Clock, Facebook, Instagram, Youtube } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useParams, usePathname } from 'next/navigation'
+import { useParams } from 'next/navigation'
 
 const footerLinks = {
   services: [
@@ -32,15 +32,9 @@ const footerLinks = {
 
 export default function Footer() {
   const params = useParams()
-  const pathname = usePathname()
   const locale = (params?.locale as string) || 'en'
 
   const prefixed = (href: string) => `/${locale}${href}`
-
-  const switchLocale = (newLocale: string) => {
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`)
-    window.location.href = newPath
-  }
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 16 },

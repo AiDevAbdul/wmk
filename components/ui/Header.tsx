@@ -21,8 +21,6 @@ export default function Header() {
   const params = useParams()
   const pathname = usePathname()
   const locale = (params?.locale as string) || 'en'
-  const isAR = locale === 'ar'
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -30,11 +28,6 @@ export default function Header() {
   }, [])
 
   useEffect(() => { setIsOpen(false) }, [pathname])
-
-  const switchLocale = (newLocale: string) => {
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`)
-    window.location.href = newPath
-  }
 
   const prefixedHref = (href: string) => `/${locale}${href}`
 
