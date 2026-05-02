@@ -43,3 +43,14 @@ Thumbs.db
 
 # Sentry Config File
 .env.sentry-build-plugin
+.vercel
+.env*.local
+
+# Build artifacts
+tsconfig.tsbuildinfo
+
+# Local SQLite databases
+prisma/dev.db
+prisma/dev.db-journal
+prisma/prisma/dev.db
+prisma/prisma/dev.db-journal
