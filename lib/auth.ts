@@ -1,10 +1,11 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { validatePassword, checkRateLimit, getRateLimitRemaining } from "@/lib/security";
 
-export const handler = NextAuth({
+export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -71,7 +72,7 @@ export const handler = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/en/login",
+    signIn: "/admin/login",
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -92,8 +93,10 @@ export const handler = NextAuth({
   session: {
     strategy: "jwt",
   },
-});
+};
 
-export async function auth(req?: any, res?: any) {
-  return await handler.auth(req, res);
+export const handler = NextAuth(authOptions);
+
+export async function auth(_req?: any, _res?: any) {
+  return await getServerSession(authOptions);
 }
