@@ -430,6 +430,104 @@ WMK Auto Repairing Garage in Ras Al Khor, Dubai specialises in ECM/ECU repair, h
   }
 
   console.log("Blog posts seeded");
+
+  // Seed services
+  const services = [
+    {
+      nameEn: 'ECM / ECU Repair & Programming',
+      nameAr: 'إصلاح وبرمجة وحدة التحكم بالمحرك',
+      slug: 'ecm-repair',
+      description: 'Expert engine control module repair and programming for all major brands. We diagnose, repair, and reprogram ECMs for Tesla, BMW, Mercedes, Toyota, and 13+ other brands.',
+      descriptionAr: 'إصلاح وبرمجة وحدات التحكم بالمحرك لجميع الماركات الرئيسية. نشخص ونصلح ونعيد برمجة وحدات ECM لتيسلا وبي إم دبليو ومرسيدس وتويوتا وأكثر من 13 ماركة أخرى.',
+    },
+    {
+      nameEn: 'Hybrid Battery Repair & Replacement',
+      nameAr: 'إصلاح وتبديل بطارية الهجين',
+      slug: 'hybrid-battery',
+      description: 'Specialist hybrid battery diagnostics, cell replacement, and reconditioning for Toyota, Lexus, BYD, and all major hybrid vehicles in Dubai.',
+      descriptionAr: 'تشخيص وإصلاح وتبديل بطاريات الهجين لتويوتا ولكزس وبي واي دي وجميع سيارات الهجين الرئيسية في دبي.',
+    },
+    {
+      nameEn: 'Car Programming (Gear, Online, ABS)',
+      nameAr: 'برمجة السيارات',
+      slug: 'car-programming',
+      description: 'Complete car programming services including gear box programming, online ECU programming, ABS module programming, and key/immobiliser programming.',
+      descriptionAr: 'خدمات برمجة السيارات الكاملة تشمل برمجة علبة التروس والبرمجة عبر الإنترنت وبرمجة وحدة ABS وبرمجة المفاتيح.',
+    },
+    {
+      nameEn: 'Airbag & ABS Repair',
+      nameAr: 'إصلاح الوسائد الهوائية وABS',
+      slug: 'abs-airbag',
+      description: 'Professional airbag module reset and repair, ABS module repair, and SRS system diagnostics to restore your vehicle safety systems.',
+      descriptionAr: 'إصلاح وإعادة تعيين وحدة الوسائد الهوائية وإصلاح وحدة ABS وتشخيص أنظمة السلامة في سيارتك.',
+    },
+    {
+      nameEn: 'Car AC Repair',
+      nameAr: 'إصلاح مكيفات هواء السيارات',
+      slug: 'ac-repair',
+      description: 'Full car air conditioning service including recharging, leak detection, compressor repair, and evaporator replacement for Dubai\'s extreme heat.',
+      descriptionAr: 'خدمة مكيفات هواء السيارات الكاملة تشمل إعادة الشحن وكشف التسرب وإصلاح الضاغط واستبدال المبخر.',
+    },
+    {
+      nameEn: 'General Mechanical Repair',
+      nameAr: 'إصلاح ميكانيكي للمركبات',
+      slug: 'general-repair',
+      description: 'Comprehensive mechanical repairs including engine overhaul, suspension, brakes, steering, and drivetrain servicing for all vehicle makes.',
+      descriptionAr: 'إصلاحات ميكانيكية شاملة تشمل المحرك والتعليق والفرامل والتوجيه ونقل الحركة لجميع أنواع السيارات.',
+    },
+    {
+      nameEn: 'Electrical Repair',
+      nameAr: 'إصلاح كهرباء السيارات',
+      slug: 'electrical-repair',
+      description: 'Advanced automotive electrical diagnostics and repair including wiring harness, sensors, alternators, starters, and battery systems.',
+      descriptionAr: 'تشخيص وإصلاح الكهرباء المتقدم في السيارات يشمل تعليق الأسلاك والمستشعرات والمولدات والبطاريات.',
+    },
+    {
+      nameEn: 'Denting, Painting & Body Work',
+      nameAr: 'ترميم ودهان هياكل المركبات',
+      slug: 'body-painting',
+      description: 'Professional dent removal, panel beating, custom painting, and full body work restoration to factory finish standards.',
+      descriptionAr: 'إزالة الدهانات والطلاء المخصص واستعادة الهياكل بالكامل إلى مستوى المصنع.',
+    },
+    {
+      nameEn: 'Tyre Fitting & Repair',
+      nameAr: 'تبديل وإصلاح الطارات',
+      slug: 'tyres',
+      description: 'Tyre fitting, balancing, alignment, puncture repair, and nitrogen inflation for all vehicle types.',
+      descriptionAr: 'تركيب الإطارات وموازنتها ومحاذاتها وإصلاح الثقوب وضخ النيتروجين لجميع أنواع السيارات.',
+    },
+    {
+      nameEn: 'Oil Change',
+      nameAr: 'تبديل زيوت المركبات',
+      slug: 'oil-change',
+      description: 'Quick and professional engine oil and filter change with genuine or OEM-grade lubricants for all vehicle makes and models.',
+      descriptionAr: 'تبديل زيت المحرك والفلتر بسرعة واحترافية باستخدام زيوت أصلية أو ما يعادلها لجميع أنواع السيارات.',
+    },
+    {
+      nameEn: 'Radiator, Exhaust & Coolant',
+      nameAr: 'إصلاح مبردات وعوادم السيارات',
+      slug: 'radiator-exhaust',
+      description: 'Radiator flush and repair, coolant system service, exhaust system inspection, and catalytic converter replacement.',
+      descriptionAr: 'تنظيف وإصلاح المبرد وخدمة نظام التبريد وفحص نظام العادم واستبدال المحول الحفاز.',
+    },
+    {
+      nameEn: 'Car Polish & Seat Cleaning',
+      nameAr: 'تلميع وتنظيف مقاعد السيارات',
+      slug: 'detailing',
+      description: 'Full interior and exterior detailing including machine polish, ceramic coating, seat shampooing, and engine bay cleaning.',
+      descriptionAr: 'تنظيف داخلي وخارجي شامل يشمل التلميع الآلي والطلاء السيراميكي وتنظيف المقاعد وغرفة المحرك.',
+    },
+  ];
+
+  for (const service of services) {
+    await prisma.service.upsert({
+      where: { slug: service.slug },
+      update: { nameEn: service.nameEn, nameAr: service.nameAr, description: service.description, descriptionAr: service.descriptionAr },
+      create: { ...service, faq: '[]', brands: '[]' },
+    });
+  }
+
+  console.log("Services seeded:", services.length);
   console.log("Database seeding completed!");
 }
 
