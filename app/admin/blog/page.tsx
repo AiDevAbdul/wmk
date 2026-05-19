@@ -70,25 +70,6 @@ export default function BlogPage() {
 
   const categories = ['News', 'ECM Tips', 'Hybrid Battery', 'Maintenance'];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring' as const, stiffness: 300, damping: 30 },
-    },
-  };
 
   return (
     <div className="space-y-6">
@@ -184,16 +165,13 @@ export default function BlogPage() {
           </p>
         </motion.div>
       ) : (
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-3"
-        >
-          {filteredPosts.map((post) => (
+        <div className="space-y-3">
+          {filteredPosts.map((post, i) => (
             <motion.div
               key={post.id}
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, delay: Math.min(i * 0.04, 0.5) }}
               className="group relative overflow-hidden rounded-lg border border-primary/10 bg-steel-mid/50 backdrop-blur-sm hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10"
             >
               <div className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -269,7 +247,7 @@ export default function BlogPage() {
               <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-transparent group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       )}
 
       {/* Stats Footer */}
