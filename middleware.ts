@@ -16,8 +16,11 @@ export default async function middleware(request: NextRequest) {
 
   // Protect admin routes - redirect to login if no session cookie
   if (pathname.startsWith('/admin')) {
+    if (pathname === '/admin/login' || pathname.startsWith('/admin/login/')) {
+      return NextResponse.next()
+    }
     if (!sessionCookie) {
-      return NextResponse.redirect(new URL('/en/login', request.url))
+      return NextResponse.redirect(new URL('/admin/login', request.url))
     }
     return NextResponse.next()
   }
