@@ -13,6 +13,14 @@ export async function GET(request: Request) {
   try {
     const services = await prisma.service.findMany({
       orderBy: { createdAt: "desc" },
+      select: {
+        id: true,
+        nameEn: true,
+        nameAr: true,
+        slug: true,
+        createdAt: true,
+        updatedAt: true,
+      },
     });
 
     return NextResponse.json(services);

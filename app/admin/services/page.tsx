@@ -10,7 +10,6 @@ interface Service {
   nameEn: string;
   nameAr: string;
   slug: string;
-  description: string;
 }
 
 export default function ServicesPage() {
@@ -56,26 +55,6 @@ export default function ServicesPage() {
     service.nameAr.toLowerCase().includes(searchTerm.toLowerCase()) ||
     service.slug.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring' as const, stiffness: 300, damping: 30 },
-    },
-  };
 
   return (
     <div className="space-y-6">
@@ -160,10 +139,9 @@ export default function ServicesPage() {
               {filteredServices.map((service, idx) => (
                 <motion.tr
                   key={service.id}
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: 0.2 + idx * 0.05 }}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, delay: Math.min(idx * 0.04, 0.4) }}
                   className="border-b border-primary/10 hover:bg-steel-dark/50 transition-colors"
                 >
                   <td className="px-6 py-4 text-white font-medium">{service.nameEn}</td>
