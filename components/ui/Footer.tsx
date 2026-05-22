@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, Clock, Facebook, Instagram, Youtube } from 'lucide-react'
+import { Phone, MapPin, Clock, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useParams } from 'next/navigation'
 
@@ -94,22 +94,38 @@ export default function Footer() {
             </div>
 
             {/* Social links */}
-            <div className="flex gap-2 pt-1">
+            <div className="flex gap-2 pt-1 flex-wrap">
               {[
-                { icon: Facebook, label: 'Facebook', href: '#' },
-                { icon: Instagram, label: 'Instagram', href: '#' },
-                { icon: Youtube, label: 'YouTube', href: '#' },
+                { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61570975857125' },
+                { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/wmkautogaragellc' },
+                { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/wmkautogaragellc' },
+                { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@wmkautogaragellc' },
               ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-xl flex items-center justify-center text-steel-light/40 hover:text-white transition-all duration-200"
                   style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)' }}
                 >
                   <Icon size={16} strokeWidth={1.8} />
                 </a>
               ))}
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@wmkautogaragellc"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-steel-light/40 hover:text-white transition-all duration-200"
+                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.05a8.16 8.16 0 0 0 4.77 1.52V7.12a4.85 4.85 0 0 1-1-.43z"/>
+                </svg>
+              </a>
             </div>
           </motion.div>
 

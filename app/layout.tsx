@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Providers } from './providers'
@@ -98,6 +99,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="bg-steel-dark text-surface font-sans antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18157271439"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18157271439');
+          `}
+        </Script>
         <Providers>{children}</Providers>
         <Analytics />
         <SpeedInsights />

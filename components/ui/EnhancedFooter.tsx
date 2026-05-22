@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Phone, MapPin, Mail, Facebook, Instagram, Linkedin, ArrowRight } from 'lucide-react'
+import { Phone, MapPin, Mail, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 
 export default function EnhancedFooter() {
@@ -70,11 +70,12 @@ export default function EnhancedFooter() {
               </p>
 
               {/* Social Links */}
-              <div className="flex gap-4">
+              <div className="flex gap-3 flex-wrap">
                 {[
-                  { icon: Facebook, href: '#', label: 'Facebook' },
-                  { icon: Instagram, href: '#', label: 'Instagram' },
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                  { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61570975857125', label: 'Facebook' },
+                  { icon: Instagram, href: 'https://www.instagram.com/wmkautogaragellc', label: 'Instagram' },
+                  { icon: Linkedin, href: 'https://www.linkedin.com/company/wmkautogaragellc', label: 'LinkedIn' },
+                  { icon: Youtube, href: 'https://www.youtube.com/@wmkautogaragellc', label: 'YouTube' },
                 ].map((social, i) => {
                   const Icon = social.icon
                   return (
@@ -82,6 +83,8 @@ export default function EnhancedFooter() {
                       key={i}
                       href={social.href}
                       aria-label={social.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -2 }}
                       className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/20 hover:border-primary/60 transition-all duration-300"
                     >
@@ -89,6 +92,19 @@ export default function EnhancedFooter() {
                     </motion.a>
                   )
                 })}
+                {/* TikTok */}
+                <motion.a
+                  href="https://www.tiktok.com/@wmkautogaragellc"
+                  aria-label="TikTok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/20 hover:border-primary/60 transition-all duration-300"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.05a8.16 8.16 0 0 0 4.77 1.52V7.12a4.85 4.85 0 0 1-1-.43z"/>
+                  </svg>
+                </motion.a>
               </div>
 
               {/* Trust Badges */}
